@@ -5,7 +5,6 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Simplified scroll effect without excessive transformations
     const handleScroll = () => {
       const scrolled = window.scrollY;
       if (heroRef.current && scrolled < 500) {
@@ -19,7 +18,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-black">
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black z-0"></div>
       
       <div 
@@ -64,7 +62,7 @@ const Hero = () => {
             <blockquote className="text-lg md:text-xl text-white text-balance italic">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
               <footer className="text-right mt-4 text-gray-400 not-italic text-sm md:text-base">
-                — Ralf Julius Baumgartner, Steuerberater und Inhaber von quotax
+                — Ralf Julius Baumgartner, Steuerberater und Gründer von quotax
               </footer>
             </blockquote>
           </div>
