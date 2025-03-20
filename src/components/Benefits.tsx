@@ -103,7 +103,7 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="quotax-section bg-white relative">
+    <section id="benefits" className="quotax-section bg-black text-white relative">
       {/* Background accent */}
       <div className="absolute right-0 top-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute left-20 bottom-20 w-80 h-80 bg-green/5 rounded-full -z-10 blur-3xl"></div>
@@ -113,10 +113,10 @@ const Benefits = () => {
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Ihre Vorteile
           </div>
-          <h2 className="section-title animate-on-scroll delay-100">
+          <h2 className="section-title animate-on-scroll delay-100 text-white">
             Warum Sie mit <span className="text-purple">quo</span><span className="text-green">tax</span> erfolgreich sind
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200">
+          <p className="section-subtitle animate-on-scroll delay-200 text-gray-300">
             Durch unsere digitale Ausrichtung und langjährige Expertise schaffen wir messbare Mehrwerte für Ihr Unternehmen. Erfahren Sie, wie wir Ihnen Zeit, Geld und Nerven sparen können.
           </p>
         </div>
@@ -125,21 +125,21 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="glass-card p-6 text-center animate-on-scroll hover-lift" 
+              className="glass-card p-6 text-center animate-on-scroll hover-lift bg-gray-800/90" 
               ref={addToRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 {benefit.icon}
               </div>
-              <h3 className="text-lg font-display font-semibold mb-3">{benefit.title}</h3>
-              <p className="text-gray-600 text-sm">{benefit.description}</p>
+              <h3 className="text-lg font-display font-semibold mb-3 text-white">{benefit.title}</h3>
+              <p className="text-gray-200 text-sm">{benefit.description}</p>
             </div>
           ))}
         </div>
         
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 animate-on-scroll" ref={addToRefs}>
-          <div className="glass-card p-8 text-center">
+          <div className="glass-card p-8 text-center bg-gray-800/90">
             <span 
               ref={addToCounterRefs} 
               data-count="60" 
@@ -147,9 +147,9 @@ const Benefits = () => {
             >
               0
             </span>
-            <p className="text-gray-600">% weniger Papierkram</p>
+            <p className="text-gray-200">% weniger Papierkram</p>
           </div>
-          <div className="glass-card p-8 text-center">
+          <div className="glass-card p-8 text-center bg-gray-800/90">
             <span 
               ref={addToCounterRefs} 
               data-count="40" 
@@ -157,9 +157,9 @@ const Benefits = () => {
             >
               0
             </span>
-            <p className="text-gray-600">% Zeitersparnis</p>
+            <p className="text-gray-200">% Zeitersparnis</p>
           </div>
-          <div className="glass-card p-8 text-center">
+          <div className="glass-card p-8 text-center bg-gray-800/90">
             <span 
               ref={addToCounterRefs} 
               data-count="95" 
@@ -167,19 +167,19 @@ const Benefits = () => {
             >
               0
             </span>
-            <p className="text-gray-600">% Kundenzufriedenheit</p>
+            <p className="text-gray-200">% Kundenzufriedenheit</p>
           </div>
         </div>
         
         <div className="mt-20" ref={addToRefs}>
-          <h3 className="text-2xl font-display font-semibold text-center mb-10 animate-on-scroll">
+          <h3 className="text-2xl font-display font-semibold text-center mb-10 animate-on-scroll text-white">
             Das sagen unsere Kunden
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="glass-card p-8 animate-on-scroll hover-lift"
+                className="glass-card p-8 animate-on-scroll hover-lift bg-gray-800/90"
                 ref={addToRefs}
                 style={{ transitionDelay: `${(index + 3) * 100}ms` }}
               >
@@ -189,10 +189,10 @@ const Benefits = () => {
                       <span key={i} className="text-purple inline-block mr-1">★</span>
                     ))}
                   </div>
-                  <p className="text-gray-700 italic mb-6 flex-grow">"{testimonial.quote}"</p>
+                  <p className="text-gray-200 italic mb-6 flex-grow">"{testimonial.quote}"</p>
                   <div className="mt-auto">
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-gray-500">{testimonial.company}</p>
+                    <p className="font-semibold text-white">{testimonial.author}</p>
+                    <p className="text-sm text-gray-300">{testimonial.company}</p>
                   </div>
                 </div>
               </div>
@@ -200,15 +200,15 @@ const Benefits = () => {
           </div>
         </div>
         
-        <div className="mt-20 glass-card p-8 md:p-10 bg-gradient-to-r from-purple/20 to-green/20 shadow-lg animate-on-scroll" ref={addToRefs}>
+        <div className="mt-20 glass-card p-8 md:p-10 bg-gray-800/95 shadow-lg animate-on-scroll" ref={addToRefs}>
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6">
+            <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-white">
               Bereit für den digitalen Wandel?
             </h3>
-            <p className="text-gray-700 mb-8 max-w-2xl">
+            <p className="text-gray-200 mb-8 max-w-2xl">
               Lassen Sie uns gemeinsam Ihr Unternehmen zukunftsfähig machen. Unsere digitalen Lösungen und unsere Expertise in der Steuerberatung sind der Schlüssel zu Ihrem Erfolg.
             </p>
-            <ul className="text-left mb-10 space-y-3 max-w-md">
+            <ul className="text-left mb-10 space-y-3 max-w-md text-gray-200">
               {[
                 "Vollständig digitale Prozesse",
                 "Echtzeit-Zugriff auf Ihre Finanzdaten",

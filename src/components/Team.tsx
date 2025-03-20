@@ -47,7 +47,7 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="quotax-section bg-gray-50 relative">
+    <section id="team" className="quotax-section bg-black text-white relative">
       {/* Background accent */}
       <div className="absolute left-0 top-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute right-0 bottom-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
@@ -57,28 +57,28 @@ const Team = () => {
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Unser Team
           </div>
-          <h2 className="section-title animate-on-scroll delay-100">
+          <h2 className="section-title animate-on-scroll delay-100 text-white">
             <span className="text-purple">Expertise</span> und <span className="text-green">Leidenschaft</span> für Ihren Erfolg
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200">
+          <p className="section-subtitle animate-on-scroll delay-200 text-gray-300">
             Hinter quotax steht ein Team aus erfahrenen Steuerexperten mit langjähriger Berufserfahrung und digitaler Kompetenz. Wir vereinen das Beste aus beiden Welten, um Ihnen einen erstklassigen Service zu bieten.
           </p>
         </div>
         
-        <div className="mt-16 glass-card p-8 md:p-12 shadow-lg animate-on-scroll" ref={addToRefs}>
+        <div className="mt-16 glass-card p-8 md:p-12 shadow-lg animate-on-scroll bg-gray-800/90" ref={addToRefs}>
           <div className="flex flex-col md:flex-row gap-10">
             <div className="md:w-1/2">
-              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4">
+              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4 text-white">
                 Jahrzehnte an Expertise
               </h3>
               <div className="divider ml-0"></div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Unser Gründerteam bringt über 20 Jahre Erfahrung in der Steuerberatung mit. Unsere Mitarbeiter sind langjährige Experten auf ihrem Gebiet und verfügen über umfassendes Fachwissen in allen steuerlichen und betriebswirtschaftlichen Belangen.
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Was uns besonders auszeichnet, ist die Kombination aus steuerlichem Know-how und digitaler Kompetenz. Wir verstehen nicht nur die komplexen steuerlichen Anforderungen, sondern auch die Chancen und Herausforderungen der Digitalisierung.
               </p>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Bei quotax arbeiten Sie mit einem Team, das sich kontinuierlich weiterbildet und stets auf dem neuesten Stand der steuerlichen Gesetzgebung und digitalen Entwicklungen ist.
               </p>
             </div>
@@ -89,27 +89,27 @@ const Team = () => {
                   <div className="absolute top-0 -right-4 w-72 h-72 bg-green/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: "2s" }}></div>
                   <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: "4s" }}></div>
                   <div className="relative">
-                    <div className="bg-white p-8 rounded-xl shadow-lg">
+                    <div className="bg-gray-800/90 p-8 rounded-xl shadow-lg">
                       <div className="flex justify-center mb-4">
                         <Users className="h-16 w-16 text-purple" />
                       </div>
-                      <h4 className="text-center text-xl font-semibold mb-2">Unser Team in Zahlen</h4>
+                      <h4 className="text-center text-xl font-semibold mb-2 text-white">Unser Team in Zahlen</h4>
                       <div className="grid grid-cols-2 gap-6 mt-6">
                         <div className="text-center">
                           <p className="text-4xl font-bold text-purple">20+</p>
-                          <p className="text-sm text-gray-500 mt-1">Jahre Erfahrung</p>
+                          <p className="text-sm text-gray-300 mt-1">Jahre Erfahrung</p>
                         </div>
                         <div className="text-center">
                           <p className="text-4xl font-bold text-green">10+</p>
-                          <p className="text-sm text-gray-500 mt-1">Mitarbeiter</p>
+                          <p className="text-sm text-gray-300 mt-1">Mitarbeiter</p>
                         </div>
                         <div className="text-center">
                           <p className="text-4xl font-bold text-purple">5+</p>
-                          <p className="text-sm text-gray-500 mt-1">Steuerberater</p>
+                          <p className="text-sm text-gray-300 mt-1">Steuerberater</p>
                         </div>
                         <div className="text-center">
                           <p className="text-4xl font-bold text-green">3+</p>
-                          <p className="text-sm text-gray-500 mt-1">IT-Experten</p>
+                          <p className="text-sm text-gray-300 mt-1">IT-Experten</p>
                         </div>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ const Team = () => {
           {expertise.map((item, index) => (
             <div 
               key={index} 
-              className="glass-card p-8 text-center animate-on-scroll hover-lift"
+              className="glass-card p-8 text-center animate-on-scroll hover-lift bg-gray-800/90"
               ref={addToRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
@@ -132,8 +132,8 @@ const Team = () => {
                 <div className="mb-6">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-xl font-display font-semibold mb-3 text-white">{item.title}</h3>
+                <p className="text-gray-300">{item.description}</p>
               </div>
             </div>
           ))}

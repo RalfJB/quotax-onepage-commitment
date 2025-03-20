@@ -74,17 +74,17 @@ const AboutUs = () => {
           {values.map((value, index) => (
             <div 
               key={index} 
-              className="feature-card animate-on-scroll" 
+              className="feature-card bg-gray-800/90 text-white animate-on-scroll" 
               ref={addToAnimatedRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
               <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="bg-purple/10 p-4 rounded-xl">
+                <div className="bg-purple/20 p-4 rounded-xl">
                   {value.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-display font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-300">{value.description}</p>
+                  <h3 className="text-xl font-display font-semibold mb-2 text-white">{value.title}</h3>
+                  <p className="text-gray-200">{value.description}</p>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ const AboutUs = () => {
         </div>
         
         <div 
-          className="mt-20 glass-card p-8 md:p-12 animate-on-scroll bg-black/70" 
+          className="mt-20 glass-card p-8 md:p-12 animate-on-scroll bg-gray-900/90" 
           ref={addToAnimatedRefs}
         >
           <div className="md:flex items-center gap-12">
@@ -110,19 +110,19 @@ const AboutUs = () => {
             </div>
             <div className="md:w-1/2">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-purple/10 p-6 rounded-xl text-center">
+                <div className="bg-gray-800/90 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-purple">20+</span>
                   <p className="text-sm text-gray-300 mt-2">Jahre Berufserfahrung</p>
                 </div>
-                <div className="bg-green/10 p-6 rounded-xl text-center">
+                <div className="bg-gray-800/90 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-green">100%</span>
                   <p className="text-sm text-gray-300 mt-2">Digitale Prozesse</p>
                 </div>
-                <div className="bg-green/10 p-6 rounded-xl text-center">
+                <div className="bg-gray-800/90 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-green">24/7</span>
                   <p className="text-sm text-gray-300 mt-2">Datenzugriff</p>
                 </div>
-                <div className="bg-purple/10 p-6 rounded-xl text-center">
+                <div className="bg-gray-800/90 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-purple">∞</span>
                   <p className="text-sm text-gray-300 mt-2">Persönlicher Service</p>
                 </div>
