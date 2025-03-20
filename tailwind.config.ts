@@ -72,6 +72,11 @@ export default {
 					light: '#90EE90',
 					DEFAULT: '#7CFC00',
 					dark: '#5CB85C'
+				},
+				darkbg: {
+					DEFAULT: '#121212',
+					card: '#1E2330',
+					light: '#1A1F2C'
 				}
 			},
 			borderRadius: {
