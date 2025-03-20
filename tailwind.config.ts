@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -13,7 +12,7 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: "2rem",
 			screens: {
 				'2xl': '1400px'
 			}
@@ -173,8 +172,9 @@ export default {
 				'count-up': 'count-up 2s ease-out forwards'
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['Manrope', 'sans-serif']
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
 			}
 		}
 	},
