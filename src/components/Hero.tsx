@@ -40,7 +40,7 @@ const Hero = () => {
             <span className="text-green bg-black/20 backdrop-blur-sm px-2 py-1 rounded">persönlich</span>.
           </div>
         </h1>
-        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-10 text-balance bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-16 text-balance bg-black/30 backdrop-blur-sm p-4 rounded-lg">
           Wir arbeiten für ihre finanzielle Zukunft - mit digitaler Expertise, Transparenz und persönlichem Engagement.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">

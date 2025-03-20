@@ -4,8 +4,10 @@ import { FileText, BarChart2, LineChart, PiggyBank, Building, ChevronRight, Arro
 
 const Services = () => {
   const animatedElements = useRef<HTMLDivElement[]>([]);
+  const parallaxLayers = useRef<HTMLDivElement[]>([]);
   
   useEffect(() => {
+    // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -17,14 +19,33 @@ const Services = () => {
     const currentElements = animatedElements.current;
     currentElements.forEach(el => observer.observe(el));
     
+    // Parallax effect on scroll
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      parallaxLayers.current.forEach((layer, index) => {
+        const speed = 0.08 * (index + 1);
+        const yPos = -(scrolled * speed);
+        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      });
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
     return () => {
       currentElements.forEach(el => observer.unobserve(el));
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   
-  const addToRefs = (el: HTMLDivElement) => {
+  const addToAnimatedRefs = (el: HTMLDivElement) => {
     if (el && !animatedElements.current.includes(el)) {
       animatedElements.current.push(el);
+    }
+  };
+  
+  const addToParallaxRefs = (el: HTMLDivElement) => {
+    if (el && !parallaxLayers.current.includes(el)) {
+      parallaxLayers.current.push(el);
     }
   };
 
@@ -57,29 +78,38 @@ const Services = () => {
 
   return (
     <section id="services" className="quotax-section bg-gray-50 relative">
-      {/* Background accent */}
-      <div className="absolute left-0 top-40 w-72 h-72 bg-purple/10 rounded-full -z-10 blur-3xl"></div>
-      <div className="absolute right-20 bottom-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
+      {/* Background accent with parallax effect */}
+      <div 
+        ref={addToParallaxRefs}
+        className="absolute left-0 top-40 w-72 h-72 bg-purple/10 rounded-full -z-10 blur-3xl"
+      ></div>
+      <div 
+        ref={addToParallaxRefs}
+        className="absolute right-20 bottom-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"
+      ></div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="text-center" ref={addToRefs}>
+        <div className="text-center" ref={addToAnimatedRefs}>
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Unsere Dienstleistungen
           </div>
           <h2 className="section-title animate-on-scroll delay-100">
-            Maßgeschneiderte <span className="text-purple">Lösungen</span> für Ihren Erfolg
+            Maßgeschneiderte <span className="text-shiny-purple">Lösungen</span> für Ihren Erfolg
           </h2>
           <p className="section-subtitle animate-on-scroll delay-200">
             Wir bieten ein umfassendes Portfolio an Dienstleistungen, die speziell auf die Bedürfnisse von kleinen und mittleren Unternehmen, Gründern und Unternehmern zugeschnitten sind.
           </p>
         </div>
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div 
+          ref={addToParallaxRefs}
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10"
+        >
           {services.map((service, index) => (
             <div 
               key={index} 
               className="feature-card animate-on-scroll"
-              ref={addToRefs}
+              ref={addToAnimatedRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
               <div className="flex flex-col h-full">
@@ -105,7 +135,10 @@ const Services = () => {
           ))}
         </div>
         
-        <div className="mt-20 glass-card p-8 md:p-12 bg-white/90 shadow-lg animate-on-scroll" ref={addToRefs}>
+        <div 
+          className="mt-20 glass-card p-8 md:p-12 bg-white/90 shadow-lg animate-on-scroll" 
+          ref={addToAnimatedRefs}
+        >
           <div className="flex flex-col md:flex-row md:items-center gap-10">
             <div className="md:w-1/2">
               <Building className="h-16 w-16 text-purple mb-6" />
