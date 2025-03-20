@@ -32,15 +32,15 @@ const DigitalBackground = () => {
     // Array to store vertical positions for each column
     const drops: number[] = Array(columns).fill(1);
     
-    // Create color gradient for text
+    // Create color gradient for text - updated for light background
     const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, 'rgba(147, 112, 219, 0.8)'); // Light purple with higher opacity
-    gradient.addColorStop(0.5, 'rgba(124, 252, 0, 0.8)'); // Light green with higher opacity
-    gradient.addColorStop(1, 'rgba(147, 112, 219, 0.8)'); // Light purple with higher opacity
+    gradient.addColorStop(0, 'rgba(147, 112, 219, 0.4)'); // Light purple with lower opacity
+    gradient.addColorStop(0.5, 'rgba(124, 252, 0, 0.4)'); // Light green with lower opacity
+    gradient.addColorStop(1, 'rgba(147, 112, 219, 0.4)'); // Light purple with lower opacity
     
     const draw = () => {
-      // Black background with some transparency to create trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+      // White background with some transparency to create trail effect
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
       ctx.fillRect(0, 0, width, height);
       
       ctx.fillStyle = gradient;
@@ -54,7 +54,7 @@ const DigitalBackground = () => {
           const y = drops[i] * fontSize;
           
           // Random opacity to make some characters brighter
-          const opacity = Math.random() * 0.5 + 0.5;
+          const opacity = Math.random() * 0.5 + 0.3;
           ctx.globalAlpha = opacity;
           
           ctx.fillText(text, x, y);
@@ -83,7 +83,7 @@ const DigitalBackground = () => {
     <canvas 
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.7, background: '#000000' }}
+      style={{ opacity: 0.7, background: '#f8f9fa' }}
     />
   );
 };
