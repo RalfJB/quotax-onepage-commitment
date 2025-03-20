@@ -2,12 +2,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ApplicationForm from '@/components/ApplicationForm';
 import { UserPlus, GraduationCap, Briefcase, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { NavigationMenu } from '@/components/ui/navigation-menu';
 
 const Careers = () => {
+  const [selectedPosition, setSelectedPosition] = useState('');
+  const applicationFormRef = useRef<HTMLDivElement>(null);
   const animatedElements = useRef<HTMLDivElement[]>([]);
   
   useEffect(() => {
@@ -31,6 +33,13 @@ const Careers = () => {
     if (el && !animatedElements.current.includes(el)) {
       animatedElements.current.push(el);
     }
+  };
+
+  const handleApply = (position: string) => {
+    setSelectedPosition(position);
+    setTimeout(() => {
+      applicationFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   const careers = [
@@ -73,13 +82,13 @@ const Careers = () => {
           
           <div className="max-w-7xl mx-auto">
             <div className="text-center" ref={addToRefs}>
-              <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
+              <div className="bg-purple/10 text-purple px-4 py-2 rounded-full inline-block mb-6 animate-on-scroll text-sm font-medium">
                 Karriere
               </div>
-              <h2 className="section-title animate-on-scroll delay-100 text-white">
+              <h2 className="text-4xl md:text-5xl font-display font-semibold mb-6 animate-on-scroll delay-100 text-white">
                 Werden Sie Teil unseres <span className="text-purple">innovativen</span> Teams
               </h2>
-              <p className="section-subtitle animate-on-scroll delay-200 text-gray-300 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl animate-on-scroll delay-200 text-gray-300 max-w-3xl mx-auto">
                 Wir sind immer auf der Suche nach qualifizierten, engagierten Mitarbeitern und AI-Talenten, die mit uns gemeinsam die Zukunft der Steuerberatung gestalten möchten.
               </p>
             </div>
@@ -124,11 +133,12 @@ const Careers = () => {
                       </div>
                     </div>
                     
-                    <a href="#contact">
-                      <Button className="bg-purple hover:bg-purple-dark text-white w-full">
-                        Jetzt bewerben
-                      </Button>
-                    </a>
+                    <Button 
+                      className="bg-purple hover:bg-purple-dark text-white w-full"
+                      onClick={() => handleApply(career.title)}
+                    >
+                      Jetzt bewerben
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -209,9 +219,9 @@ const Careers = () => {
             <div className="flex flex-col md:flex-row gap-8 justify-between items-center">
               <div className="bg-gray-50 p-8 rounded-xl w-full md:w-1/3 text-center" ref={addToRefs}>
                 <div className="w-12 h-12 bg-purple/10 rounded-full flex items-center justify-center text-purple font-bold mx-auto mb-4">1</div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-gray-800">Kontaktaufnahme</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-gray-800">Bewerbung</h3>
                 <p className="text-gray-600">
-                  Nutzen Sie unser Kontaktformular und teilen Sie uns Ihr Interesse mit.
+                  Nutzen Sie unser Bewerbungsformular und teilen Sie uns Ihr Interesse mit.
                 </p>
               </div>
               
@@ -238,6 +248,24 @@ const Careers = () => {
           </div>
         </section>
         
+        {/* Application Form Section */}
+        <section id="apply" className="py-20 px-6 md:px-12 bg-gray-50" ref={applicationFormRef}>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12" ref={addToRefs}>
+              <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-800 animate-on-scroll">
+                Ihre <span className="text-purple">Bewerbung</span>
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto animate-on-scroll delay-100">
+                Füllen Sie das folgende Formular aus, um sich bei quotax zu bewerben. Wir freuen uns auf Ihre Unterlagen.
+              </p>
+            </div>
+            
+            <div ref={addToRefs}>
+              <ApplicationForm position={selectedPosition} />
+            </div>
+          </div>
+        </section>
+        
         {/* CTA Section */}
         <section className="py-16 px-6 md:px-12 bg-purple/10">
           <div className="max-w-7xl mx-auto text-center">
@@ -247,11 +275,12 @@ const Careers = () => {
             <p className="text-gray-600 max-w-3xl mx-auto mb-8" ref={addToRefs}>
               Wir freuen uns über Ihre Kontaktaufnahme und darauf, Sie kennen zu lernen!
             </p>
-            <a href="#contact">
-              <Button className="bg-purple hover:bg-purple-dark text-white px-8 py-6 text-lg">
-                Jetzt bewerben
-              </Button>
-            </a>
+            <Button 
+              className="bg-purple hover:bg-purple-dark text-white px-8 py-6 text-lg"
+              onClick={() => applicationFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            >
+              Jetzt bewerben
+            </Button>
           </div>
         </section>
       </main>

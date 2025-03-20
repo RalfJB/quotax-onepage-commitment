@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,11 @@ const Navbar = () => {
     { name: "Karriere", href: "/careers" },
     { name: "Kontakt", href: "#contact" },
   ];
+
+  const isActive = (href: string) => {
+    if (href.startsWith('#')) return false;
+    return location.pathname === href;
+  };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -58,22 +64,30 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "font-medium text-sm transition-colors duration-300 hover:text-purple",
-                    isScrolled ? "text-white" : "text-white"
+                    "font-medium text-sm transition-colors duration-300 hover:text-purple relative",
+                    isScrolled ? "text-white" : "text-white",
+                    isActive(link.href) && "text-purple"
                   )}
                 >
                   {link.name}
+                  {isActive(link.href) && (
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-purple shadow-[0_0_10px_2px_rgba(155,135,245,0.7)] rounded-full"></span>
+                  )}
                 </a>
               ) : (
                 <Link
                   key={link.name}
                   to={link.href}
                   className={cn(
-                    "font-medium text-sm transition-colors duration-300 hover:text-purple",
-                    isScrolled ? "text-white" : "text-white"
+                    "font-medium text-sm transition-colors duration-300 hover:text-purple relative",
+                    isScrolled ? "text-white" : "text-white",
+                    isActive(link.href) && "text-purple"
                   )}
                 >
                   {link.name}
+                  {isActive(link.href) && (
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-purple shadow-[0_0_10px_2px_rgba(155,135,245,0.7)] rounded-full"></span>
+                  )}
                 </Link>
               )
             ))}
@@ -114,19 +128,33 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="font-medium text-lg text-white hover:text-purple transition-colors duration-300"
+                  className={cn(
+                    "font-medium text-lg transition-colors duration-300 hover:text-purple relative",
+                    "text-white",
+                    isActive(link.href) && "text-purple"
+                  )}
                   onClick={closeMenu}
                 >
                   {link.name}
+                  {isActive(link.href) && (
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-purple shadow-[0_0_10px_2px_rgba(155,135,245,0.7)] rounded-full"></span>
+                  )}
                 </a>
               ) : (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="font-medium text-lg text-white hover:text-purple transition-colors duration-300"
+                  className={cn(
+                    "font-medium text-lg transition-colors duration-300 hover:text-purple relative",
+                    "text-white",
+                    isActive(link.href) && "text-purple"
+                  )}
                   onClick={closeMenu}
                 >
                   {link.name}
+                  {isActive(link.href) && (
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-purple shadow-[0_0_10px_2px_rgba(155,135,245,0.7)] rounded-full"></span>
+                  )}
                 </Link>
               )
             ))}
