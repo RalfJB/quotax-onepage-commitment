@@ -28,9 +28,9 @@ const Hero = () => {
         className="z-10 max-w-4xl text-center animate-fade-in-up glass-morphism" 
         style={{ animationDelay: '0.3s' }}
       >
-        <div className="mb-6 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
-            <span className="text-purple">quotax</span> Steuerberatung
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-8">
+            <span className="text-shiny-purple">quo</span><span className="text-green">tax</span> Steuerberatung
           </h2>
           <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-400 animate-pulse-glow py-2 px-4 rounded-full bg-black/50 backdrop-blur-sm inline-block">
             Eröffnung Sommer 2025
