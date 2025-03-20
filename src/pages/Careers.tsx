@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { Navbar } from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { UserPlus, GraduationCap, Briefcase, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
