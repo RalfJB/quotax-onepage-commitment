@@ -45,7 +45,7 @@ const Hero = () => {
         </h1>
         <div className="mt-16 mb-16">
           <blockquote className="text-lg md:text-xl text-white max-w-2xl mx-auto text-balance bg-black/50 backdrop-blur-sm p-6 rounded-lg border-l-4 border-purple italic">
-            "Ihr Vertrauen ist die Basis unserer Vision: Menschliche Nähe, persönlicher Einsatz und digitale Innovation für Ihren individuellen Erfolgsweg."
+            "Ihr Vertrauen ist die Basis unserer Vision: Menschliche Nähe, persönlicher Einsatz und digitale Innovation für Ihren Erfolg."
             <footer className="text-right mt-3 text-gray-300 not-italic text-xs md:text-sm">
               — Ralf Julius Baumgartner, Steuerberater und Inhaber von quotax
             </footer>
