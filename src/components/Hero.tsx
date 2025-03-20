@@ -37,17 +37,20 @@ const Hero = () => {
           </div>
         </div>
         <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-balance leading-tight">
-          Ihre finanzielle Zukunft.
-          <br/>
-          <div className="mt-2">
-            <span className="text-shiny-purple bg-black/20 backdrop-blur-sm px-2 py-1 rounded">Digital</span>
+          <div>
+            <span className="text-shiny-purple bg-black/20 backdrop-blur-sm px-2 py-1 rounded">digital</span>
             {" "}und{" "}
             <span className="text-green bg-black/20 backdrop-blur-sm px-2 py-1 rounded">persönlich</span>.
           </div>
         </h1>
-        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-16 text-balance bg-black/50 backdrop-blur-sm p-4 rounded-lg">
-          Wir arbeiten für ihre finanzielle Zukunft - mit digitaler Expertise, Transparenz und persönlichem Engagement.
-        </p>
+        <div className="mt-8 mb-16">
+          <blockquote className="text-lg md:text-xl text-white max-w-2xl mx-auto text-balance bg-black/50 backdrop-blur-sm p-6 rounded-lg border-l-4 border-purple italic">
+            "Mein Team und ich geben unser Bestes für Sie mit unserer langjährigen Expertise und unserem persönlichen Engagement"
+            <footer className="text-right mt-3 text-gray-300 not-italic text-sm md:text-base">
+              — Ralf Julius Baumgartner, Steuerberater und Inhaber von quotax Steuerberatung
+            </footer>
+          </blockquote>
+        </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8">
           <a 
             href="#contact" 
