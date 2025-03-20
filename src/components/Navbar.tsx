@@ -36,14 +36,14 @@ const Navbar = () => {
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12",
           isScrolled 
-            ? "bg-white/80 backdrop-blur-lg shadow-sm" 
+            ? "bg-black/80 backdrop-blur-lg shadow-sm" 
             : "bg-transparent"
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center">
             <span className="logo-text">
-              <span className="logo-quo">quo</span>
+              <span className="logo-quo text-shiny-purple">quo</span>
               <span className="logo-tax">tax</span>
             </span>
           </a>
@@ -56,7 +56,7 @@ const Navbar = () => {
                 href={link.href}
                 className={cn(
                   "font-medium text-sm transition-colors duration-300 hover:text-purple",
-                  isScrolled ? "text-gray-800" : "text-gray-800"
+                  isScrolled ? "text-white" : "text-white"
                 )}
               >
                 {link.name}
@@ -77,7 +77,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button 
-            className="md:hidden text-gray-800 focus:outline-none" 
+            className="md:hidden text-white focus:outline-none" 
             onClick={toggleMenu}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,7 +87,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div 
           className={cn(
-            "md:hidden fixed inset-0 z-50 bg-white pt-24 px-6 transform transition-transform duration-300 ease-in-out",
+            "md:hidden fixed inset-0 z-50 bg-black/90 pt-24 px-6 transform transition-transform duration-300 ease-in-out",
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
@@ -96,7 +96,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-medium text-lg text-gray-800 hover:text-purple transition-colors duration-300"
+                className="font-medium text-lg text-white hover:text-purple transition-colors duration-300"
                 onClick={closeMenu}
               >
                 {link.name}

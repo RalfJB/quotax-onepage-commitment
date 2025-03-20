@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -141,6 +142,12 @@
     @apply text-purple;
   }
   
+  .text-shiny-purple {
+    @apply bg-gradient-to-r from-purple-light via-purple to-purple-light bg-clip-text text-transparent;
+    text-shadow: 0 0 10px rgba(155, 135, 245, 0.8), 0 0 20px rgba(155, 135, 245, 0.4);
+    filter: drop-shadow(0 0 5px rgba(155, 135, 245, 0.6));
+  }
+  
   .logo-tax {
     @apply text-green;
   }
@@ -161,6 +168,11 @@
     counter-reset: count 0;
     content: counter(count);
     animation: count-up 2s forwards;
+  }
+
+  .glass-morphism {
+    @apply backdrop-blur-lg bg-black/30 border border-white/10 p-6 rounded-xl;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -229,6 +241,6 @@
 
 .progress-bar {
   height: 4px;
-  background: linear-gradient(to right, #9370DB, #7CFC00);
+  background: linear-gradient(to right, #9b87f5, #7CFC00);
   width: 0%;
 }

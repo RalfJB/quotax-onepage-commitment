@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,8 +64,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				purple: {
-					light: '#D8BFD8',
-					DEFAULT: '#9370DB',
+					light: '#b29dff',
+					DEFAULT: '#9b87f5',
 					dark: '#7E69AB'
 				},
 				green: {
@@ -158,6 +159,14 @@ export default {
 					'100%': {
 						'counter-increment': 'count var(--num)'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						filter: 'drop-shadow(0 0 5px rgba(155, 135, 245, 0.6))'
+					},
+					'50%': {
+						filter: 'drop-shadow(0 0 15px rgba(155, 135, 245, 0.9))'
+					}
 				}
 			},
 			animation: {
@@ -169,7 +178,8 @@ export default {
 				'slide-in-left': 'slide-in-left 0.7s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
 				'scale': 'scale 0.5s ease-out forwards',
-				'count-up': 'count-up 2s ease-out forwards'
+				'count-up': 'count-up 2s ease-out forwards',
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
