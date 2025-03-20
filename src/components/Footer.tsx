@@ -1,5 +1,6 @@
 
 import { ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -40,6 +41,7 @@ const Footer = () => {
                 <li><a href="#about" className="text-gray-600 hover:text-purple transition-colors">Über Uns</a></li>
                 <li><a href="#team" className="text-gray-600 hover:text-purple transition-colors">Team</a></li>
                 <li><a href="#benefits" className="text-gray-600 hover:text-purple transition-colors">Vorteile</a></li>
+                <li><Link to="/careers" className="text-gray-600 hover:text-purple transition-colors">Karriere</Link></li>
               </ul>
             </div>
             

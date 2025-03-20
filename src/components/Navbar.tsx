@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +22,7 @@ const Navbar = () => {
     { name: "Dienstleistungen", href: "#services" },
     { name: "Vorteile", href: "#benefits" },
     { name: "Team", href: "#team" },
+    { name: "Karriere", href: "/careers" },
     { name: "Kontakt", href: "#contact" },
   ];
 
@@ -41,28 +43,40 @@ const Navbar = () => {
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <span className="logo-text text-3xl md:text-4xl">
               <span className="logo-quo text-shiny-purple">quo</span>
               <span className="logo-tax">tax</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-16">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "font-medium text-sm transition-colors duration-300 hover:text-purple",
-                  isScrolled ? "text-white" : "text-white"
-                )}
-              >
-                {link.name}
-              </a>
+              link.href.startsWith('#') ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={cn(
+                    "font-medium text-sm transition-colors duration-300 hover:text-purple",
+                    isScrolled ? "text-white" : "text-white"
+                  )}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={cn(
+                    "font-medium text-sm transition-colors duration-300 hover:text-purple",
+                    isScrolled ? "text-white" : "text-white"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
-            {/* Removed the consultation button from desktop navigation */}
           </div>
 
           {/* Mobile menu button */}
@@ -96,14 +110,25 @@ const Navbar = () => {
         >
           <div className="flex flex-col space-y-6">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="font-medium text-lg text-white hover:text-purple transition-colors duration-300"
-                onClick={closeMenu}
-              >
-                {link.name}
-              </a>
+              link.href.startsWith('#') ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="font-medium text-lg text-white hover:text-purple transition-colors duration-300"
+                  onClick={closeMenu}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="font-medium text-lg text-white hover:text-purple transition-colors duration-300"
+                  onClick={closeMenu}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <a
               href="#contact"
