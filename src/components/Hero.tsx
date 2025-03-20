@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
-import DigitalBackground from './DigitalBackground';
+import GradientBackground from './GradientBackground';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -20,8 +20,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-gray-100">
-      <DigitalBackground />
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center">
+      {/* Neuer Gradient Hintergrund */}
+      <GradientBackground />
       
       <div 
         ref={heroRef}
@@ -39,20 +40,20 @@ const Hero = () => {
         </div>
         
         <div className="mt-4 mb-10">
-          <div className="inline-block text-xl md:text-2xl font-medium text-orange-600 py-2 px-8 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 shadow-sm">
+          <div className="inline-block text-xl md:text-2xl font-medium text-orange-600 py-2 px-8 rounded-full bg-white/70 backdrop-blur-sm border border-gray-200 shadow-sm">
             Eröffnung Sommer 2025
           </div>
         </div>
         
         <div className="my-12 flex justify-center">
           <div className="flex items-center space-x-4">
-            <div className="bg-white/80 backdrop-blur-sm px-5 py-3 rounded-lg shadow-sm">
+            <div className="bg-white/60 backdrop-blur-sm px-5 py-3 rounded-lg shadow-sm">
               <span className="text-2xl md:text-3xl font-medium text-purple">digital</span>
             </div>
             
             <span className="text-2xl md:text-3xl font-medium text-gray-700">und</span>
             
-            <div className="bg-white/80 backdrop-blur-sm px-5 py-3 rounded-lg shadow-sm">
+            <div className="bg-white/60 backdrop-blur-sm px-5 py-3 rounded-lg shadow-sm">
               <span className="text-2xl md:text-3xl font-medium text-green">persönlich</span>
             </div>
             
@@ -61,7 +62,7 @@ const Hero = () => {
         </div>
         
         <div className="mt-16 mb-14">
-          <div className="bg-white py-10 px-8 md:px-12 rounded-xl shadow-sm max-w-3xl mx-auto">
+          <div className="bg-white/80 py-10 px-8 md:px-12 rounded-xl shadow-sm max-w-3xl mx-auto backdrop-blur-sm">
             <blockquote className="text-lg md:text-xl text-gray-700 text-balance italic">
               "Ihr Vertrauen ist die Basis unserer Vision: Menschliche Nähe, persönlicher Einsatz und digitale Innovation für Ihren Erfolg."
               <footer className="text-right mt-4 text-gray-600 not-italic text-sm md:text-base">
@@ -82,7 +83,7 @@ const Hero = () => {
           
           <a 
             href="#services" 
-            className="px-8 py-4 border border-gray-300 bg-white/90 backdrop-blur-sm text-gray-800 rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple hover:text-purple w-full sm:w-auto flex items-center justify-center gap-2 group mt-4 sm:mt-0"
+            className="px-8 py-4 border border-gray-300 bg-white/70 backdrop-blur-sm text-gray-800 rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple hover:text-purple w-full sm:w-auto flex items-center justify-center gap-2 group mt-4 sm:mt-0"
           >
             Unsere Dienstleistungen
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
