@@ -31,15 +31,15 @@ const DigitalBackgroundLight = () => {
     // Array to store vertical positions for each column
     const drops: number[] = Array(columns).fill(1);
     
-    // Create color gradient for text (lighter version for white background)
+    // Create color gradient for text (darker version for contrast)
     const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, 'rgba(147, 112, 219, 0.3)'); // Light purple with lower opacity
-    gradient.addColorStop(0.5, 'rgba(124, 252, 0, 0.3)'); // Light green with lower opacity
-    gradient.addColorStop(1, 'rgba(147, 112, 219, 0.3)'); // Light purple with lower opacity
+    gradient.addColorStop(0, 'rgba(147, 112, 219, 0.4)'); // Light purple with lower opacity
+    gradient.addColorStop(0.5, 'rgba(124, 252, 0, 0.4)'); // Light green with lower opacity
+    gradient.addColorStop(1, 'rgba(147, 112, 219, 0.4)'); // Light purple with lower opacity
     
     const draw = () => {
-      // White background with high transparency to create a fading trail effect
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      // Dark background with high transparency to create a fading trail effect
+      ctx.fillStyle = 'rgba(18, 18, 18, 0.1)';
       ctx.fillRect(0, 0, width, height);
       
       ctx.fillStyle = gradient;
@@ -79,7 +79,7 @@ const DigitalBackgroundLight = () => {
     <canvas 
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.3, zIndex: 0 }}
+      style={{ opacity: 0.5, zIndex: 0, background: '#1A1A1A' }}
     />
   );
 };

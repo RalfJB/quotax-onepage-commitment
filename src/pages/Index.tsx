@@ -8,6 +8,7 @@ import Benefits from '@/components/Benefits';
 import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import DigitalBackground from '@/components/DigitalBackground';
 
 const Index = () => {
   useEffect(() => {
@@ -57,7 +58,7 @@ const Index = () => {
       </div>
       
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow bg-gradient-to-b from-black to-[#121212]">
         <Hero />
         <AboutUs />
         <Services />

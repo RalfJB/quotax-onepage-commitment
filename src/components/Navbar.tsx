@@ -34,22 +34,22 @@ const Navbar = () => {
       </div>
       <nav 
         className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12",
+          "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 px-6 md:px-12",
           isScrolled 
-            ? "bg-black/80 backdrop-blur-lg shadow-sm" 
-            : "bg-transparent"
+            ? "bg-black/80 backdrop-blur-lg shadow-md" 
+            : "bg-black/40 backdrop-blur-md"
         )}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center">
-            <span className="logo-text">
+            <span className="logo-text text-3xl">
               <span className="logo-quo text-shiny-purple">quo</span>
               <span className="logo-tax">tax</span>
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -65,7 +65,7 @@ const Navbar = () => {
             <a
               href="#contact"
               className={cn(
-                "font-medium text-sm px-5 py-2 rounded-lg transition-all duration-300",
+                "font-medium text-sm px-5 py-2 rounded-lg transition-all duration-300 ml-4",
                 isScrolled 
                   ? "bg-purple text-white hover:bg-purple-dark" 
                   : "bg-purple text-white hover:bg-purple-dark"

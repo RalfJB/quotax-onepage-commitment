@@ -40,10 +40,10 @@ const Hero = () => {
             <span className="text-green bg-black/20 backdrop-blur-sm px-2 py-1 rounded">persönlich</span>.
           </div>
         </h1>
-        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-16 text-balance bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-16 text-balance bg-black/50 backdrop-blur-sm p-4 rounded-lg">
           Wir arbeiten für ihre finanzielle Zukunft - mit digitaler Expertise, Transparenz und persönlichem Engagement.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8">
           <a 
             href="#contact" 
             className="px-8 py-4 bg-purple/90 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-purple hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center group"
@@ -53,7 +53,7 @@ const Hero = () => {
           </a>
           <a 
             href="#services" 
-            className="px-8 py-4 border border-white/30 bg-black/30 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple hover:text-purple flex items-center gap-2 w-full sm:w-auto justify-center group"
+            className="px-8 py-4 border border-white/30 bg-black/50 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple hover:text-purple flex items-center gap-2 w-full sm:w-auto justify-center group"
           >
             Unsere Dienstleistungen
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
