@@ -9,7 +9,7 @@ interface CallToActionProps {
 
 const CallToAction = ({ addToRefs, onApplyClick }: CallToActionProps) => {
   return (
-    <section className="py-16 px-6 md:px-12 bg-[#1E2330] text-white">
+    <section className="py-16 px-6 md:px-12 bg-black text-white border-t border-white/5">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-display font-semibold mb-6 text-white" ref={addToRefs}>
           Bereit für den digitalen Wandel?
@@ -18,7 +18,7 @@ const CallToAction = ({ addToRefs, onApplyClick }: CallToActionProps) => {
           Lassen Sie uns gemeinsam Ihr Unternehmen zukunftsfähig machen. Unsere digitalen Lösungen und unsere Expertise in der Steuerberatung sind der Schlüssel zu Ihrem Erfolg.
         </p>
         <Button 
-          className="bg-green hover:bg-green-dark text-white px-8 py-6 text-lg"
+          className="bg-purple hover:bg-purple-dark text-white px-8 py-6 text-lg"
           onClick={onApplyClick}
         >
           Jetzt bewerben
