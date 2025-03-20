@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { MapPin, Mail, Phone, Send, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -76,24 +75,24 @@ const Contact = () => {
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Kontakt
           </div>
-          <h2 className="section-title animate-on-scroll delay-100">
+          <h2 className="section-title animate-on-scroll delay-100 text-gray-800">
             Starten Sie Ihre <span className="text-purple">digitale</span> Steuerreise mit uns
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200">
+          <p className="section-subtitle animate-on-scroll delay-200 text-gray-700">
             Haben Sie Fragen oder möchten Sie einen Termin vereinbaren? Kontaktieren Sie uns noch heute, um von unserer Expertise zu profitieren und Ihre steuerlichen Angelegenheiten zu optimieren.
           </p>
         </div>
         
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          <div className="glass-card p-8 animate-on-scroll" ref={addToRefs}>
-            <h3 className="text-2xl font-display font-semibold mb-6">Schreiben Sie uns</h3>
+          <div className="glass-card bg-white/90 shadow-lg p-8 animate-on-scroll" ref={addToRefs}>
+            <h3 className="text-2xl font-display font-semibold mb-6 text-gray-800">Schreiben Sie uns</h3>
             
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center p-8 text-center">
                 <div className="w-16 h-16 bg-green/10 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle className="h-8 w-8 text-green" />
                 </div>
-                <h4 className="text-xl font-semibold mb-2">Nachricht gesendet!</h4>
+                <h4 className="text-xl font-semibold mb-2 text-gray-800">Nachricht gesendet!</h4>
                 <p className="text-gray-600">
                   Vielen Dank für Ihre Nachricht. Wir werden uns schnellstmöglich bei Ihnen melden.
                 </p>
@@ -178,8 +177,8 @@ const Contact = () => {
           </div>
           
           <div className="animate-on-scroll" ref={addToRefs}>
-            <div className="glass-card p-8 mb-8">
-              <h3 className="text-2xl font-display font-semibold mb-6">Kontaktinformationen</h3>
+            <div className="glass-card bg-white/90 shadow-lg p-8 mb-8">
+              <h3 className="text-2xl font-display font-semibold mb-6 text-gray-800">Kontaktinformationen</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -187,8 +186,9 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Adresse</h4>
-                    <p className="text-gray-600">Hauptstraße 1<br />69469 Weinheim</p>
+                    <h4 className="font-semibold mb-1 text-gray-800">Adresse</h4>
+                    <p className="text-gray-600">69469 Weinheim</p>
+                    <p className="text-gray-500 text-sm italic mt-1">Büro in Planung</p>
                   </div>
                 </div>
                 
@@ -197,9 +197,9 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">E-Mail</h4>
-                    <a href="mailto:info@quotax.de" className="text-gray-600 hover:text-purple transition-colors">
-                      info@quotax.de
+                    <h4 className="font-semibold mb-1 text-gray-800">E-Mail</h4>
+                    <a href="mailto:office@quotax.de" className="text-gray-600 hover:text-purple transition-colors">
+                      office@quotax.de
                     </a>
                   </div>
                 </div>
@@ -209,10 +209,8 @@ const Contact = () => {
                     <Phone className="h-6 w-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Telefon</h4>
-                    <a href="tel:+496201123456" className="text-gray-600 hover:text-purple transition-colors">
-                      +49 6201 123456
-                    </a>
+                    <h4 className="font-semibold mb-1 text-gray-800">Telefon</h4>
+                    <p className="text-gray-600">Noch nicht verfügbar</p>
                   </div>
                 </div>
               </div>

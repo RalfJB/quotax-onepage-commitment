@@ -47,8 +47,8 @@ const Footer = () => {
               <h4 className="font-display font-semibold mb-4">Kontakt</h4>
               <ul className="space-y-2">
                 <li><a href="#contact" className="text-gray-600 hover:text-purple transition-colors">Kontaktformular</a></li>
-                <li><a href="mailto:info@quotax.de" className="text-gray-600 hover:text-purple transition-colors">info@quotax.de</a></li>
-                <li><a href="tel:+496201123456" className="text-gray-600 hover:text-purple transition-colors">+49 6201 123456</a></li>
+                <li><a href="mailto:office@quotax.de" className="text-gray-600 hover:text-purple transition-colors">office@quotax.de</a></li>
+                <li><span className="text-gray-600">69469 Weinheim</span></li>
               </ul>
             </div>
           </div>
