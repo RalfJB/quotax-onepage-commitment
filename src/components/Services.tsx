@@ -130,7 +130,7 @@ const Services = () => {
             <div className="md:w-1/2">
               <Building className="h-16 w-16 text-purple mb-6" />
               <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4">
-                Digitale Transformationsberatung für KMU
+                Digitale Transformations-<br />beratung für KMU
               </h3>
               <div className="divider ml-0"></div>
             </div>
