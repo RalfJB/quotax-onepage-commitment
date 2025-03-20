@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SendHorizonal, Check, Upload, PaperclipIcon } from 'lucide-react';
+import { SendHorizonal, Check, Upload, X, PaperclipIcon } from 'lucide-react';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -16,10 +16,11 @@ const formSchema = z.object({
   phone: z.string().optional(),
   position: z.string().min(1, { message: 'Bitte wählen Sie eine Position' }),
   message: z.string().min(10, { message: 'Nachricht muss mindestens 10 Zeichen haben' }),
-  resume: z.any().optional(),
+  documents: z.array(z.any()).optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
+type FileWithPreview = File & { preview?: string };
 
 interface ApplicationFormProps {
   position?: string;
@@ -27,7 +28,7 @@ interface ApplicationFormProps {
 
 const ApplicationForm = ({ position }: ApplicationFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [fileName, setFileName] = useState('');
+  const [uploadedFiles, setUploadedFiles] = useState<FileWithPreview[]>([]);
   const { toast } = useToast();
   
   const form = useForm<FormValues>({
@@ -38,6 +39,7 @@ const ApplicationForm = ({ position }: ApplicationFormProps) => {
       phone: '',
       position: position || '',
       message: '',
+      documents: [],
     },
   });
 
@@ -47,7 +49,7 @@ const ApplicationForm = ({ position }: ApplicationFormProps) => {
     // Simulate API call
     try {
       // In a real implementation, you would send the data to a server
-      console.log('Sending application to office@quotax.de', data);
+      console.log('Sending application to office@quotax.de', { ...data, files: uploadedFiles });
       
       // Simulate a delay
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -59,7 +61,7 @@ const ApplicationForm = ({ position }: ApplicationFormProps) => {
       });
       
       form.reset();
-      setFileName('');
+      setUploadedFiles([]);
     } catch (error) {
       toast({
         title: "Fehler beim Senden",
@@ -72,11 +74,28 @@ const ApplicationForm = ({ position }: ApplicationFormProps) => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setFileName(file.name);
-      form.setValue('resume', file);
+    const files = e.target.files;
+    if (files) {
+      const newFiles = Array.from(files).map(file => Object.assign(file, {
+        preview: URL.createObjectURL(file)
+      }));
+      
+      setUploadedFiles(prev => [...prev, ...newFiles]);
+      form.setValue('documents', [...uploadedFiles, ...newFiles]);
     }
+  };
+
+  const removeFile = (index: number) => {
+    const updatedFiles = [...uploadedFiles];
+    
+    // Release the URL object to avoid memory leaks
+    if (updatedFiles[index].preview) {
+      URL.revokeObjectURL(updatedFiles[index].preview!);
+    }
+    
+    updatedFiles.splice(index, 1);
+    setUploadedFiles(updatedFiles);
+    form.setValue('documents', updatedFiles);
   };
 
   return (
@@ -188,29 +207,52 @@ const ApplicationForm = ({ position }: ApplicationFormProps) => {
           
           <FormField
             control={form.control}
-            name="resume"
-            render={({ field: { value, onChange, ...field } }) => (
+            name="documents"
+            render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Lebenslauf (optional)</FormLabel>
+                <FormLabel className="text-white">Unterlagen hochladen</FormLabel>
                 <FormControl>
-                  <div className="flex items-center">
-                    <label className="flex-1">
-                      <div className="flex items-center justify-center w-full h-10 px-3 py-2 border border-gray-600 bg-gray-700 text-white rounded-md cursor-pointer hover:bg-gray-600 transition-colors">
-                        <Upload size={18} className="mr-2" />
-                        {fileName ? fileName : "Datei auswählen (PDF, DOCX)"}
+                  <div className="space-y-4">
+                    <label className="flex items-center justify-center w-full h-12 px-4 py-2 border border-dashed border-gray-500 bg-gray-700/50 rounded-md cursor-pointer hover:bg-gray-600/50 transition-colors">
+                      <div className="flex items-center space-x-2 text-gray-300">
+                        <Upload size={18} />
+                        <span>Dokumente hinzufügen (Anschreiben, Lebenslauf, Zeugnisse)</span>
                       </div>
                       <input
                         type="file"
                         className="hidden"
                         accept=".pdf,.doc,.docx"
+                        multiple
                         onChange={handleFileChange}
-                        {...field}
                       />
                     </label>
+                    
+                    {uploadedFiles.length > 0 && (
+                      <div className="space-y-2 mt-3">
+                        {uploadedFiles.map((file, index) => (
+                          <div 
+                            key={index} 
+                            className="flex items-center justify-between p-2 bg-gray-700 rounded border border-gray-600"
+                          >
+                            <div className="flex items-center space-x-2 text-white">
+                              <PaperclipIcon size={16} className="text-green" />
+                              <span className="text-sm truncate max-w-[200px]">{file.name}</span>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeFile(index)}
+                              className="text-gray-400 hover:text-white transition-colors"
+                            >
+                              <X size={16} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </FormControl>
                 <FormDescription className="text-gray-400 text-sm">
-                  Maximale Dateigröße: 5MB
+                  Maximale Dateigröße: 5MB pro Datei
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -219,7 +261,7 @@ const ApplicationForm = ({ position }: ApplicationFormProps) => {
           
           <Button 
             type="submit" 
-            className="w-full bg-purple hover:bg-purple-dark text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 h-12"
+            className="w-full bg-green hover:bg-green-dark text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 h-12"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
