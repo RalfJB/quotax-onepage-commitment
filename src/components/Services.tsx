@@ -32,27 +32,47 @@ const Services = () => {
   const services = [
     {
       icon: <FileText className="h-10 w-10" />,
-      title: "Steuer & Recht",
-      description: "Professionelle steuerliche Beratung und Optimierung für Ihr Unternehmen.",
-      items: ["Jahresabschluss", "Steuererklärungen", "Steuergestaltung", "Unternehmensgründung"]
+      title: "Steuerrecht",
+      description: "Fachkundige Steuerberatung für steueroptimale Gestaltungen und Compliance.",
+      items: [
+        "Jahresabschluss: Digitale Erstellung und Prüfung nach HGB und Steuerrecht.",
+        "Steuererklärungen: Termingerechte Bearbeitung aller betrieblichen und privaten Steuererklärungen.",
+        "Steuergestaltung: Rechtssichere Konzepte zur Optimierung Ihrer Steuerbelastung.",
+        "Unternehmensgründung: Steuerliche Begleitung bei Rechtsformwahl und Gründungsprozessen."
+      ]
     },
     {
       icon: <BarChart2 className="h-10 w-10" />,
       title: "Buchhaltung",
-      description: "Digitale Finanzbuchhaltung mit Echtzeit-Einblick in Ihre Zahlen.",
-      items: ["Digitale Buchhaltung", "Lohnbuchhaltung", "Reporting", "Controlling"]
+      description: "Digitale Finanzbuchhaltung mit Echtzeit-Einblick in Ihre Unternehmenszahlen.",
+      items: [
+        "Digitale Buchhaltung: Vollständig digitalisierte Prozesse mit automatischer Belegerfassung.",
+        "Lohnbuchhaltung: Präzise Lohn- und Gehaltsabrechnungen inklusive aller Meldepflichten.",
+        "Reporting: Individualisierte Auswertungen für fundierte Unternehmensentscheidungen.",
+        "Controlling: Kennzahlenbasierte Steuerung Ihrer Geschäftsprozesse."
+      ]
     },
     {
       icon: <LineChart className="h-10 w-10" />,
-      title: "Unternehmensberatung",
-      description: "Strategische Beratung für nachhaltiges Wachstum und Erfolg.",
-      items: ["Businessplanung", "Finanzierungsberatung", "Liquiditätsplanung", "Rentabilitätsanalyse"]
+      title: "Gestaltungsberatung",
+      description: "Steueroptimierte Strukturierung Ihrer betrieblichen Abläufe und Entscheidungen.",
+      items: [
+        "Businessplanung: Entwicklung steuerlich optimierter Geschäftspläne und Finanzprognosen.",
+        "Finanzierungsberatung: Steuerliche Beratung zu Finanzierungsoptionen und Kapitalstruktur.",
+        "Liquiditätsplanung: Vorausschauende Planung zur Sicherung Ihrer Zahlungsfähigkeit.",
+        "Rentabilitätsanalyse: Steuerliche Bewertung der Wirtschaftlichkeit Ihrer Geschäftsbereiche."
+      ]
     },
     {
       icon: <PiggyBank className="h-10 w-10" />,
       title: "Vermögensplanung",
-      description: "Ganzheitliche Betrachtung Ihrer finanziellen Situation und Ziele.",
-      items: ["Altersvorsorge", "Nachfolgeplanung", "Vermögensaufbau", "Steueroptimierung"]
+      description: "Steueroptimierte Konzepte für Ihre private und betriebliche Vermögensgestaltung.",
+      items: [
+        "Altersvorsorge: Steuerorientierte Vorsorgekonzepte für Unternehmer und Mitarbeiter.",
+        "Nachfolgeplanung: Steuereffiziente Vorbereitung der Unternehmensnachfolge.",
+        "Vermögensaufbau: Steuerliche Beratung zur langfristigen Vermögenssicherung.",
+        "Steueroptimierung: Legale Gestaltungen zur Minimierung Ihrer Steuerbelastung."
+      ]
     }
   ];
 
@@ -87,8 +107,8 @@ const Services = () => {
                 <p className="text-white/70 mb-6 flex-grow">{service.description}</p>
                 <ul className="space-y-3 mb-6">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-center text-white/80">
-                      <ChevronRight className="h-4 w-4 text-green mr-2 flex-shrink-0" />
+                    <li key={i} className="flex items-start text-white/80">
+                      <ChevronRight className="h-4 w-4 text-green mr-2 flex-shrink-0 mt-1" />
                       <span>{item}</span>
                     </li>
                   ))}
