@@ -25,7 +25,7 @@ const Footer = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <h4 className="font-display font-semibold mb-4">Dienstleistungen</h4>
+              <h4 className="font-display font-semibold mb-4 text-gray-800">Dienstleistungen</h4>
               <ul className="space-y-2">
                 <li><a href="#services" className="text-gray-600 hover:text-purple transition-colors">Steuer & Recht</a></li>
                 <li><a href="#services" className="text-gray-600 hover:text-purple transition-colors">Buchhaltung</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
             
             <div>
-              <h4 className="font-display font-semibold mb-4">Informationen</h4>
+              <h4 className="font-display font-semibold mb-4 text-gray-800">Informationen</h4>
               <ul className="space-y-2">
                 <li><a href="#about" className="text-gray-600 hover:text-purple transition-colors">Über Uns</a></li>
                 <li><a href="#team" className="text-gray-600 hover:text-purple transition-colors">Team</a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
             
             <div>
-              <h4 className="font-display font-semibold mb-4">Kontakt</h4>
+              <h4 className="font-display font-semibold mb-4 text-gray-800">Kontakt</h4>
               <ul className="space-y-2">
                 <li><a href="#contact" className="text-gray-600 hover:text-purple transition-colors">Kontaktformular</a></li>
                 <li><a href="mailto:office@quotax.de" className="text-gray-600 hover:text-purple transition-colors">office@quotax.de</a></li>
