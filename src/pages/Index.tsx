@@ -58,7 +58,8 @@ const Index = () => {
       </div>
       
       <Navbar />
-      <main className="flex-grow bg-gradient-to-b from-black to-[#121212]">
+      <main className="flex-grow">
+        <DigitalBackground />
         <Hero />
         <AboutUs />
         <Services />

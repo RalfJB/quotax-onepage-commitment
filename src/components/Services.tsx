@@ -77,7 +77,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="quotax-section bg-gray-50 relative">
+    <section id="services" className="quotax-section bg-black/80 relative">
       {/* Background accent with parallax effect */}
       <div 
         ref={addToParallaxRefs}
@@ -96,7 +96,7 @@ const Services = () => {
           <h2 className="section-title animate-on-scroll delay-100">
             Maßgeschneiderte <span className="text-shiny-purple">Lösungen</span> für Ihren Erfolg
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200">
+          <p className="section-subtitle text-white/80 animate-on-scroll delay-200">
             Wir bieten ein umfassendes Portfolio an Dienstleistungen, die speziell auf die Bedürfnisse von kleinen und mittleren Unternehmen, Gründern und Unternehmern zugeschnitten sind.
           </p>
         </div>
@@ -108,7 +108,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="feature-card animate-on-scroll"
+              className="feature-card bg-black/50 animate-on-scroll"
               ref={addToAnimatedRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
@@ -116,12 +116,12 @@ const Services = () => {
                 <div className="bg-purple/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 text-purple">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
-                <ul className="space-y-2 mb-6">
+                <h3 className="text-xl font-display font-semibold mb-3 text-white">{service.title}</h3>
+                <p className="text-white/70 mb-6 flex-grow">{service.description}</p>
+                <ul className="space-y-3 mb-6">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-center">
-                      <ChevronRight className="h-4 w-4 text-green mr-2" />
+                    <li key={i} className="flex items-center text-white/80">
+                      <ChevronRight className="h-4 w-4 text-green mr-2 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -136,7 +136,7 @@ const Services = () => {
         </div>
         
         <div 
-          className="mt-20 glass-card p-8 md:p-12 bg-white/90 shadow-lg animate-on-scroll" 
+          className="mt-20 glass-card p-8 md:p-12 bg-black/50 shadow-lg animate-on-scroll text-white" 
           ref={addToAnimatedRefs}
         >
           <div className="flex flex-col md:flex-row md:items-center gap-10">
@@ -148,10 +148,10 @@ const Services = () => {
               <div className="divider ml-0"></div>
             </div>
             <div className="md:w-1/2">
-              <p className="text-gray-600 mb-6">
+              <p className="text-white/70 mb-6">
                 Ein besonderer Schwerpunkt unserer Beratung liegt auf der digitalen Transformation Ihres Unternehmens. Wir unterstützen Sie dabei, Ihre Geschäftsprozesse zu digitalisieren und zu optimieren, um Zeit und Kosten zu sparen und Ihre Wettbewerbsfähigkeit zu steigern.
               </p>
-              <p className="text-gray-600 mb-8">
+              <p className="text-white/70 mb-8">
                 Von der Einführung digitaler Buchhaltungssysteme bis hin zur Implementierung cloudbasierter Lösungen – wir begleiten Sie auf dem Weg in die digitale Zukunft und helfen Ihnen, die Potenziale der Digitalisierung voll auszuschöpfen.
               </p>
               <a 

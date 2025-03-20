@@ -39,7 +39,7 @@ const DigitalBackground = () => {
     
     const draw = () => {
       // Black background with some transparency to create trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.12)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
       ctx.fillRect(0, 0, width, height);
       
       ctx.fillStyle = gradient;
@@ -79,7 +79,7 @@ const DigitalBackground = () => {
     <canvas 
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.85, background: '#121212' }}
+      style={{ opacity: 0.7, background: '#000000' }}
     />
   );
 };

@@ -42,14 +42,14 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="#" className="flex items-center">
-            <span className="logo-text text-3xl">
+            <span className="logo-text text-3xl md:text-4xl">
               <span className="logo-quo text-shiny-purple">quo</span>
               <span className="logo-tax">tax</span>
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-12">
+          <div className="hidden md:flex space-x-16">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -62,26 +62,29 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            {/* Removed the consultation button from desktop navigation */}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center gap-4">
             <a
               href="#contact"
               className={cn(
-                "font-medium text-sm px-5 py-2 rounded-lg transition-all duration-300 ml-4",
+                "font-medium text-sm px-4 py-2 rounded-lg transition-all duration-300",
                 isScrolled 
                   ? "bg-purple text-white hover:bg-purple-dark" 
                   : "bg-purple text-white hover:bg-purple-dark"
               )}
             >
-              Gespräch vereinbaren
+              Gespräch
             </a>
+            <button 
+              className="text-white focus:outline-none" 
+              onClick={toggleMenu}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden text-white focus:outline-none" 
-            onClick={toggleMenu}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
