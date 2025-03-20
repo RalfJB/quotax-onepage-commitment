@@ -28,8 +28,10 @@ const Hero = () => {
         className="z-10 max-w-4xl text-center animate-fade-in-up glass-morphism" 
         style={{ animationDelay: '0.3s' }}
       >
-        <div className="quotax-badge bg-purple/10 text-shiny-purple mb-6 backdrop-blur-sm">
-          Eröffnung Sommer 2025 in Weinheim
+        <div className="mb-12 text-center">
+          <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-400 animate-pulse-glow py-2 px-4 rounded-full bg-black/50 backdrop-blur-sm inline-block">
+            Eröffnung Sommer 2025
+          </div>
         </div>
         <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-balance leading-tight">
           Ihre finanzielle Zukunft.
