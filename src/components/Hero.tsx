@@ -7,11 +7,11 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
+    // Simplified scroll effect without excessive transformations
     const handleScroll = () => {
       const scrolled = window.scrollY;
-      if (heroRef.current) {
-        heroRef.current.style.transform = `translateY(${scrolled * 0.2}px)`;
-        heroRef.current.style.opacity = `${1 - scrolled / 1000}`;
+      if (heroRef.current && scrolled < 500) {
+        heroRef.current.style.opacity = `${1 - scrolled / 700}`;
       }
     };
 
@@ -46,14 +46,14 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8">
           <a 
             href="#contact" 
-            className="px-8 py-4 bg-purple/90 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-purple hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center group"
+            className="px-8 py-4 bg-purple/90 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-purple w-full sm:w-auto justify-center group flex items-center gap-2"
           >
             Gespräch vereinbaren
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a 
             href="#services" 
-            className="px-8 py-4 border border-white/30 bg-black/50 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple hover:text-purple flex items-center gap-2 w-full sm:w-auto justify-center group"
+            className="px-8 py-4 border border-white/30 bg-black/50 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple hover:text-purple w-full sm:w-auto justify-center group flex items-center gap-2"
           >
             Unsere Dienstleistungen
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />

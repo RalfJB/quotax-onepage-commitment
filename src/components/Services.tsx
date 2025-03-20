@@ -4,7 +4,6 @@ import { FileText, BarChart2, LineChart, PiggyBank, Building, ChevronRight, Arro
 
 const Services = () => {
   const animatedElements = useRef<HTMLDivElement[]>([]);
-  const parallaxLayers = useRef<HTMLDivElement[]>([]);
   
   useEffect(() => {
     // Intersection Observer for animations
@@ -19,33 +18,14 @@ const Services = () => {
     const currentElements = animatedElements.current;
     currentElements.forEach(el => observer.observe(el));
     
-    // Parallax effect on scroll
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      parallaxLayers.current.forEach((layer, index) => {
-        const speed = 0.08 * (index + 1);
-        const yPos = -(scrolled * speed);
-        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
-      });
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
     return () => {
       currentElements.forEach(el => observer.unobserve(el));
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   
   const addToAnimatedRefs = (el: HTMLDivElement) => {
     if (el && !animatedElements.current.includes(el)) {
       animatedElements.current.push(el);
-    }
-  };
-  
-  const addToParallaxRefs = (el: HTMLDivElement) => {
-    if (el && !parallaxLayers.current.includes(el)) {
-      parallaxLayers.current.push(el);
     }
   };
 
@@ -77,17 +57,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="quotax-section bg-black/80 relative">
-      {/* Background accent with parallax effect */}
-      <div 
-        ref={addToParallaxRefs}
-        className="absolute left-0 top-40 w-72 h-72 bg-purple/10 rounded-full -z-10 blur-3xl"
-      ></div>
-      <div 
-        ref={addToParallaxRefs}
-        className="absolute right-20 bottom-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"
-      ></div>
-      
+    <section id="services" className="quotax-section bg-black text-white relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToAnimatedRefs}>
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
@@ -101,10 +71,7 @@ const Services = () => {
           </p>
         </div>
         
-        <div 
-          ref={addToParallaxRefs}
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10"
-        >
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {services.map((service, index) => (
             <div 
               key={index} 

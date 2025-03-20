@@ -25,7 +25,8 @@ const DigitalBackground = () => {
     resizeCanvas();
     
     const binaryDigits = ['0', '1'];
-    const fontSize = 14;
+    // Reduce number of characters by increasing font size
+    const fontSize = 18;
     const columns = Math.floor(width / fontSize);
     
     // Array to store vertical positions for each column
@@ -46,29 +47,32 @@ const DigitalBackground = () => {
       ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
       
       for (let i = 0; i < drops.length; i++) {
-        // Random binary digit
-        const text = binaryDigits[Math.floor(Math.random() * binaryDigits.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        
-        // Random opacity to make some characters brighter
-        const opacity = Math.random() * 0.5 + 0.5;
-        ctx.globalAlpha = opacity;
-        
-        ctx.fillText(text, x, y);
-        ctx.globalAlpha = 1;
-        
-        // Randomly reset the drop position to create varied effect
-        if (y > height && Math.random() > 0.975) {
-          drops[i] = 0;
+        // Only render every other column to improve performance
+        if (i % 2 === 0) {
+          const text = binaryDigits[Math.floor(Math.random() * binaryDigits.length)];
+          const x = i * fontSize;
+          const y = drops[i] * fontSize;
+          
+          // Random opacity to make some characters brighter
+          const opacity = Math.random() * 0.5 + 0.5;
+          ctx.globalAlpha = opacity;
+          
+          ctx.fillText(text, x, y);
+          ctx.globalAlpha = 1;
+          
+          // Randomly reset the drop position to create varied effect
+          if (y > height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          
+          // Increase drop position
+          drops[i]++;
         }
-        
-        // Increase drop position
-        drops[i]++;
       }
     };
     
-    const interval = setInterval(draw, 35);
+    // Slow down the animation rate to improve performance
+    const interval = setInterval(draw, 50);
     return () => {
       clearInterval(interval);
       window.removeEventListener('resize', resizeCanvas);

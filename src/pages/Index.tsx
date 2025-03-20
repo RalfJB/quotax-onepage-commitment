@@ -8,7 +8,6 @@ import Benefits from '@/components/Benefits';
 import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import DigitalBackground from '@/components/DigitalBackground';
 
 const Index = () => {
   useEffect(() => {
@@ -27,7 +26,7 @@ const Index = () => {
       }
     };
     
-    // Intersection Observer for animations
+    // Simplified Intersection Observer for animations
     const observeElements = () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -59,7 +58,6 @@ const Index = () => {
       
       <Navbar />
       <main className="flex-grow">
-        <DigitalBackground />
         <Hero />
         <AboutUs />
         <Services />

@@ -5,7 +5,6 @@ import DigitalBackgroundLight from './DigitalBackgroundLight';
 
 const AboutUs = () => {
   const animatedElements = useRef<HTMLDivElement[]>([]);
-  const parallaxLayers = useRef<HTMLDivElement[]>([]);
   
   useEffect(() => {
     // Intersection Observer for animations
@@ -20,33 +19,14 @@ const AboutUs = () => {
     const currentElements = animatedElements.current;
     currentElements.forEach(el => observer.observe(el));
     
-    // Parallax effect on scroll
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      parallaxLayers.current.forEach((layer, index) => {
-        const speed = 0.1 * (index + 1);
-        const yPos = -(scrolled * speed);
-        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
-      });
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
     return () => {
       currentElements.forEach(el => observer.unobserve(el));
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   
   const addToAnimatedRefs = (el: HTMLDivElement) => {
     if (el && !animatedElements.current.includes(el)) {
       animatedElements.current.push(el);
-    }
-  };
-  
-  const addToParallaxRefs = (el: HTMLDivElement) => {
-    if (el && !parallaxLayers.current.includes(el)) {
-      parallaxLayers.current.push(el);
     }
   };
 
@@ -74,18 +54,8 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="quotax-section bg-white relative">
+    <section id="about" className="quotax-section bg-black text-white relative">
       <DigitalBackgroundLight />
-      
-      {/* Parallax background accents */}
-      <div 
-        ref={addToParallaxRefs}
-        className="absolute right-0 top-20 w-72 h-72 bg-green/10 rounded-full -z-10 blur-3xl"
-      ></div>
-      <div 
-        ref={addToParallaxRefs}
-        className="absolute left-10 bottom-20 w-96 h-96 bg-purple/10 rounded-full -z-10 blur-3xl"
-      ></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToAnimatedRefs}>
@@ -100,10 +70,7 @@ const AboutUs = () => {
           </p>
         </div>
         
-        <div 
-          ref={addToParallaxRefs}
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10"
-        >
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {values.map((value, index) => (
             <div 
               key={index} 
@@ -117,7 +84,7 @@ const AboutUs = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <p className="text-gray-300">{value.description}</p>
                 </div>
               </div>
             </div>
@@ -125,7 +92,7 @@ const AboutUs = () => {
         </div>
         
         <div 
-          className="mt-20 glass-card p-8 md:p-12 animate-on-scroll" 
+          className="mt-20 glass-card p-8 md:p-12 animate-on-scroll bg-black/70" 
           ref={addToAnimatedRefs}
         >
           <div className="md:flex items-center gap-12">
@@ -134,10 +101,10 @@ const AboutUs = () => {
                 Warum <span className="text-shiny-purple">quo</span><span className="text-green">tax</span>?
               </h3>
               <div className="divider ml-0"></div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 Als moderne Steuerberatungsgesellschaft ist uns bewusst, dass die Digitalisierung der Schlüssel zu effizienter und erfolgreicher Zusammenarbeit ist. Wir kombinieren unsere jahrzehntelange Erfahrung mit modernsten digitalen Lösungen, um Ihnen einen reibungslosen und transparenten Service zu bieten.
               </p>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Bei quotax steht nicht nur Ihre steuerliche Optimierung im Fokus, sondern auch Ihre langfristige unternehmerische Entwicklung. Wir verstehen uns als strategischer Partner für Ihren nachhaltigen Erfolg.
               </p>
             </div>
@@ -145,19 +112,19 @@ const AboutUs = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-purple/10 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-purple">20+</span>
-                  <p className="text-sm text-gray-600 mt-2">Jahre Berufserfahrung</p>
+                  <p className="text-sm text-gray-300 mt-2">Jahre Berufserfahrung</p>
                 </div>
                 <div className="bg-green/10 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-green">100%</span>
-                  <p className="text-sm text-gray-600 mt-2">Digitale Prozesse</p>
+                  <p className="text-sm text-gray-300 mt-2">Digitale Prozesse</p>
                 </div>
                 <div className="bg-green/10 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-green">24/7</span>
-                  <p className="text-sm text-gray-600 mt-2">Datenzugriff</p>
+                  <p className="text-sm text-gray-300 mt-2">Datenzugriff</p>
                 </div>
                 <div className="bg-purple/10 p-6 rounded-xl text-center">
                   <span className="text-4xl font-bold text-purple">∞</span>
-                  <p className="text-sm text-gray-600 mt-2">Persönlicher Service</p>
+                  <p className="text-sm text-gray-300 mt-2">Persönlicher Service</p>
                 </div>
               </div>
             </div>

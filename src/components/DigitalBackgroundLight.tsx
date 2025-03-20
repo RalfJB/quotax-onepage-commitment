@@ -38,8 +38,8 @@ const DigitalBackgroundLight = () => {
     gradient.addColorStop(1, 'rgba(147, 112, 219, 0.4)'); // Light purple with lower opacity
     
     const draw = () => {
-      // Dark background with high transparency to create a fading trail effect
-      ctx.fillStyle = 'rgba(18, 18, 18, 0.1)';
+      // Black background with high transparency to create a fading trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
       ctx.fillRect(0, 0, width, height);
       
       ctx.fillStyle = gradient;
@@ -79,7 +79,7 @@ const DigitalBackgroundLight = () => {
     <canvas 
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.5, zIndex: 0, background: '#1A1A1A' }}
+      style={{ opacity: 0.5, zIndex: 0, background: '#000000' }}
     />
   );
 };
