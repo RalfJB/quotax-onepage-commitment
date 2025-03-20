@@ -26,35 +26,35 @@ const DigitalBackground = () => {
     
     const binaryDigits = ['0', '1'];
     // Increase font size for a cleaner, more subtle effect
-    const fontSize = 20;
+    const fontSize = 16;
     const columns = Math.floor(width / fontSize);
     
     // Array to store vertical positions for each column
     const drops: number[] = Array(columns).fill(1);
     
-    // Create color gradient for text - very light and subtle for minimalist design
+    // Create color gradient for text - extremely light and subtle for minimalist design
     const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, 'rgba(155, 135, 245, 0.09)'); // Very light purple
-    gradient.addColorStop(0.5, 'rgba(124, 252, 0, 0.07)'); // Very light green
-    gradient.addColorStop(1, 'rgba(155, 135, 245, 0.09)'); // Very light purple
+    gradient.addColorStop(0, 'rgba(155, 135, 245, 0.06)'); // Very light purple
+    gradient.addColorStop(0.5, 'rgba(124, 252, 0, 0.04)'); // Very light green
+    gradient.addColorStop(1, 'rgba(155, 135, 245, 0.06)'); // Very light purple
     
     const draw = () => {
-      // Almost white background with slight transparency for subtle trail
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      // Almost fully transparent background for ultra-subtle trail
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
       ctx.fillRect(0, 0, width, height);
       
       ctx.fillStyle = gradient;
       ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
       
       for (let i = 0; i < drops.length; i++) {
-        // Only render every third column for improved performance and minimalist aesthetic
-        if (i % 3 === 0) {
+        // Only render every fifth column for improved performance and minimalist aesthetic
+        if (i % 5 === 0) {
           const text = binaryDigits[Math.floor(Math.random() * binaryDigits.length)];
           const x = i * fontSize;
           const y = drops[i] * fontSize;
           
-          // Very low opacity for subtle effect
-          const opacity = Math.random() * 0.2 + 0.05;
+          // Very low opacity for ultra-subtle effect
+          const opacity = Math.random() * 0.15 + 0.03;
           ctx.globalAlpha = opacity;
           
           ctx.fillText(text, x, y);
@@ -72,7 +72,7 @@ const DigitalBackground = () => {
     };
     
     // Slow down the animation rate for subtle effect
-    const interval = setInterval(draw, 70);
+    const interval = setInterval(draw, 100);
     return () => {
       clearInterval(interval);
       window.removeEventListener('resize', resizeCanvas);
@@ -83,7 +83,7 @@ const DigitalBackground = () => {
     <canvas 
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.4, background: '#ffffff' }}
+      style={{ opacity: 0.25, background: '#f3f4f6' }}
     />
   );
 };
