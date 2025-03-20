@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 
@@ -63,7 +62,7 @@ const Hero = () => {
         <div className="mt-16 mb-14">
           <div className="bg-white/10 py-10 px-8 md:px-12 rounded-xl shadow-sm max-w-3xl mx-auto backdrop-blur-sm">
             <blockquote className="text-lg md:text-xl text-white text-balance italic">
-              "Ihr Vertrauen ist die Basis unserer Vision: Menschliche Nähe, persönlicher Einsatz und digitale Innovation für Ihren Erfolg."
+              "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
               <footer className="text-right mt-4 text-gray-400 not-italic text-sm md:text-base">
                 — Ralf Julius Baumgartner, Steuerberater und Inhaber von quotax
               </footer>
