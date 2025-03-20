@@ -1,12 +1,14 @@
 
 import { useEffect, useRef } from 'react';
-import { Clock, Banknote, BarChart, Shield, CheckCircle2 } from 'lucide-react';
+import { Clock, Banknote, BarChart, Shield, CheckCircle2, PiggyBank, TrendingUp, LineChart, PercentSquare } from 'lucide-react';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from './ui/chart';
+import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const Benefits = () => {
   const animatedElements = useRef<HTMLDivElement[]>([]);
-  const counterElements = useRef<HTMLSpanElement[]>([]);
   
   useEffect(() => {
+    // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -23,48 +25,21 @@ const Benefits = () => {
     };
   }, []);
   
-  useEffect(() => {
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-          const countTo = parseInt(target.getAttribute('data-count') || '0', 10);
-          
-          let count = 0;
-          const updateCount = () => {
-            if (count < countTo) {
-              count += Math.ceil(countTo / 20);
-              if (count > countTo) count = countTo;
-              target.textContent = count.toString();
-              requestAnimationFrame(updateCount);
-            }
-          };
-          
-          updateCount();
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    const currentCounters = counterElements.current;
-    currentCounters.forEach(el => counterObserver.observe(el));
-    
-    return () => {
-      currentCounters.forEach(el => counterObserver.unobserve(el));
-    };
-  }, []);
-  
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !animatedElements.current.includes(el)) {
       animatedElements.current.push(el);
     }
   };
-  
-  const addToCounterRefs = (el: HTMLSpanElement) => {
-    if (el && !counterElements.current.includes(el)) {
-      counterElements.current.push(el);
-    }
-  };
+
+  // Sample placeholder data for the chart
+  const sampleChartData = [
+    { name: 'Jan', value: 45 },
+    { name: 'Feb', value: 52 },
+    { name: 'Mär', value: 49 },
+    { name: 'Apr', value: 63 },
+    { name: 'Mai', value: 59 },
+    { name: 'Jun', value: 78 },
+  ];
 
   const benefits = [
     {
@@ -89,16 +64,19 @@ const Benefits = () => {
     }
   ];
 
+  // Placeholder testimonials
   const testimonials = [
     {
-      quote: "Die Zusammenarbeit mit quotax hat unsere Finanzprozesse komplett revolutioniert. Endlich haben wir volle Transparenz und sparen dabei noch Zeit und Geld.",
-      author: "Max Mustermann",
-      company: "Technik GmbH"
+      icon: <LineChart className="h-10 w-10 text-purple" />,
+      quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam convallis erat in justo tempor convallis.",
+      author: "Platzhalter",
+      company: "Unternehmen GmbH"
     },
     {
-      quote: "Als Gründer war ich anfangs mit den steuerlichen Anforderungen überfordert. quotax hat mir nicht nur bei der Steuerberatung geholfen, sondern mich auch bei der digitalen Transformation unterstützt.",
-      author: "Erika Musterfrau",
-      company: "Design & Marketing"
+      icon: <TrendingUp className="h-10 w-10 text-green" />,
+      quote: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      author: "Platzhalter",
+      company: "Example & Co."
     }
   ];
 
@@ -138,37 +116,75 @@ const Benefits = () => {
           ))}
         </div>
         
+        {/* Analytics displays with placeholder values */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 animate-on-scroll" ref={addToRefs}>
-          <div className="glass-card p-8 text-center bg-gray-800/90">
-            <span 
-              ref={addToCounterRefs} 
-              data-count="60" 
-              className="text-5xl font-bold text-purple block mb-2"
-            >
-              0
-            </span>
-            <p className="text-gray-200">% weniger Papierkram</p>
+          <div className="glass-card p-8 text-center bg-gray-800/90 relative overflow-hidden">
+            <div className="relative z-10">
+              <PercentSquare className="h-12 w-12 text-purple mx-auto mb-4" />
+              <div className="text-3xl font-bold text-purple mb-2">XX<span className="text-sm">%</span></div>
+              <p className="text-gray-200">weniger Papierkram</p>
+            </div>
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute -bottom-2 right-0 w-24 h-24 rounded-tl-3xl bg-purple"></div>
+            </div>
           </div>
-          <div className="glass-card p-8 text-center bg-gray-800/90">
-            <span 
-              ref={addToCounterRefs} 
-              data-count="40" 
-              className="text-5xl font-bold text-green block mb-2"
-            >
-              0
-            </span>
-            <p className="text-gray-200">% Zeitersparnis</p>
+          
+          <div className="glass-card p-8 text-center bg-gray-800/90 relative overflow-hidden">
+            <div className="relative z-10">
+              <Clock className="h-12 w-12 text-green mx-auto mb-4" />
+              <div className="text-3xl font-bold text-green mb-2">XX<span className="text-sm">%</span></div>
+              <p className="text-gray-200">Zeitersparnis</p>
+            </div>
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute -bottom-2 right-0 w-24 h-24 rounded-tl-3xl bg-green"></div>
+            </div>
           </div>
-          <div className="glass-card p-8 text-center bg-gray-800/90">
-            <span 
-              ref={addToCounterRefs} 
-              data-count="95" 
-              className="text-5xl font-bold text-purple block mb-2"
-            >
-              0
-            </span>
-            <p className="text-gray-200">% Kundenzufriedenheit</p>
+          
+          <div className="glass-card p-8 text-center bg-gray-800/90 relative overflow-hidden">
+            <div className="relative z-10">
+              <PiggyBank className="h-12 w-12 text-purple mx-auto mb-4" />
+              <div className="text-3xl font-bold text-purple mb-2">XX<span className="text-sm">%</span></div>
+              <p className="text-gray-200">Kundenzufriedenheit</p>
+            </div>
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute -bottom-2 right-0 w-24 h-24 rounded-tl-3xl bg-purple"></div>
+            </div>
           </div>
+        </div>
+        
+        {/* Placeholder chart to illustrate potential data visualization */}
+        <div className="mt-16 glass-card p-8 bg-gray-800/90 animate-on-scroll" ref={addToRefs}>
+          <h3 className="text-xl font-display font-semibold mb-6 text-white text-center">
+            Beispielhafte Effizienzsteigerung durch Digitalisierung
+          </h3>
+          <div className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <RechartsBarChart data={sampleChartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                <XAxis dataKey="name" stroke="#8E9196" />
+                <YAxis stroke="#8E9196" />
+                <Tooltip 
+                  content={({ active, payload }) => {
+                    if (active && payload && payload.length) {
+                      return (
+                        <div className="bg-gray-900 p-2 rounded border border-gray-700">
+                          <p className="text-purple font-semibold">{`${payload[0].payload.name}: ${payload[0].value}%`}</p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+                <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                  {sampleChartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={index % 2 === 0 ? "#9b87f5" : "#F2FCE2"} />
+                  ))}
+                </Bar>
+              </RechartsBarChart>
+            </ResponsiveContainer>
+          </div>
+          <p className="text-center text-gray-400 text-sm mt-4 italic">
+            * Beispielhafte Darstellung - Ihre individuellen Ergebnisse können variieren
+          </p>
         </div>
         
         <div className="mt-20" ref={addToRefs}>
@@ -179,25 +195,32 @@ const Benefits = () => {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="glass-card p-8 animate-on-scroll hover-lift bg-gray-800/90"
+                className="glass-card p-8 animate-on-scroll hover-lift bg-gray-800/90 relative overflow-hidden"
                 ref={addToRefs}
                 style={{ transitionDelay: `${(index + 3) * 100}ms` }}
               >
-                <div className="flex flex-col h-full">
-                  <div className="mb-6 text-purple">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-purple inline-block mr-1">★</span>
-                    ))}
+                <div className="flex flex-col h-full relative z-10">
+                  <div className="mb-6 flex justify-between items-center">
+                    {testimonial.icon}
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-purple inline-block">★</span>
+                      ))}
+                    </div>
                   </div>
                   <p className="text-gray-200 italic mb-6 flex-grow">"{testimonial.quote}"</p>
-                  <div className="mt-auto">
+                  <div className="mt-auto border-t border-gray-700 pt-4">
                     <p className="font-semibold text-white">{testimonial.author}</p>
                     <p className="text-sm text-gray-300">{testimonial.company}</p>
                   </div>
                 </div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-b from-purple/10 to-transparent rounded-bl-3xl"></div>
               </div>
             ))}
           </div>
+          <p className="text-center text-gray-400 text-sm mt-6 italic">
+            * Platzhaltertexte für Kundenreferenzen - Wird mit echten Kundenbewertungen ersetzt
+          </p>
         </div>
         
         <div className="mt-20 glass-card p-8 md:p-10 bg-gray-800/95 shadow-lg animate-on-scroll" ref={addToRefs}>
