@@ -50,7 +50,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white">
+    <div className="flex flex-col min-h-screen bg-white text-gray-800">
       {/* Progress bar */}
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
