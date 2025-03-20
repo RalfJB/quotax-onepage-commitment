@@ -43,11 +43,11 @@ const Hero = () => {
             <span className="text-green bg-black/20 backdrop-blur-sm px-2 py-1 rounded">persönlich</span>.
           </div>
         </h1>
-        <div className="mt-8 mb-16">
+        <div className="mt-16 mb-16">
           <blockquote className="text-lg md:text-xl text-white max-w-2xl mx-auto text-balance bg-black/50 backdrop-blur-sm p-6 rounded-lg border-l-4 border-purple italic">
             "Vertrauen ist unser Privileg und Antrieb. Unsere Vision: Mit menschlicher Nähe, persönlichem Einsatz und digitaler Innovation Mandanten individuell begleiten."
             <footer className="text-right mt-3 text-gray-300 not-italic text-xs md:text-sm">
-              — Ralf Julius Baumgartner, Steuerberater und Inhaber von quotax Steuerberatung
+              — Ralf Julius Baumgartner, Steuerberater und Inhaber von quotax
             </footer>
           </blockquote>
         </div>
