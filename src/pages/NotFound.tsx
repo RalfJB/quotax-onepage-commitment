@@ -1,5 +1,7 @@
+
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { HomeIcon } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -9,15 +11,31 @@ const NotFound = () => {
       "404 Error: User attempted to access non-existent route:",
       location.pathname
     );
+    
+    // Update page title
+    document.title = "404 - Seite nicht gefunden | quotax";
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
+    <div className="min-h-screen flex items-center justify-center bg-white p-6">
+      <div className="text-center max-w-lg">
+        <div className="mb-6 inline-block">
+          <span className="logo-text text-4xl">
+            <span className="logo-quo">quo</span>
+            <span className="logo-tax">tax</span>
+          </span>
+        </div>
+        <h1 className="text-6xl font-display font-bold mb-4 text-purple">404</h1>
+        <div className="w-16 h-1 bg-green mx-auto mb-6"></div>
+        <p className="text-xl text-gray-700 mb-8">
+          Entschuldigung, die gesuchte Seite konnte nicht gefunden werden.
+        </p>
+        <a 
+          href="/" 
+          className="inline-flex items-center gap-2 px-6 py-3 bg-purple text-white rounded-lg hover:bg-purple-dark transition-all duration-300 hover:shadow-lg"
+        >
+          <HomeIcon size={18} />
+          Zurück zur Startseite
         </a>
       </div>
     </div>
