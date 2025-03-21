@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
@@ -138,6 +139,22 @@
   
   .light-glass-morphism {
     @apply backdrop-blur-lg bg-black/70 border border-gray-200/10 p-6 rounded-xl shadow-md;
+  }
+  
+  .modern-gradient-purple {
+    @apply bg-gradient-to-r from-purple via-purple-light to-purple bg-clip-text text-transparent;
+  }
+  
+  .modern-gradient-green {
+    @apply bg-gradient-to-r from-green-dark via-green to-green-light bg-clip-text text-transparent;
+  }
+  
+  .glow-shadow {
+    box-shadow: 0 0 15px rgba(155, 135, 245, 0.2), 0 0 30px rgba(155, 135, 245, 0.1);
+  }
+  
+  .glow-shadow-green {
+    box-shadow: 0 0 15px rgba(124, 252, 0, 0.2), 0 0 30px rgba(124, 252, 0, 0.1);
   }
 }
 
