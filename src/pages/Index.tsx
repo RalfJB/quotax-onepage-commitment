@@ -50,7 +50,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen text-gray-800">
+    <div className="flex flex-col min-h-screen text-foreground bg-background">
       {/* Progress bar */}
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
@@ -59,7 +59,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <div className="relative z-10 bg-white/80 backdrop-blur-md">
+        <div className="relative z-10 bg-background backdrop-blur-md">
           <AboutUs />
           <Services />
           <Benefits />

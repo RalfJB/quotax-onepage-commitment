@@ -4,32 +4,26 @@ import { useEffect, useRef } from 'react';
 const GradientBackground = () => {
   return (
     <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden">
-      {/* Erstes Bild: Regenbogen-Gradient */}
+      {/* Light purple background */}
       <div 
-        className="absolute inset-0 w-full h-full opacity-60"
+        className="absolute inset-0 w-full h-full opacity-100"
         style={{
-          backgroundImage: "url('/lovable-uploads/5997b3e6-c3f0-4516-acee-ee0e3d3e0d64.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          mixBlendMode: "soft-light"
+          backgroundColor: "#f6f2ff", // Light purple background
         }}
       />
       
-      {/* Zweites Bild: Blaues Licht mit Blasen */}
+      {/* Subtle purple pattern overlay */}
       <div 
-        className="absolute inset-0 w-full h-full opacity-40"
+        className="absolute inset-0 w-full h-full opacity-10"
         style={{
           backgroundImage: "url('/lovable-uploads/03e0372c-2ebc-4543-bb31-9304a710fa03.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          mixBlendMode: "screen"
+          mixBlendMode: "multiply"
         }}
       />
       
-      {/* Overlay für besseren Kontrast zu Texten */}
-      <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]" />
-      
-      {/* Subtile animierte Elemente */}
+      {/* Subtle animierte Elemente */}
       <div className="absolute w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-3xl top-1/4 -left-64 animate-pulse" 
         style={{animationDuration: '15s'}} 
       />

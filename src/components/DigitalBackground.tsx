@@ -40,7 +40,7 @@ const DigitalBackground = () => {
     
     const draw = () => {
       // Almost fully transparent background for ultra-subtle trail
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+      ctx.fillStyle = 'rgba(246, 242, 255, 0.06)';
       ctx.fillRect(0, 0, width, height);
       
       ctx.fillStyle = gradient;
@@ -83,7 +83,7 @@ const DigitalBackground = () => {
     <canvas 
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.25, background: '#f3f4f6' }}
+      style={{ opacity: 0.25, background: '#f6f2ff' }}
     />
   );
 };
