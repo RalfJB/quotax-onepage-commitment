@@ -8,6 +8,7 @@ import CompanyBenefits from '@/components/careers/CompanyBenefits';
 import ApplicationProcess from '@/components/careers/ApplicationProcess';
 import ApplicationSection from '@/components/careers/ApplicationSection';
 import CallToAction from '@/components/careers/CallToAction';
+import GradientBackground from '@/components/GradientBackground';
 
 const Careers = () => {
   const [selectedPosition, setSelectedPosition] = useState('');
@@ -49,10 +50,11 @@ const Careers = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background relative">
+      <GradientBackground />
       <Navbar />
       
-      <main className="flex-grow">
+      <main className="flex-grow relative z-10">
         <HeroSection addToRefs={addToRefs} />
         <CareerPositions addToRefs={addToRefs} onApply={handleApply} />
         <CompanyBenefits addToRefs={addToRefs} />

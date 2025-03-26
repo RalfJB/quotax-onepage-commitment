@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { HomeIcon } from "lucide-react";
+import GradientBackground from "@/components/GradientBackground";
 
 const NotFound = () => {
   const location = useLocation();
@@ -17,8 +18,9 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white p-6">
-      <div className="text-center max-w-lg">
+    <div className="min-h-screen flex items-center justify-center p-6 relative">
+      <GradientBackground />
+      <div className="text-center max-w-lg relative z-10">
         <div className="mb-6 inline-block">
           <span className="logo-text text-4xl">
             <span className="logo-quo">quo</span>

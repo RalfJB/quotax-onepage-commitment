@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ApplicationForm from '@/components/ApplicationForm';
+import GradientBackground from '@/components/GradientBackground';
 
 interface ApplicationSectionProps {
   position: string;
@@ -10,8 +11,8 @@ interface ApplicationSectionProps {
 
 const ApplicationSection = ({ position, addToRefs, forwardedRef }: ApplicationSectionProps) => {
   return (
-    <section id="apply" className="py-20 px-6 md:px-12 bg-background border-t border-border" ref={forwardedRef}>
-      <div className="max-w-3xl mx-auto">
+    <section id="apply" className="py-20 px-6 md:px-12 bg-background relative" ref={forwardedRef}>
+      <div className="max-w-3xl mx-auto relative z-10">
         <div className="text-center mb-12" ref={addToRefs}>
           <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-foreground animate-on-scroll">
             Ihre <span className="text-purple">Bewerbung</span>
