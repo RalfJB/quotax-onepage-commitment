@@ -70,8 +70,8 @@ export default {
 				},
 				green: {
 					light: '#90EE90',
-					DEFAULT: '#7CFC00',
-					dark: '#5CB85C'
+					DEFAULT: '#5CB85C',
+					dark: '#3D8B3D'
 				},
 				darkbg: {
 					DEFAULT: '#121212',

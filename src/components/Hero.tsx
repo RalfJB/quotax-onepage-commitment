@@ -52,22 +52,22 @@ const Hero = () => {
         
         <div className={`my-12 flex justify-center transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
-            <div className="bg-card px-5 py-3 rounded-lg border border-border shadow-lg">
-              <span className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">digital</span>
-            </div>
+            <span className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
+              digital
+            </span>
             
             <span className="text-2xl md:text-3xl font-medium text-muted-foreground">und</span>
             
-            <div className="bg-card px-5 py-3 rounded-lg border border-border shadow-lg">
-              <span className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-green to-green-light bg-clip-text text-transparent">persönlich</span>
-            </div>
+            <span className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-green-dark via-green-dark to-green-dark bg-clip-text text-transparent">
+              persönlich
+            </span>
             
             <span className="text-2xl md:text-3xl font-medium text-muted-foreground">.</span>
           </div>
         </div>
         
         <div className={`mt-16 mb-14 transition-all duration-1000 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="bg-card py-10 px-8 md:px-12 rounded-xl border border-border shadow-xl max-w-3xl mx-auto">
+          <div className="py-10 px-8 md:px-12 rounded-xl max-w-3xl mx-auto">
             <blockquote className="text-lg md:text-xl text-foreground text-balance italic">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
               <footer className="text-right mt-4 text-muted-foreground not-italic text-sm md:text-base">
