@@ -77,16 +77,16 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="quotax-section bg-black text-white relative">
+    <section id="services" className="quotax-section bg-background text-foreground relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToAnimatedRefs}>
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Unsere Dienstleistungen
           </div>
-          <h2 className="section-title animate-on-scroll delay-100">
+          <h2 className="section-title animate-on-scroll delay-100 text-foreground">
             Maßgeschneiderte <span className="text-shiny-purple">Lösungen</span> für Ihren Erfolg
           </h2>
-          <p className="section-subtitle text-white/80 animate-on-scroll delay-200">
+          <p className="section-subtitle text-foreground/80 animate-on-scroll delay-200">
             Wir bieten ein umfassendes Portfolio an Dienstleistungen, die speziell auf die Bedürfnisse von kleinen und mittleren Unternehmen, Gründern und Unternehmern zugeschnitten sind.
           </p>
         </div>
@@ -95,7 +95,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="feature-card bg-black/50 animate-on-scroll"
+              className="feature-card bg-card/50 animate-on-scroll"
               ref={addToAnimatedRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
@@ -103,11 +103,11 @@ const Services = () => {
                 <div className="bg-purple/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 text-purple">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3 text-white">{service.title}</h3>
-                <p className="text-white/70 mb-6 flex-grow">{service.description}</p>
+                <h3 className="text-xl font-display font-semibold mb-3 text-foreground">{service.title}</h3>
+                <p className="text-foreground/70 mb-6 flex-grow">{service.description}</p>
                 <ul className="space-y-3 mb-6">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start text-white/80">
+                    <li key={i} className="flex items-start text-foreground/80">
                       <ChevronRight className="h-4 w-4 text-green mr-2 flex-shrink-0 mt-1" />
                       <span>{item}</span>
                     </li>
@@ -123,22 +123,22 @@ const Services = () => {
         </div>
         
         <div 
-          className="mt-20 glass-card p-8 md:p-12 bg-black/50 shadow-lg animate-on-scroll text-white" 
+          className="mt-20 glass-card p-8 md:p-12 bg-card/50 shadow-lg animate-on-scroll text-foreground" 
           ref={addToAnimatedRefs}
         >
           <div className="flex flex-col md:flex-row md:items-center gap-10">
             <div className="md:w-1/2">
               <Building className="h-16 w-16 text-purple mb-6" />
-              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4">
+              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4 text-foreground">
                 Digitale Transformations-<br />beratung für KMU
               </h3>
               <div className="divider ml-0"></div>
             </div>
             <div className="md:w-1/2">
-              <p className="text-white/70 mb-6">
+              <p className="text-foreground/70 mb-6">
                 Ein besonderer Schwerpunkt unserer Beratung liegt auf der digitalen Transformation Ihres Unternehmens. Wir unterstützen Sie dabei, Ihre Geschäftsprozesse zu digitalisieren und zu optimieren, um Zeit und Kosten zu sparen und Ihre Wettbewerbsfähigkeit zu steigern.
               </p>
-              <p className="text-white/70 mb-8">
+              <p className="text-foreground/70 mb-8">
                 Von der Einführung digitaler Buchhaltungssysteme bis hin zur Implementierung cloudbasierter Lösungen – wir begleiten Sie auf dem Weg in die digitale Zukunft und helfen Ihnen, die Potenziale der Digitalisierung voll auszuschöpfen.
               </p>
               <a 
