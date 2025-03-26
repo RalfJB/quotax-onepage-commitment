@@ -66,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="quotax-section bg-white relative">
+    <section id="contact" className="quotax-section bg-background relative">
       {/* Background accent */}
       <div className="absolute right-0 top-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute left-20 bottom-10 w-80 h-80 bg-green/5 rounded-full -z-10 blur-3xl"></div>
@@ -76,32 +76,32 @@ const Contact = () => {
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Kontakt
           </div>
-          <h2 className="section-title animate-on-scroll delay-100 text-gray-800">
+          <h2 className="section-title animate-on-scroll delay-100 text-foreground">
             Starten Sie Ihre <span className="text-purple">digitale</span> Steuerreise mit uns
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200 text-gray-700">
+          <p className="section-subtitle animate-on-scroll delay-200 text-foreground/70">
             Haben Sie Fragen oder möchten Sie einen Termin vereinbaren? Kontaktieren Sie uns noch heute, um von unserer Expertise zu profitieren und Ihre steuerlichen Angelegenheiten zu optimieren.
           </p>
         </div>
         
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          <div className="bg-gray-800 shadow-lg p-8 animate-on-scroll rounded-xl" ref={addToRefs}>
-            <h3 className="text-2xl font-display font-semibold mb-6 text-white">Schreiben Sie uns</h3>
+          <div className="bg-card shadow-lg p-8 animate-on-scroll rounded-xl" ref={addToRefs}>
+            <h3 className="text-2xl font-display font-semibold mb-6 text-foreground">Schreiben Sie uns</h3>
             
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center p-8 text-center">
                 <div className="w-16 h-16 bg-green/10 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle className="h-8 w-8 text-green" />
                 </div>
-                <h4 className="text-xl font-semibold mb-2 text-white">Nachricht gesendet!</h4>
-                <p className="text-gray-300">
+                <h4 className="text-xl font-semibold mb-2 text-foreground">Nachricht gesendet!</h4>
+                <p className="text-foreground/70">
                   Vielen Dank für Ihre Nachricht. Wir werden uns schnellstmöglich bei Ihnen melden.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-1">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -116,7 +116,7 @@ const Contact = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">E-Mail</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground/70 mb-1">E-Mail</label>
                     <input
                       type="email"
                       id="email"
@@ -129,7 +129,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-1">Telefon</label>
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground/70 mb-1">Telefon</label>
                     <input
                       type="tel"
                       id="phone"
@@ -143,7 +143,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-1">Nachricht</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground/70 mb-1">Nachricht</label>
                   <textarea
                     id="message"
                     name="message"
@@ -178,8 +178,8 @@ const Contact = () => {
           </div>
           
           <div className="animate-on-scroll" ref={addToRefs}>
-            <div className="bg-gray-800 shadow-lg p-8 mb-8 rounded-xl">
-              <h3 className="text-2xl font-display font-semibold mb-6 text-white">Kontaktinformationen</h3>
+            <div className="bg-card shadow-lg p-8 mb-8 rounded-xl">
+              <h3 className="text-2xl font-display font-semibold mb-6 text-foreground">Kontaktinformationen</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -187,9 +187,9 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-white">Adresse</h4>
-                    <p className="text-gray-300">69469 Weinheim</p>
-                    <p className="text-gray-400 text-sm italic mt-1">Büro in Planung</p>
+                    <h4 className="font-semibold mb-1 text-foreground">Adresse</h4>
+                    <p className="text-foreground/70">69469 Weinheim</p>
+                    <p className="text-foreground/70 text-sm italic mt-1">Büro in Planung</p>
                   </div>
                 </div>
                 
@@ -198,8 +198,8 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-white">E-Mail</h4>
-                    <a href="mailto:office@quotax.de" className="text-gray-300 hover:text-purple transition-colors">
+                    <h4 className="font-semibold mb-1 text-foreground">E-Mail</h4>
+                    <a href="mailto:office@quotax.de" className="text-foreground/70 hover:text-purple transition-colors">
                       office@quotax.de
                     </a>
                   </div>
@@ -210,8 +210,8 @@ const Contact = () => {
                     <Phone className="h-6 w-6 text-purple" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-white">Telefon</h4>
-                    <p className="text-gray-300">Noch nicht verfügbar</p>
+                    <h4 className="font-semibold mb-1 text-foreground">Telefon</h4>
+                    <p className="text-foreground/70">Noch nicht verfügbar</p>
                   </div>
                 </div>
               </div>

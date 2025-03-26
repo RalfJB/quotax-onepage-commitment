@@ -37,13 +37,13 @@ const CareerPositions = ({ addToRefs, onApply }: CareerPositionsProps) => {
   ];
 
   return (
-    <section className="py-20 px-6 md:px-12 bg-white">
+    <section className="py-20 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16" ref={addToRefs}>
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-800 animate-on-scroll">
+          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-foreground animate-on-scroll">
             Offene <span className="text-purple">Positionen</span>
           </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto animate-on-scroll delay-100">
+          <p className="text-foreground/70 max-w-3xl mx-auto animate-on-scroll delay-100">
             Entdecken Sie unsere aktuellen Stellenangebote und werden Sie Teil eines Teams, das die digitale Transformation in der Steuerberatung vorantreibt.
           </p>
         </div>

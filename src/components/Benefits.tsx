@@ -53,7 +53,7 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="quotax-section bg-black text-white relative">
+    <section id="benefits" className="quotax-section bg-background text-foreground relative">
       {/* Background accent */}
       <div className="absolute right-0 top-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute left-20 bottom-20 w-80 h-80 bg-green/5 rounded-full -z-10 blur-3xl"></div>
@@ -63,10 +63,10 @@ const Benefits = () => {
           <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
             Ihre Vorteile
           </div>
-          <h2 className="section-title animate-on-scroll delay-100 text-white">
+          <h2 className="section-title animate-on-scroll delay-100 text-foreground">
             Warum Sie mit <span className="text-purple">quo</span><span className="text-green">tax</span> erfolgreich sind
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200 text-gray-300">
+          <p className="section-subtitle animate-on-scroll delay-200 text-foreground/70">
             Durch unsere digitale Ausrichtung und langjährige Expertise schaffen wir messbare Mehrwerte für Ihr Unternehmen. Erfahren Sie, wie wir Ihnen Zeit, Geld und Nerven sparen können.
           </p>
         </div>
@@ -75,28 +75,28 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="glass-card p-6 text-center animate-on-scroll hover-lift bg-gray-800/90" 
+              className="glass-card p-6 text-center animate-on-scroll hover-lift bg-card/90" 
               ref={addToRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 {benefit.icon}
               </div>
-              <h3 className="text-lg font-display font-semibold mb-3 text-white">{benefit.title}</h3>
-              <p className="text-sm text-gray-200">{benefit.description}</p>
+              <h3 className="text-lg font-display font-semibold mb-3 text-foreground">{benefit.title}</h3>
+              <p className="text-sm text-foreground/70">{benefit.description}</p>
             </div>
           ))}
         </div>
         
-        <div className="mt-20 glass-card p-8 md:p-10 bg-gray-800/95 shadow-lg animate-on-scroll" ref={addToRefs}>
+        <div className="mt-20 glass-card p-8 md:p-10 bg-card/95 shadow-lg animate-on-scroll" ref={addToRefs}>
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-white">
+            <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-foreground">
               Bereit für den digitalen Wandel?
             </h3>
-            <p className="text-gray-200 mb-8 max-w-2xl">
+            <p className="text-foreground/70 mb-8 max-w-2xl">
               Lassen Sie uns gemeinsam Ihr Unternehmen zukunftsfähig machen. Unsere digitalen Lösungen und unsere Expertise in der Steuerberatung sind der Schlüssel zu Ihrem Erfolg.
             </p>
-            <ul className="text-left mb-10 space-y-3 max-w-md text-gray-200">
+            <ul className="text-left mb-10 space-y-3 max-w-md text-foreground/70">
               {[
                 "Vollständig digitale Prozesse",
                 "Echtzeit-Zugriff auf Ihre Finanzdaten",
