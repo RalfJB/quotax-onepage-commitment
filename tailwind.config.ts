@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -187,9 +186,10 @@ export default {
 				'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
 				display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
 				mono: ['JetBrains Mono', 'monospace'],
+				outfit: ['Outfit', 'Inter', 'sans-serif']
 			}
 		}
 	},

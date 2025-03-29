@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -18,7 +17,6 @@ const Hero = () => {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Set animation delay
     setTimeout(() => {
       setIsVisible(true);
     }, 400);
@@ -28,7 +26,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-background py-32 md:py-0">
-      {/* Gradient orbs - these will blend with the AnimatedCircles component */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-green/10 filter blur-[180px] animate-pulse-slow z-0"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-purple/10 filter blur-[180px] animate-pulse-slow z-0" style={{ animationDelay: "2s" }}></div>
       
@@ -36,11 +33,9 @@ const Hero = () => {
         ref={heroRef}
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
-        {/* Central logo section - with increased vertical spacing */}
         <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
-          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold mb-8 tracking-tighter">
-            <span className="bg-gradient-to-r from-purple via-purple-light to-purple bg-clip-text text-transparent">quo</span>
-            <span className="bg-gradient-to-r from-green-dark via-green to-green-light bg-clip-text text-transparent">tax</span>
+          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black mb-8 tracking-tight">
+            <span className="font-sans text-foreground">quotax</span>
           </h1>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground tracking-tight">
             Steuerberatung
@@ -53,7 +48,6 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Modified section: "digital und persönlich" on a single line with darker text */}
         <div className={`my-24 sm:my-28 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-row items-center gap-3 sm:gap-4">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-purple-dark">
