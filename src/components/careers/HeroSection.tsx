@@ -1,5 +1,5 @@
 
-import React, { RefObject } from 'react';
+import React from 'react';
 
 interface HeroSectionProps {
   addToRefs: (el: HTMLDivElement) => void;
