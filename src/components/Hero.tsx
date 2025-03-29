@@ -1,7 +1,9 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
+import CurvedArrowText from '@/components/CurvedArrowText';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -49,6 +51,11 @@ const Hero = () => {
           </h2>
         </div>
         
+        {/* CurvedArrowText component placement */}
+        <div className="w-full relative h-[550px] my-8">
+          <CurvedArrowText className="w-full h-full" />
+        </div>
+        
         <div className="mt-4 mb-6 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
@@ -68,17 +75,6 @@ const Hero = () => {
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#687c58]">
               persönlich
             </span>
-          </div>
-        </div>
-        
-        <div className={`mt-6 mb-10 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="py-6 px-6 sm:px-8 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
-            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/90 text-balance italic text-center">
-              "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
-              <footer className="text-right mt-4 text-foreground/90 not-italic text-sm md:text-base">
-                — Ralf Julius Baumgartner, Steuerberater und Gründer von quotax
-              </footer>
-            </blockquote>
           </div>
         </div>
         
