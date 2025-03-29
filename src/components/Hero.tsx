@@ -34,11 +34,11 @@ const Hero = () => {
       
       <div 
         ref={heroRef}
-        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
-        {/* Central logo section */}
-        <div className="mb-24 lg:mb-32 text-center">
-          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl font-bold mb-6 tracking-tighter">
+        {/* Central logo section - with increased vertical spacing */}
+        <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
+          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold mb-8 tracking-tighter">
             <span className="bg-gradient-to-r from-purple via-purple-light to-purple bg-clip-text text-transparent">quo</span>
             <span className="bg-gradient-to-r from-green-dark via-green to-green-light bg-clip-text text-transparent">tax</span>
           </h1>
@@ -47,13 +47,13 @@ const Hero = () => {
           </h2>
         </div>
         
-        <div className="mt-12 mb-16 text-center">
+        <div className="mt-24 mb-24 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
           </div>
         </div>
         
-        <div className={`my-20 sm:my-24 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`my-24 sm:my-28 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-col items-center space-y-6">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
               digital
@@ -71,7 +71,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-16 mb-20 transition-all duration-1500 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`mt-20 mb-16 transition-all duration-1500 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="py-10 px-8 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
             <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
