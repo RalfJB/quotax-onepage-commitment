@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ChevronRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
 import CurvedArrowText from '@/components/CurvedArrowText';
@@ -78,53 +78,17 @@ const Hero = () => {
           </div>
         </div>
         
-        {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mb-10 mt-6 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            <Button 
-              asChild
-              className="w-72 py-4 h-auto bg-purple text-white rounded-xl font-medium text-center transition-all duration-300 hover:bg-green hover:text-white hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
-            >
-              <a href="#contact">
-                <span>Gespräch vereinbaren</span>
-                <ChevronRight className="ml-2" size={20} />
-              </a>
-            </Button>
-            
-            <Button 
-              asChild
-              variant="outline"
-              className="w-72 py-4 h-auto text-foreground rounded-xl font-medium transition-all duration-300 hover:bg-green hover:text-white text-center mt-2 border border-foreground/10 bg-foreground/5 flex items-center justify-center"
-            >
-              <a href="#services">
-                <span>Unsere Dienstleistungen</span>
-                <ChevronRight className="ml-2" size={20} />
-              </a>
-            </Button>
-          </div>
-        ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mb-10 mt-6 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            <Button 
-              asChild
-              className="px-10 py-7 h-auto bg-purple text-white rounded-xl font-medium transition-all duration-300 hover:bg-green hover:text-white hover:shadow-lg hover:shadow-green/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
-            >
-              <a href="#contact">
-                Gespräch vereinbaren
-                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-            
-            <Button 
-              asChild
-              variant="outline"
-              className="px-10 py-7 h-auto border border-foreground/20 bg-foreground/5 backdrop-blur-sm text-foreground rounded-xl font-medium transition-all duration-300 hover:bg-green hover:text-white hover:border-green/50 flex items-center justify-center gap-2 group"
-            >
-              <a href="#services">
-                Unsere Dienstleistungen
-                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-          </div>
-        )}
+        {/* Central button replacing the previous two buttons */}
+        <div className={`flex items-center justify-center mb-10 mt-10 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <Button 
+            asChild
+            className="px-10 py-4 h-auto bg-purple text-white rounded-full font-medium transition-all duration-300 hover:bg-green hover:text-white hover:shadow-lg hover:-translate-y-1 flex items-center justify-center"
+          >
+            <a href="#services">
+              Schon jetzt mehr erfahren
+            </a>
+          </Button>
+        </div>
       </div>
       
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 animate-bounce">
