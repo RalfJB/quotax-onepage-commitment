@@ -55,7 +55,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="quotax-section bg-background text-foreground relative pt-0 pb-16 sm:py-12">
+    <section id="about" className="quotax-section bg-background text-foreground relative pt-0 pb-16 sm:py-8">
       {/* Hintergrundakzent */}
       <div className="absolute left-0 top-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute right-0 bottom-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
@@ -73,7 +73,7 @@ const AboutUs = () => {
           </p>
         </div>
         
-        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-4 sm:px-6 md:px-0">
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-4 sm:px-6 md:px-0">
           {values.map((value, index) => (
             <div 
               key={index} 
