@@ -53,21 +53,20 @@ const Hero = () => {
           </div>
         </div>
         
+        {/* Modified section: "digital und persönlich" on a single line with darker text */}
         <div className={`my-24 sm:my-28 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="flex flex-col items-center space-y-6">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-medium bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
+          <div className="flex flex-row items-center gap-3 sm:gap-4">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-purple-dark">
               digital
             </span>
             
-            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-foreground">
               und
             </span>
             
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-green-dark">
               persönlich
             </span>
-            
-            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground">.</span>
           </div>
         </div>
         
