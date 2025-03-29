@@ -13,11 +13,11 @@ const HeroSection = ({ addToRefs }: HeroSectionProps) => {
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToRefs}>
-          <div className="bg-purple/10 text-purple px-4 py-2 rounded-full inline-block mb-6 animate-on-scroll text-sm font-medium">
+          <div className="bg-purple/10 text-[#cf66cf] px-4 py-2 rounded-full inline-block mb-6 animate-on-scroll text-sm font-medium">
             Karriere
           </div>
           <h2 className="text-4xl md:text-5xl font-montserrat font-black mb-6 animate-on-scroll delay-100 text-foreground">
-            Werden Sie Teil unseres <span className="text-purple">innovativen</span> Teams
+            Werden Sie Teil unseres <span className="text-[#cf66cf]">innovativen</span> Teams
           </h2>
           <p className="text-lg md:text-xl animate-on-scroll delay-200 text-muted-foreground max-w-3xl mx-auto">
             Wir sind immer auf der Suche nach qualifizierten, engagierten Mitarbeitern und AI-Talenten, die mit uns gemeinsam die Zukunft der Steuerberatung gestalten möchten.

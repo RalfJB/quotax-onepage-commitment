@@ -36,7 +36,9 @@ const Hero = () => {
       >
         <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black mb-8 tracking-tight">
-            <span className="font-montserrat text-foreground">quotax</span>
+            <span className="font-montserrat">
+              <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
+            </span>
           </h1>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground tracking-tight">
             Steuerberatung
@@ -51,7 +53,7 @@ const Hero = () => {
         
         <div className={`my-24 sm:my-28 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-row items-center gap-3 sm:gap-4">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-purple-dark">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#cf66cf]">
               digital
             </span>
             
@@ -59,7 +61,7 @@ const Hero = () => {
               und
             </span>
             
-            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-green-dark">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#687c58]">
               persönlich
             </span>
           </div>

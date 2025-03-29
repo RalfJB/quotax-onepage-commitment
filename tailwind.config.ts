@@ -65,13 +65,18 @@ export default {
 				},
 				purple: {
 					light: '#d97ed9',
-					DEFAULT: '#cb5ecb',
+					DEFAULT: '#cf66cf', // Adjusted to match image
 					dark: '#ac4eac'
 				},
 				green: {
 					light: '#788f67',
-					DEFAULT: '#687c58',
+					DEFAULT: '#687c58', // Adjusted to match image
 					dark: '#586a49'
+				},
+				orange: {
+					light: '#FF7A45',
+					DEFAULT: '#F97316', 
+					dark: '#EA580C'
 				},
 				darkbg: {
 					DEFAULT: '#121212',
