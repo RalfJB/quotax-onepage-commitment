@@ -37,23 +37,23 @@ const Hero = () => {
         className={`z-10 w-full max-w-4xl px-4 md:px-6 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
         <div className="mb-4 lg:mb-6 text-center">
-          <h1 className="font-display text-6xl sm:text-7xl md:text-9xl font-bold mb-3 tracking-tight">
-            <span className="bg-gradient-to-r from-purple via-purple-light to-purple bg-clip-text text-transparent">quo</span>
+          <h1 className="font-display text-5xl sm:text-7xl md:text-9xl font-bold mb-2 tracking-tight">
+            <span className="bg-gradient-to-r from-purple via-purple to-purple-light bg-clip-text text-transparent">quo</span>
             <span className="bg-gradient-to-r from-green-dark via-green to-green-light bg-clip-text text-transparent">tax</span>
           </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground mb-5 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground mb-3 tracking-tight">
             Steuerberatung
           </h2>
         </div>
         
-        <div className="mt-4 mb-8 text-center">
-          <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-1.5 px-6 sm:py-2 sm:px-8 rounded-full">
+        <div className="mt-2 mb-4 text-center">
+          <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-1 px-4 sm:py-2 sm:px-8 rounded-full">
             Eröffnung Sommer 2025
           </div>
         </div>
         
-        <div className={`my-8 flex justify-center transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="flex flex-col items-center space-y-1 sm:space-y-2">
+        <div className={`my-4 sm:my-8 flex justify-center transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="flex flex-col items-center space-y-1">
             <span className="text-xl sm:text-2xl md:text-3xl font-medium bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
               digital
             </span>
@@ -70,8 +70,8 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-10 mb-12 transition-all duration-1000 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="py-6 px-4 sm:px-8 rounded-xl max-w-3xl mx-auto">
+        <div className={`mt-6 mb-8 transition-all duration-1000 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="py-4 px-4 sm:px-8 max-w-3xl mx-auto">
             <blockquote className="text-base sm:text-lg md:text-xl text-foreground text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
               <footer className="text-right mt-4 text-muted-foreground not-italic text-sm md:text-base">
@@ -82,17 +82,17 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-3 mt-12 transition-all duration-1000 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-3 mt-8 transition-all duration-1000 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
-              className="px-6 py-3 bg-green text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex items-center justify-center"
+              className="w-64 py-3 bg-gradient-to-r from-purple to-purple-dark text-white rounded-lg font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
-              Gespräch
+              Gespräch vereinbaren
             </a>
             
             <a 
               href="#services" 
-              className="px-6 py-3 text-foreground rounded-lg font-medium transition-all duration-300 hover:text-purple w-full text-center mt-2"
+              className="w-64 py-3 text-foreground rounded-lg font-medium transition-all duration-300 hover:text-purple text-center mt-2"
             >
               Unsere Dienstleistungen
             </a>
@@ -101,7 +101,7 @@ const Hero = () => {
           <div className={`flex flex-row items-center justify-center gap-5 mt-12 transition-all duration-1000 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
-              className="px-8 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2 group border border-white/10"
+              className="px-8 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2 group"
             >
               Gespräch vereinbaren
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -109,7 +109,7 @@ const Hero = () => {
             
             <a 
               href="#services" 
-              className="px-8 py-4 border border-border bg-card text-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple/50 hover:bg-purple/5 w-full sm:w-auto flex items-center justify-center gap-2 group mt-4 sm:mt-0"
+              className="px-8 py-4 border border-border text-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-md hover:border-purple/50 hover:bg-purple/5 w-full sm:w-auto flex items-center justify-center gap-2 group mt-4 sm:mt-0"
             >
               Unsere Dienstleistungen
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
