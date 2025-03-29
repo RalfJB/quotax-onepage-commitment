@@ -82,7 +82,7 @@ const Hero = () => {
           <div className={`flex flex-col items-center justify-center gap-4 mb-10 mt-6 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
-              className="w-72 py-4 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
+              className="w-72 py-4 h-auto bg-purple text-white rounded-xl font-medium text-center transition-all duration-300 hover:bg-green hover:text-white hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
             >
               <a href="#contact">
                 <span>Gespräch vereinbaren</span>
@@ -93,7 +93,7 @@ const Hero = () => {
             <Button 
               asChild
               variant="outline"
-              className="w-72 py-4 h-auto text-foreground rounded-xl font-medium transition-all duration-300 hover:text-purple text-center mt-2 border border-foreground/10 bg-foreground/5 flex items-center justify-center"
+              className="w-72 py-4 h-auto text-foreground rounded-xl font-medium transition-all duration-300 hover:bg-green hover:text-white text-center mt-2 border border-foreground/10 bg-foreground/5 flex items-center justify-center"
             >
               <a href="#services">
                 <span>Unsere Dienstleistungen</span>
@@ -105,7 +105,7 @@ const Hero = () => {
           <div className={`flex flex-row items-center justify-center gap-10 mb-10 mt-6 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
-              className="px-10 py-7 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
+              className="px-10 py-7 h-auto bg-purple text-white rounded-xl font-medium transition-all duration-300 hover:bg-green hover:text-white hover:shadow-lg hover:shadow-green/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
             >
               <a href="#contact">
                 Gespräch vereinbaren
@@ -116,7 +116,7 @@ const Hero = () => {
             <Button 
               asChild
               variant="outline"
-              className="px-10 py-7 h-auto border border-foreground/20 bg-foreground/5 backdrop-blur-sm text-foreground rounded-xl font-medium transition-all duration-300 hover:shadow-md hover:border-purple/50 hover:bg-purple/5 flex items-center justify-center gap-2 group"
+              className="px-10 py-7 h-auto border border-foreground/20 bg-foreground/5 backdrop-blur-sm text-foreground rounded-xl font-medium transition-all duration-300 hover:bg-green hover:text-white hover:border-green/50 flex items-center justify-center gap-2 group"
             >
               <a href="#services">
                 Unsere Dienstleistungen
@@ -128,7 +128,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 animate-bounce">
-        <a href="#about" className="text-foreground hover:text-purple transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
+        <a href="#about" className="text-foreground hover:text-green transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
           <ArrowDown size={28} />
         </a>
       </div>
