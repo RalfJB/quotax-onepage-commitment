@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -9,40 +10,16 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import AnimatedCircles from '@/components/AnimatedCircles';
 import ParallaxContainer from '@/components/ParallaxContainer';
-import PixelLogo from '@/components/logo/PixelLogo';
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [showContent, setShowContent] = useState(false);
-  const [initialAnimationComplete, setInitialAnimationComplete] = useState(false);
-  const [showHero, setShowHero] = useState(false);
+  const [showContent, setShowContent] = useState(true);
+  const [showHero, setShowHero] = useState(true);
   const contentRef = useRef<HTMLDivElement>(null);
   
-  const handleAnimationComplete = () => {
-    setInitialAnimationComplete(true);
-    
-    setTimeout(() => {
-      setShowHero(true);
-      
-      document.body.style.overflow = 'auto';
-      
-      const handleScroll = () => {
-        if (window.scrollY > 100) {
-          setShowContent(true);
-          window.removeEventListener('scroll', handleScroll);
-        }
-      };
-      
-      window.addEventListener('scroll', handleScroll);
-      
-      setTimeout(() => {
-        setShowContent(true);
-      }, 5000);
-    }, 500);
-  };
-
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    // Enable scrolling immediately when the page loads
+    document.body.style.overflow = 'auto';
     
     document.title = "quotax - Digitale Steuerberatung";
     
@@ -74,43 +51,31 @@ const Index = () => {
     };
     
     window.addEventListener('scroll', updateProgressBar);
-    
-    if (showContent) {
-      observeElements();
-    }
+    observeElements();
     
     return () => {
       window.removeEventListener('scroll', updateProgressBar);
       document.body.style.overflow = 'auto';
     };
-  }, [showContent]);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
-      {!initialAnimationComplete && (
-        <PixelLogo onAnimationComplete={handleAnimationComplete} />
-      )}
-      
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
       </div>
       
-      {initialAnimationComplete && <AnimatedCircles scrollY={scrollY} />}
+      <AnimatedCircles scrollY={scrollY} />
       
-      <div className={`transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="opacity-100">
         <Navbar />
       </div>
       
-      <div 
-        className={`transition-all duration-1000 delay-200 ${showHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-      >
+      <div className="opacity-100 translate-y-0">
         <Hero />
       </div>
       
-      <div 
-        ref={contentRef}
-        className={`transition-opacity duration-1000 delay-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}
-      >
+      <div ref={contentRef} className="opacity-100">
         <main className="flex-grow">
           <div className="relative z-10 bg-background/95 backdrop-blur-lg mt-12">
             <ParallaxContainer direction="left" delay={200}>
