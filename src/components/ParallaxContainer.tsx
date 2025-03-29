@@ -5,12 +5,14 @@ interface ParallaxContainerProps {
   children: ReactNode;
   direction?: 'left' | 'right' | 'up' | 'down';
   speed?: number;
+  delay?: number;
 }
 
 const ParallaxContainer = ({ 
   children, 
   direction = 'left', 
-  speed = 0.2 
+  speed = 0.2,
+  delay = 0
 }: ParallaxContainerProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +25,7 @@ const ParallaxContainer = ({
     const handleScroll = () => {
       if (!section) return;
       const rect = section.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
       
       if (isVisible) {
         setIsVisible(true);
@@ -40,12 +42,18 @@ const ParallaxContainer = ({
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    // Trigger once to check initial visibility
-    handleScroll();
+    // Apply delay to initial visibility for staggered animations
+    const timer = setTimeout(() => {
+      window.addEventListener('scroll', handleScroll);
+      // Trigger once to check initial visibility
+      handleScroll();
+    }, delay);
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [speed]);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [speed, delay]);
 
   // Determine transform based on direction
   const getTransform = () => {
@@ -85,7 +93,8 @@ const ParallaxContainer = ({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        transitionProperty: 'opacity, transform'
+        transitionProperty: 'opacity, transform',
+        transitionDelay: `${delay}ms`
       }}
     >
       {children}
