@@ -70,12 +70,6 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
           Digitalisierung <br />
           Zeit schenken wird.
         </p>
-        
-        {/* Added the website construction notice to the right side */}
-        <div className="mt-6 text-lg md:text-xl lg:text-2xl font-serif text-foreground/70 text-right">
-          <p>Unsere Website befindet sich noch im Aufbau.</p>
-          <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
-        </div>
       </div>
       
       {/* Curved arrow - Using SVG for precise curved line */}
@@ -127,6 +121,12 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         >
           Schon jetzt mehr erfahren
         </a>
+        
+        {/* Moved the website construction notice to the left side under "Zeit für mehr Miteinander..." */}
+        <div className="mt-6 text-lg md:text-xl lg:text-2xl font-serif text-foreground/70">
+          <p>Unsere Website befindet sich noch im Aufbau.</p>
+          <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
+        </div>
       </div>
     </div>
   );
