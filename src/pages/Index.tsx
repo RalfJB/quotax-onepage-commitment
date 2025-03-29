@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
@@ -9,8 +9,11 @@ import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import AnimatedCircles from '@/components/AnimatedCircles';
+import ParallaxContainer from '@/components/ParallaxContainer';
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
     // Update page title
     document.title = "quotax - Digitale Steuerberatung";
@@ -18,6 +21,8 @@ const Index = () => {
     // Progress bar for scrolling
     const updateProgressBar = () => {
       const scrollTop = window.scrollY;
+      setScrollY(scrollTop);
+      
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
       const scrollPercentage = (scrollTop / (docHeight - windowHeight)) * 100;
@@ -51,24 +56,38 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen text-foreground bg-background">
+    <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
       {/* Progress bar */}
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
       </div>
       
       {/* Animated background circles */}
-      <AnimatedCircles />
+      <AnimatedCircles scrollY={scrollY} />
       
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <div className="relative z-10 bg-background/90 backdrop-blur-md">
-          <AboutUs />
-          <Services />
-          <Benefits />
-          <Team />
-          <Contact />
+        <div className="relative z-10 bg-background/95 backdrop-blur-lg">
+          <ParallaxContainer>
+            <AboutUs />
+          </ParallaxContainer>
+          
+          <ParallaxContainer>
+            <Services />
+          </ParallaxContainer>
+          
+          <ParallaxContainer>
+            <Benefits />
+          </ParallaxContainer>
+          
+          <ParallaxContainer>
+            <Team />
+          </ParallaxContainer>
+          
+          <ParallaxContainer>
+            <Contact />
+          </ParallaxContainer>
         </div>
       </main>
       <Footer />

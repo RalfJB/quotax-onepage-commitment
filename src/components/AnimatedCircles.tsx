@@ -8,9 +8,15 @@ interface Circle {
   color: string;
   opacity: number;
   speedY: number;
+  speedX: number;
+  parallaxFactor: number;
 }
 
-const AnimatedCircles = () => {
+interface AnimatedCirclesProps {
+  scrollY?: number;
+}
+
+const AnimatedCircles = ({ scrollY = 0 }: AnimatedCirclesProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const circlesRef = useRef<Circle[]>([]);
   const animationFrameRef = useRef<number | null>(null);
@@ -25,7 +31,7 @@ const AnimatedCircles = () => {
     // Set canvas dimensions
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 1.5; // Make canvas taller so circles can move off-screen
+      canvas.height = window.innerHeight * 2; // Make canvas taller so circles can move off-screen
     };
     
     resizeCanvas();
@@ -33,43 +39,34 @@ const AnimatedCircles = () => {
     
     // Create initial circles
     const createCircles = () => {
-      const purpleColors = ['rgba(203, 94, 203, 0.2)', 'rgba(217, 126, 217, 0.15)', 'rgba(178, 83, 178, 0.18)'];
-      const greenColors = ['rgba(104, 124, 88, 0.2)', 'rgba(120, 143, 103, 0.15)', 'rgba(88, 106, 73, 0.18)'];
-      const grayColors = ['rgba(169, 169, 169, 0.25)', 'rgba(150, 150, 150, 0.2)', 'rgba(190, 190, 190, 0.15)'];
+      const purpleColors = ['rgba(203, 94, 203, 0.15)', 'rgba(217, 126, 217, 0.1)', 'rgba(178, 83, 178, 0.12)'];
+      const greenColors = ['rgba(104, 124, 88, 0.15)', 'rgba(120, 143, 103, 0.1)', 'rgba(88, 106, 73, 0.12)'];
+      const grayColors = ['rgba(169, 169, 169, 0.2)', 'rgba(150, 150, 150, 0.15)', 'rgba(190, 190, 190, 0.1)'];
       
       const allColors = [...purpleColors, ...greenColors, ...grayColors];
       
       const circles: Circle[] = [];
       
-      // Create 10-15 circles with varying sizes and positions
-      const numCircles = Math.floor(Math.random() * 6) + 10;
+      // Create 15-20 circles with varying sizes and positions
+      const numCircles = Math.floor(Math.random() * 6) + 15;
       
       for (let i = 0; i < numCircles; i++) {
-        const radius = Math.random() * 300 + 100; // Circles between 100-400px radius
+        const radius = Math.random() * 300 + 150; // Circles between 150-450px radius
         const x = Math.random() * (canvas.width + radius * 2) - radius;
         const y = Math.random() * (canvas.height + radius * 2) - radius;
         const color = allColors[Math.floor(Math.random() * allColors.length)];
-        const opacity = Math.random() * 0.2 + 0.1; // Opacity between 0.1-0.3
-        const speedY = Math.random() * 0.4 + 0.1; // Slow upward movement
+        const opacity = Math.random() * 0.15 + 0.05; // Lower opacity between 0.05-0.2
+        const speedY = (Math.random() * 0.3 + 0.1) * (Math.random() > 0.5 ? 1 : -1); // Random direction
+        const speedX = (Math.random() * 0.2 + 0.05) * (Math.random() > 0.5 ? 1 : -1); // Random direction
+        const parallaxFactor = Math.random() * 0.4 + 0.2; // Different parallax factors
         
-        circles.push({ x, y, radius, color, opacity, speedY });
+        circles.push({ x, y, radius, color, opacity, speedY, speedX, parallaxFactor });
       }
       
       return circles;
     };
     
     circlesRef.current = createCircles();
-    
-    // Handle scroll effect
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Move circles based on scroll position
-      circlesRef.current.forEach(circle => {
-        circle.y += scrollY * 0.05; // Move circles down as user scrolls
-      });
-    };
-    
-    window.addEventListener('scroll', handleScroll);
     
     // Animation loop
     const animate = () => {
@@ -79,18 +76,27 @@ const AnimatedCircles = () => {
       
       // Draw and update circles
       circlesRef.current.forEach(circle => {
+        // Apply parallax effect based on scrollY
+        const parallaxOffsetY = scrollY * circle.parallaxFactor;
+        
         // Draw circle
         ctx.beginPath();
-        ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+        ctx.arc(circle.x, circle.y - parallaxOffsetY * 0.5, circle.radius, 0, Math.PI * 2);
         ctx.fillStyle = circle.color;
         ctx.fill();
         
         // Move circle
-        circle.y -= circle.speedY; // Move up slowly
+        circle.y += circle.speedY;
+        circle.x += circle.speedX;
         
-        // If circle moves off top, reset to bottom
-        if (circle.y + circle.radius < -300) {
-          circle.y = canvas.height + circle.radius;
+        // If circle moves off screen, reset its position
+        if (
+          circle.y + circle.radius < -300 || 
+          circle.y - circle.radius > canvas.height + 300 ||
+          circle.x + circle.radius < -300 ||
+          circle.x - circle.radius > canvas.width + 300
+        ) {
+          circle.y = Math.random() * canvas.height;
           circle.x = Math.random() * canvas.width;
         }
       });
@@ -103,12 +109,11 @@ const AnimatedCircles = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      window.removeEventListener('scroll', handleScroll);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [scrollY]);
   
   return (
     <canvas 
