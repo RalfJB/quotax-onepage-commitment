@@ -30,16 +30,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-background py-20 md:py-0">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-background py-10 md:py-0">
       {/* Subtile Hintergrundelemente */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-green/3 filter blur-[200px] z-0"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-purple/3 filter blur-[200px] z-0"></div>
       
       <div 
         ref={heroRef}
-        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
+        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-[85vh]`}
       >
-        <div className="mb-12 lg:mb-16 text-center mt-20 lg:mt-24">
+        <div className="mb-10 lg:mb-14 text-center mt-24 lg:mt-28">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-4 tracking-tighter">
             <span className="font-outfit tracking-tighter">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
@@ -50,7 +50,7 @@ const Hero = () => {
           </h2>
         </div>
         
-        <div className="mt-8 mb-8 text-center">
+        <div className="mt-10 mb-12 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
           </div>
@@ -84,7 +84,7 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mt-8 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-4 mt-12 mb-32 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
               className="w-72 py-4 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
@@ -107,7 +107,7 @@ const Hero = () => {
             </Button>
           </div>
         ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mt-8 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-row items-center justify-center gap-10 mt-12 mb-32 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
               className="px-10 py-7 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
