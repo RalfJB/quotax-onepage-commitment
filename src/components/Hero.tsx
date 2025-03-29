@@ -36,24 +36,24 @@ const Hero = () => {
         ref={heroRef}
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
-        <div className="mb-12 lg:mb-16 text-center">
-          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl font-bold mb-2 tracking-tighter">
+        <div className="mb-24 lg:mb-32 text-center">
+          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl font-bold mb-6 tracking-tighter">
             <span className="bg-gradient-to-r from-purple via-purple-light to-purple bg-clip-text text-transparent">quo</span>
             <span className="bg-gradient-to-r from-green-dark via-green to-green-light bg-clip-text text-transparent">tax</span>
           </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground mb-3 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground tracking-tight">
             Steuerberatung
           </h2>
         </div>
         
-        <div className="mt-6 mb-10 text-center">
+        <div className="mt-12 mb-16 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
           </div>
         </div>
         
-        <div className={`my-12 sm:my-16 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="flex flex-col items-center space-y-4">
+        <div className={`my-20 sm:my-24 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="flex flex-col items-center space-y-6">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
               digital
             </span>
@@ -70,8 +70,8 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-12 mb-16 transition-all duration-1500 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="py-8 px-6 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
+        <div className={`mt-16 mb-20 transition-all duration-1500 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="py-10 px-8 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
             <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
               <footer className="text-right mt-6 text-muted-foreground not-italic text-sm md:text-base">
@@ -82,7 +82,7 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mt-10 transition-all duration-1500 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-4 mt-16 transition-all duration-1500 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
               className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10"

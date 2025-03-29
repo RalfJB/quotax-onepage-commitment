@@ -23,7 +23,7 @@ const Index = () => {
   const handleAnimationComplete = () => {
     setInitialAnimationComplete(true);
     
-    // Add slight delay before showing content for smoother transition
+    // Add slight delay before showing hero for smoother transition
     setTimeout(() => {
       setShowHero(true);
       
@@ -31,10 +31,20 @@ const Index = () => {
       document.body.style.overflow = 'auto';
       
       // Delay showing other content until user starts scrolling
+      const handleScroll = () => {
+        if (window.scrollY > 100) {
+          setShowContent(true);
+          window.removeEventListener('scroll', handleScroll);
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll);
+      
+      // Fallback to show content after some time even if user doesn't scroll
       setTimeout(() => {
         setShowContent(true);
-      }, 500);
-    }, 300);
+      }, 3000);
+    }, 500);
   };
 
   useEffect(() => {

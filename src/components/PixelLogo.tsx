@@ -44,7 +44,7 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
       // Clear existing particles
       particlesRef.current = [];
       
-      // Set text properties
+      // Set text properties - adjust for perfect center positioning
       const fontSize = Math.min(canvas.width * 0.15, 180); // Responsive font size
       ctx.font = `bold ${fontSize}px 'Plus Jakarta Sans', sans-serif`;
       ctx.textAlign = 'center';
@@ -154,7 +154,7 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
           }
           completionTimerRef.current = setTimeout(() => {
             onAnimationComplete();
-          }, 500);
+          }, 800); // Slightly longer delay for better visual effect
         }
       }
       
