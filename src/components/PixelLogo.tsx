@@ -10,6 +10,8 @@ interface Particle {
   originalY: number;
   vx: number;
   vy: number;
+  delay: number;
+  active: boolean;
 }
 
 interface PixelLogoProps {
@@ -22,6 +24,7 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameRef = useRef<number | null>(null);
   const completionTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const matrixCharactersRef = useRef<string[]>('01'.split(''));
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -83,19 +86,24 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
             const b = data[index + 2];
             const color = `rgba(${r}, ${g}, ${b}, ${alpha / 255})`;
             
-            // Create particle with random initial position (for animation effect)
-            const randomOffsetX = (Math.random() - 0.5) * canvas.width * 1.5;
-            const randomOffsetY = (Math.random() - 0.5) * canvas.height * 1.5;
+            // Matrix-style - particles start from random positions at the top
+            const randomX = Math.random() * canvas.width;
+            const randomY = -Math.random() * canvas.height;
+            
+            // Add random delay for cascading Matrix effect
+            const delay = Math.random() * 1500;
             
             particles.push({
-              x: x + randomOffsetX,
-              y: y + randomOffsetY,
+              x: randomX,
+              y: randomY,
               size: pixelSize,
               color,
               originalX: x,
               originalY: y,
               vx: 0,
-              vy: 0
+              vy: 0,
+              delay: delay,
+              active: false
             });
           }
         }
@@ -108,38 +116,63 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
     const animate = () => {
       if (!ctx || !canvas) return;
       
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Slight trail effect
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Animation settings
       const easing = 0.08;
       const friction = 0.9;
       let completedParticles = 0;
+      const currentTime = performance.now();
+      
+      // Draw some Matrix-like random characters in the background
+      ctx.font = '14px "JetBrains Mono", monospace';
+      ctx.fillStyle = 'rgba(104, 124, 88, 0.3)'; // Light green for matrix effect
+      
+      for (let i = 0; i < 50; i++) {
+        const x = Math.random() * canvas.width;
+        const y = (Math.random() * canvas.height - 800) + (currentTime * 0.05) % (canvas.height + 800);
+        const char = matrixCharactersRef.current[Math.floor(Math.random() * matrixCharactersRef.current.length)];
+        if (Math.random() > 0.98) { // Occasionally draw brighter characters
+          ctx.fillStyle = 'rgba(155, 135, 245, 0.9)'; // Bright purple
+        } else {
+          ctx.fillStyle = 'rgba(104, 124, 88, 0.3)'; // Light green
+        }
+        ctx.fillText(char, x, y);
+      }
       
       particlesRef.current.forEach(particle => {
-        // Calculate distance to original position
-        const dx = particle.originalX - particle.x;
-        const dy = particle.originalY - particle.y;
+        // Only start animating after delay
+        if (!particle.active && currentTime > particle.delay) {
+          particle.active = true;
+        }
         
-        // Apply velocity with easing
-        particle.vx += dx * easing;
-        particle.vy += dy * easing;
-        
-        // Apply friction
-        particle.vx *= friction;
-        particle.vy *= friction;
-        
-        // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        
-        // Draw particle
-        ctx.fillStyle = particle.color;
-        ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
-        
-        // Check if particle is close to its original position
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 0.5) {
-          completedParticles++;
+        if (particle.active) {
+          // Calculate distance to original position
+          const dx = particle.originalX - particle.x;
+          const dy = particle.originalY - particle.y;
+          
+          // Apply velocity with easing
+          particle.vx += dx * easing;
+          particle.vy += dy * easing;
+          
+          // Apply friction
+          particle.vx *= friction;
+          particle.vy *= friction;
+          
+          // Update position
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          
+          // Draw particle
+          ctx.fillStyle = particle.color;
+          ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+          
+          // Check if particle is close to its original position
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 0.5) {
+            completedParticles++;
+          }
         }
       });
       
@@ -177,7 +210,7 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
   }, [onAnimationComplete]);
   
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none bg-black">
       <canvas 
         ref={canvasRef}
         className="absolute inset-0"

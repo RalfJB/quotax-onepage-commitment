@@ -43,7 +43,7 @@ const Index = () => {
       // Fallback to show content after some time even if user doesn't scroll
       setTimeout(() => {
         setShowContent(true);
-      }, 3000);
+      }, 5000); // Increased from 3000 to give more time to appreciate the hero section
     }, 500);
   };
 
@@ -100,9 +100,7 @@ const Index = () => {
     <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
       {/* Initial Pixel Animation - only visible before animation complete */}
       {!initialAnimationComplete && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
-          <PixelLogo onAnimationComplete={handleAnimationComplete} />
-        </div>
+        <PixelLogo onAnimationComplete={handleAnimationComplete} />
       )}
       
       {/* Progress bar */}
