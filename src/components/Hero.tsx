@@ -37,10 +37,10 @@ const Hero = () => {
       
       <div 
         ref={heroRef}
-        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center h-screen`}
+        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-start items-center h-screen pt-20`}
       >
-        <div className="mb-6 lg:mb-8 text-center mt-16 lg:mt-20">
-          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-4 tracking-tighter">
+        <div className="mb-6 text-center">
+          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal tracking-tighter">
             <span className="font-outfit tracking-tighter">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
             </span>
@@ -50,7 +50,7 @@ const Hero = () => {
           </h2>
         </div>
         
-        <div className="mt-8 mb-10 text-center">
+        <div className="mt-4 mb-6 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
           </div>
@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-6 mb-8 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`mt-6 mb-6 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="py-6 px-6 sm:px-8 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
             <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/90 text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
@@ -107,7 +107,7 @@ const Hero = () => {
             </Button>
           </div>
         ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mt-6 mb-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-row items-center justify-center gap-10 mt-6 mb-10 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
               className="px-10 py-7 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
