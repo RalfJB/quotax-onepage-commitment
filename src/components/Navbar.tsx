@@ -44,8 +44,8 @@ const Navbar = () => {
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 md:px-8",
           isScrolled 
-            ? "bg-black/80 backdrop-blur-lg shadow-md" 
-            : "bg-black/40 backdrop-blur-md"
+            ? "bg-[#a9a9a9]/90 backdrop-blur-lg shadow-md" 
+            : "bg-[#a9a9a9]/80 backdrop-blur-md"
         )}
       >
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -64,14 +64,14 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "font-medium text-sm transition-colors duration-300 hover:text-green relative",
-                    isScrolled ? "text-white" : "text-white",
-                    isActive(link.href) && "text-green"
+                    "font-medium text-sm transition-colors duration-300 hover:text-green-dark relative",
+                    isScrolled ? "text-foreground" : "text-foreground",
+                    isActive(link.href) && "text-green-dark"
                   )}
                 >
                   {link.name}
                   {isActive(link.href) && (
-                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green shadow-[0_0_10px_2px_rgba(124,252,0,0.7)] rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green-dark shadow-[0_0_10px_2px_rgba(104,124,88,0.7)] rounded-full"></span>
                   )}
                 </a>
               ) : (
@@ -79,14 +79,14 @@ const Navbar = () => {
                   key={link.name}
                   to={link.href}
                   className={cn(
-                    "font-medium text-sm transition-colors duration-300 hover:text-green relative",
-                    isScrolled ? "text-white" : "text-white",
-                    isActive(link.href) && "text-green"
+                    "font-medium text-sm transition-colors duration-300 hover:text-green-dark relative",
+                    isScrolled ? "text-foreground" : "text-foreground",
+                    isActive(link.href) && "text-green-dark"
                   )}
                 >
                   {link.name}
                   {isActive(link.href) && (
-                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green shadow-[0_0_10px_2px_rgba(124,252,0,0.7)] rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green-dark shadow-[0_0_10px_2px_rgba(104,124,88,0.7)] rounded-full"></span>
                   )}
                 </Link>
               )
@@ -100,14 +100,14 @@ const Navbar = () => {
               className={cn(
                 "font-medium text-sm px-3 py-1.5 rounded-lg transition-all duration-300",
                 isScrolled 
-                  ? "bg-green text-white hover:bg-green-dark" 
-                  : "bg-green text-white hover:bg-green-dark"
+                  ? "bg-green-dark text-white hover:bg-green" 
+                  : "bg-green-dark text-white hover:bg-green"
               )}
             >
               Gespräch
             </a>
             <button 
-              className="text-white focus:outline-none" 
+              className="text-foreground focus:outline-none" 
               onClick={toggleMenu}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -118,7 +118,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div 
           className={cn(
-            "md:hidden fixed inset-0 z-50 bg-black/90 pt-24 px-6 transform transition-transform duration-300 ease-in-out",
+            "md:hidden fixed inset-0 z-50 bg-[#a9a9a9]/95 pt-24 px-6 transform transition-transform duration-300 ease-in-out",
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
@@ -129,15 +129,15 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "font-medium text-lg transition-colors duration-300 hover:text-green relative",
-                    "text-white",
-                    isActive(link.href) && "text-green"
+                    "font-medium text-lg transition-colors duration-300 hover:text-green-dark relative",
+                    "text-foreground",
+                    isActive(link.href) && "text-green-dark"
                   )}
                   onClick={closeMenu}
                 >
                   {link.name}
                   {isActive(link.href) && (
-                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green shadow-[0_0_10px_2px_rgba(124,252,0,0.7)] rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green-dark shadow-[0_0_10px_2px_rgba(104,124,88,0.7)] rounded-full"></span>
                   )}
                 </a>
               ) : (
@@ -145,22 +145,22 @@ const Navbar = () => {
                   key={link.name}
                   to={link.href}
                   className={cn(
-                    "font-medium text-lg transition-colors duration-300 hover:text-green relative",
-                    "text-white",
-                    isActive(link.href) && "text-green"
+                    "font-medium text-lg transition-colors duration-300 hover:text-green-dark relative",
+                    "text-foreground",
+                    isActive(link.href) && "text-green-dark"
                   )}
                   onClick={closeMenu}
                 >
                   {link.name}
                   {isActive(link.href) && (
-                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green shadow-[0_0_10px_2px_rgba(124,252,0,0.7)] rounded-full"></span>
+                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-green-dark shadow-[0_0_10px_2px_rgba(104,124,88,0.7)] rounded-full"></span>
                   )}
                 </Link>
               )
             ))}
             <a
               href="#contact"
-              className="font-medium text-lg px-5 py-3 bg-green text-white rounded-lg hover:bg-green-dark transition-all duration-300 text-center mt-4"
+              className="font-medium text-lg px-5 py-3 bg-green-dark text-white rounded-lg hover:bg-green transition-all duration-300 text-center mt-4"
               onClick={closeMenu}
             >
               Gespräch vereinbaren

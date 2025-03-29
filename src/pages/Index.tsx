@@ -8,6 +8,7 @@ import Benefits from '@/components/Benefits';
 import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import AnimatedCircles from '@/components/AnimatedCircles';
 
 const Index = () => {
   useEffect(() => {
@@ -56,10 +57,13 @@ const Index = () => {
         <div id="progressBar" className="progress-bar"></div>
       </div>
       
+      {/* Animated background circles */}
+      <AnimatedCircles />
+      
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <div className="relative z-10 bg-background backdrop-blur-md">
+        <div className="relative z-10 bg-background/90 backdrop-blur-md">
           <AboutUs />
           <Services />
           <Benefits />
