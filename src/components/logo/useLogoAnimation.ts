@@ -15,6 +15,7 @@ export const useLogoAnimation = ({ onAnimationComplete }: UseLogoAnimationProps)
   const completionTimerRef = useRef<NodeJS.Timeout | null>(null);
   const binaryRainRef = useRef<BinaryDrop[]>([]);
   const logoSizeRef = useRef<LogoSize>({ width: 0, height: 0 });
+  const animationStartTimeRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -38,6 +39,11 @@ export const useLogoAnimation = ({ onAnimationComplete }: UseLogoAnimationProps)
       particlesRef.current = particles;
       logoSizeRef.current = logoSize;
       binaryRainRef.current = generateBinaryRain(canvas.width, canvas.height);
+      
+      // Set animation start time if not already set
+      if (animationStartTimeRef.current === 0) {
+        animationStartTimeRef.current = performance.now();
+      }
     };
     
     // Animation loop
@@ -56,9 +62,11 @@ export const useLogoAnimation = ({ onAnimationComplete }: UseLogoAnimationProps)
       const { particles, completedParticles } = updateParticles(ctx, particlesRef.current, currentTime);
       particlesRef.current = particles;
       
-      // Check if animation is complete
+      // Check if animation is complete or has been running too long (fail-safe)
       const completionRatio = completedParticles / particlesRef.current.length;
-      if (completionRatio > 0.95 && !isAnimationComplete) {
+      const animationRuntime = currentTime - animationStartTimeRef.current;
+      
+      if ((completionRatio > 0.95 || animationRuntime > 6000) && !isAnimationComplete) {
         setIsAnimationComplete(true);
         if (onAnimationComplete) {
           // Start a timer to allow particles to settle before calling onAnimationComplete
@@ -71,21 +79,49 @@ export const useLogoAnimation = ({ onAnimationComplete }: UseLogoAnimationProps)
         }
       }
       
-      animationFrameRef.current = requestAnimationFrame(animate);
+      // Only continue animation if not complete
+      if (!isAnimationComplete) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+      }
+    };
+    
+    // Handle scroll events to force animation completion
+    const handleScroll = () => {
+      if (!isAnimationComplete) {
+        setIsAnimationComplete(true);
+        if (onAnimationComplete) {
+          if (completionTimerRef.current) {
+            clearTimeout(completionTimerRef.current);
+          }
+          // Call onAnimationComplete immediately when user scrolls
+          onAnimationComplete();
+        }
+      }
     };
     
     window.addEventListener('resize', resize);
+    window.addEventListener('scroll', handleScroll);
     resize();
     animate();
     
+    // Set a maximum animation time (10 seconds)
+    const maxAnimationTimeout = setTimeout(() => {
+      if (!isAnimationComplete && onAnimationComplete) {
+        setIsAnimationComplete(true);
+        onAnimationComplete();
+      }
+    }, 10000);
+    
     return () => {
       window.removeEventListener('resize', resize);
+      window.removeEventListener('scroll', handleScroll);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
       if (completionTimerRef.current) {
         clearTimeout(completionTimerRef.current);
       }
+      clearTimeout(maxAnimationTimeout);
     };
   }, [onAnimationComplete, isAnimationComplete]);
 
