@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
@@ -9,6 +9,7 @@ import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ParallaxContainer from '@/components/ParallaxContainer';
+import DigitalBackground from '@/components/DigitalBackground';
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -63,23 +64,23 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
-          <ParallaxContainer direction="up" delay={100} speed={0.1}>
+          <ParallaxContainer direction="up" delay={0} speed={0.05}>
             <AboutUs />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={100} speed={0.1}>
+          <ParallaxContainer direction="up" delay={0} speed={0.05}>
             <Services />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={100} speed={0.1}>
+          <ParallaxContainer direction="up" delay={0} speed={0.05}>
             <Benefits />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={100} speed={0.1}>
+          <ParallaxContainer direction="up" delay={0} speed={0.05}>
             <Team />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={100} speed={0.1}>
+          <ParallaxContainer direction="up" delay={0} speed={0.05}>
             <Contact />
           </ParallaxContainer>
         </div>

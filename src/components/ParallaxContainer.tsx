@@ -11,8 +11,8 @@ interface ParallaxContainerProps {
 
 const ParallaxContainer = ({ 
   children, 
-  direction = 'left', 
-  speed = 0.15, // Reduced speed for subtlety
+  direction = 'up', 
+  speed = 0.08, // Reduced speed for more subtle effect
   delay = 0,
   startVisible = false
 }: ParallaxContainerProps) => {
@@ -29,7 +29,7 @@ const ParallaxContainer = ({
       
       // Check if element is in viewport
       const rect = section.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+      const isInView = rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
       
       if (isInView) {
         setIsVisible(true);
@@ -40,7 +40,7 @@ const ParallaxContainer = ({
         const scrollRelative = scrollPosition - sectionTop + window.innerHeight;
         
         if (scrollRelative > 0) {
-          setOffset(Math.min(scrollRelative * speed, 60)); // Cap the maximum movement
+          setOffset(Math.min(scrollRelative * speed, 40)); // Cap the maximum movement for subtlety
         }
       }
     };
@@ -63,37 +63,37 @@ const ParallaxContainer = ({
     if (!isVisible) {
       switch (direction) {
         case 'left':
-          return 'translateX(-60px)';
+          return 'translateX(-30px)'; // Reduced movement distance
         case 'right':
-          return 'translateX(60px)';
+          return 'translateX(30px)';
         case 'up':
-          return 'translateY(60px)';
+          return 'translateY(30px)';
         case 'down':
-          return 'translateY(-60px)';
+          return 'translateY(-30px)';
         default:
-          return 'translateX(-60px)';
+          return 'translateY(30px)';
       }
     }
     
     // Apply subtle parallax effect when visible
     switch (direction) {
       case 'left':
-        return `translateX(${-60 + offset}px)`;
+        return `translateX(${-30 + offset}px)`;
       case 'right':
-        return `translateX(${60 - offset}px)`;
+        return `translateX(${30 - offset}px)`;
       case 'up':
-        return `translateY(${60 - offset}px)`;
+        return `translateY(${30 - offset}px)`;
       case 'down':
-        return `translateY(${-60 + offset}px)`;
+        return `translateY(${-30 + offset}px)`;
       default:
-        return `translateX(${-60 + offset}px)`;
+        return `translateY(${30 - offset}px)`;
     }
   };
 
   return (
     <div
       ref={containerRef}
-      className="w-full transition-all duration-1000 ease-out"
+      className="w-full transition-all duration-700 ease-out"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
