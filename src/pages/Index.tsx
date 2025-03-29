@@ -63,8 +63,8 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
-          {/* Abstand zum Hero reduziert für nahtlosen Übergang */}
-          <div className="-mt-32 md:-mt-48">
+          {/* Verringerter negativer Margin, damit die AboutUs-Sektion erst kurz vor den Kacheln beginnt */}
+          <div className="mt-0 md:mt-0">
             <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
               <AboutUs />
             </ParallaxContainer>
