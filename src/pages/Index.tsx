@@ -63,8 +63,8 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
-          {/* Stark reduzierter Abstand, direkt an die Buttons anschließend */}
-          <div className="-mt-48 md:-mt-52">
+          {/* Kein negativer Margin mehr nötig */}
+          <div className="mt-0">
             <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
               <AboutUs />
             </ParallaxContainer>

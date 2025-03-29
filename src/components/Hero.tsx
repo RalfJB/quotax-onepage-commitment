@@ -30,14 +30,14 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-background py-0">
+    <section className="relative min-h-[100vh] w-full flex flex-col items-center bg-background py-0 mb-24">
       {/* Subtile Hintergrundelemente */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-green/3 filter blur-[200px] z-0"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-purple/3 filter blur-[200px] z-0"></div>
       
       <div 
         ref={heroRef}
-        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-start items-center h-screen pt-20`}
+        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col items-center justify-center pt-24 pb-32`}
       >
         <div className="mb-6 text-center">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal tracking-tighter">
@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-6 mb-6 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`mt-6 mb-10 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="py-6 px-6 sm:px-8 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
             <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/90 text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
@@ -84,7 +84,7 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mt-6 mb-12 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-4 mb-24 mt-6 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
               className="w-72 py-4 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
@@ -107,7 +107,7 @@ const Hero = () => {
             </Button>
           </div>
         ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mt-6 mb-10 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-row items-center justify-center gap-10 mb-24 mt-6 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
               className="px-10 py-7 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
