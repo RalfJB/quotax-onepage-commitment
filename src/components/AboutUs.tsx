@@ -55,14 +55,14 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="quotax-section bg-background text-foreground relative pt-0 pb-16">
+    <section id="about" className="quotax-section bg-background text-foreground relative pt-0 pb-8">
       {/* Hintergrundakzent */}
       <div className="absolute left-0 top-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute right-0 bottom-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToAnimatedRefs}>
-          <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
+          <div className="quotax-badge bg-purple/10 text-purple mb-4 animate-on-scroll">
             Über Uns
           </div>
           <h2 className="section-title animate-on-scroll delay-100 text-foreground text-3xl sm:text-4xl lg:text-5xl">
@@ -73,7 +73,7 @@ const AboutUs = () => {
           </p>
         </div>
         
-        <div className="mt-4 sm:mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-4 sm:px-6 md:px-0">
+        <div className="mt-2 sm:mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-4 sm:px-6 md:px-0">
           {values.map((value, index) => (
             <div 
               key={index} 
@@ -95,7 +95,7 @@ const AboutUs = () => {
         </div>
         
         <div 
-          className="mt-16 sm:mt-20 bg-card/90 p-6 sm:p-8 md:p-12 rounded-xl border border-border shadow-lg animate-on-scroll mx-4 sm:mx-6 md:mx-0" 
+          className="mt-12 sm:mt-16 bg-card/90 p-6 sm:p-8 md:p-12 rounded-xl border border-border shadow-lg animate-on-scroll mx-4 sm:mx-6 md:mx-0" 
           ref={addToAnimatedRefs}
         >
           <div className="md:flex items-center gap-8 sm:gap-12">
