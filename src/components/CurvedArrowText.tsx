@@ -122,12 +122,9 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
           Schon jetzt mehr erfahren
         </a>
         
-        <div className="mt-6 text-xs text-foreground/70">
+        <div className="mt-6 text-lg md:text-xl lg:text-2xl font-serif text-foreground/70">
           <p>Unsere Website befindet sich noch im Aufbau.</p>
-          <p className="mt-1">
-            Unsere Idee ist aber schon Wirklichkeit: wir sind eine Steuerberatungskanzlei <br />
-            mit Sitz in XXXXX, XXXXXX, XXXXXXXX und XXXXXXX
-          </p>
+          <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
         </div>
       </div>
     </div>
