@@ -11,7 +11,7 @@ const SubmitButton = ({ isSubmitting }: SubmitButtonProps) => {
   return (
     <Button 
       type="submit" 
-      className="w-full bg-green hover:bg-green-dark text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 h-12"
+      className="w-full bg-purple hover:bg-green hover:text-white text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 h-12"
       disabled={isSubmitting}
     >
       {isSubmitting ? (

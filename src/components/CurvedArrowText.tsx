@@ -72,7 +72,7 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Curved arrow - Using SVG for precise curved line, now starting from right text and going to left text */}
+      {/* Curved arrow - Using SVG for precise curved line */}
       <div 
         ref={arrowRef}
         className={`absolute inset-0 transition-all duration-1000 ease-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -80,22 +80,21 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         <svg width="100%" height="100%" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path 
             d="M500,80 Q350,250 150,300" 
-            stroke="currentColor" 
-            strokeWidth="2"
+            stroke="#cf66cf"
+            strokeWidth="4"
             strokeDasharray="6,4"
             strokeDashoffset="0"
-            className="text-purple"
             style={{
               strokeDasharray: 500,
               strokeDashoffset: 500 - (500 * arrowProgress),
               transition: 'stroke-dashoffset 1.5s ease-out'
             }}
           />
+          {/* Arrow head with improved shape */}
           <path 
-            d="M160,310 L150,300 L140,290" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            className="text-purple"
+            d="M170,310 L150,300 L170,290" 
+            stroke="#cf66cf"
+            strokeWidth="4" 
             style={{
               opacity: arrowProgress > 0.9 ? 1 : 0,
               transition: 'opacity 0.3s ease-out'
@@ -118,7 +117,7 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         
         <a 
           href="#services" 
-          className="bg-foreground text-background text-sm font-medium px-6 py-2 rounded-full inline-block hover:bg-green hover:text-white transition-colors duration-300"
+          className="bg-purple text-white text-sm font-medium px-6 py-2 rounded-full inline-block hover:bg-green hover:text-white transition-colors duration-300"
         >
           Schon jetzt mehr erfahren
         </a>
