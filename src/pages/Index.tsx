@@ -64,25 +64,25 @@ const Index = () => {
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
           {/* Abstand zum Hero reduziert für nahtlosen Übergang */}
-          <div className="-mt-24 md:-mt-40">
-            <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
+          <div className="-mt-32 md:-mt-48">
+            <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
               <AboutUs />
             </ParallaxContainer>
           </div>
             
-          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
             <Services />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
             <Benefits />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
             <Team />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
             <Contact />
           </ParallaxContainer>
         </div>

@@ -39,8 +39,8 @@ const Hero = () => {
         ref={heroRef}
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
-        <div className="mb-36 lg:mb-36 text-center mt-24 lg:mt-36">
-          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-8 tracking-tighter">
+        <div className="mb-12 lg:mb-16 text-center mt-12 lg:mt-16">
+          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-4 tracking-tighter">
             <span className="font-outfit tracking-tighter">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
             </span>
@@ -50,13 +50,13 @@ const Hero = () => {
           </h2>
         </div>
         
-        <div className="mt-20 mb-20 text-center">
+        <div className="mt-6 mb-8 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
           </div>
         </div>
         
-        <div className={`my-16 sm:my-20 flex justify-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`my-6 sm:my-8 flex justify-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-row items-center gap-3 sm:gap-4">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#cf66cf]">
               digital
@@ -72,11 +72,11 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-16 mb-12 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="py-10 px-8 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
-            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground text-balance italic text-center">
+        <div className={`mt-6 mb-8 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="py-6 px-6 sm:px-8 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
+            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/90 text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
-              <footer className="text-right mt-6 text-foreground not-italic text-sm md:text-base">
+              <footer className="text-right mt-4 text-foreground/90 not-italic text-sm md:text-base">
                 — Ralf Julius Baumgartner, Steuerberater und Gründer von quotax
               </footer>
             </blockquote>
@@ -84,7 +84,7 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mt-12 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-4 mt-8 mb-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
               className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
@@ -102,10 +102,9 @@ const Hero = () => {
             </a>
           </div>
         ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mt-12 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-row items-center justify-center gap-10 mt-8 mb-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <Button 
               asChild
-              variant="default"
               className="px-10 py-7 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
             >
               <a href="#contact">

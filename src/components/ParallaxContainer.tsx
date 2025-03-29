@@ -13,7 +13,7 @@ interface ParallaxContainerProps {
 const ParallaxContainer = ({ 
   children, 
   direction = 'up', 
-  speed = 0.03, 
+  speed = 0.05, 
   delay = 0,
   startVisible = false,
   className = ''
@@ -80,22 +80,22 @@ const ParallaxContainer = ({
     // Subtilen Parallaxeffekt anwenden, wenn sichtbar
     switch (direction) {
       case 'left':
-        return `translateX(${-offset * 0.5}px)`;
+        return `translateX(${-offset * 0.8}px)`;
       case 'right':
-        return `translateX(${offset * 0.5}px)`;
+        return `translateX(${offset * 0.8}px)`;
       case 'up':
-        return `translateY(${-offset * 0.5}px)`;
+        return `translateY(${-offset * 0.8}px)`;
       case 'down':
-        return `translateY(${offset * 0.5}px)`;
+        return `translateY(${offset * 0.8}px)`;
       default:
-        return `translateY(${-offset * 0.5}px)`;
+        return `translateY(${-offset * 0.8}px)`;
     }
   };
 
   return (
     <div
       ref={containerRef}
-      className={`w-full transition-all duration-500 ease-out ${className}`}
+      className={`w-full transition-all duration-700 ease-out ${className}`}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
