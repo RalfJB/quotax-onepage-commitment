@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -63,8 +62,8 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
-          {/* Kein negativer Margin mehr nötig */}
-          <div className="mt-0">
+          {/* Kleinerer negativer Margin für einen besseren Übergang */}
+          <div className="-mt-4">
             <ParallaxContainer direction="up" speed={0.05} startVisible={true}>
               <AboutUs />
             </ParallaxContainer>

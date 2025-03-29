@@ -55,7 +55,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="quotax-section bg-background text-foreground relative pt-24 pb-6">
+    <section id="about" className="quotax-section bg-background text-foreground relative pt-4 pb-6">
       {/* Hintergrundakzent */}
       <div className="absolute left-0 top-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute right-0 bottom-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
