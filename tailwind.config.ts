@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -189,7 +190,8 @@ export default {
 				sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
 				display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
 				mono: ['JetBrains Mono', 'monospace'],
-				outfit: ['Outfit', 'Inter', 'sans-serif']
+				outfit: ['Outfit', 'Inter', 'sans-serif'],
+				montserrat: ['Montserrat', 'Inter', 'system-ui', 'sans-serif']
 			}
 		}
 	},

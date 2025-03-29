@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -35,7 +36,7 @@ const Hero = () => {
       >
         <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black mb-8 tracking-tight">
-            <span className="font-sans text-foreground">quotax</span>
+            <span className="font-montserrat text-foreground">quotax</span>
           </h1>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground tracking-tight">
             Steuerberatung
