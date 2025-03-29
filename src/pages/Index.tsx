@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -10,7 +9,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import AnimatedCircles from '@/components/AnimatedCircles';
 import ParallaxContainer from '@/components/ParallaxContainer';
-import PixelLogo from '@/components/PixelLogo';
+import PixelLogo from '@/components/logo/PixelLogo';
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -19,18 +18,14 @@ const Index = () => {
   const [showHero, setShowHero] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   
-  // Handle animation completion
   const handleAnimationComplete = () => {
     setInitialAnimationComplete(true);
     
-    // Add slight delay before showing hero for smoother transition
     setTimeout(() => {
       setShowHero(true);
       
-      // Enable scrolling once hero is shown
       document.body.style.overflow = 'auto';
       
-      // Delay showing other content until user starts scrolling
       const handleScroll = () => {
         if (window.scrollY > 100) {
           setShowContent(true);
@@ -40,21 +35,17 @@ const Index = () => {
       
       window.addEventListener('scroll', handleScroll);
       
-      // Fallback to show content after some time even if user doesn't scroll
       setTimeout(() => {
         setShowContent(true);
-      }, 5000); // Increased from 3000 to give more time to appreciate the hero section
+      }, 5000);
     }, 500);
   };
 
   useEffect(() => {
-    // Initially disable scrolling until animation completes
     document.body.style.overflow = 'hidden';
     
-    // Update page title
     document.title = "quotax - Digitale Steuerberatung";
     
-    // Progress bar for scrolling
     const updateProgressBar = () => {
       const scrollTop = window.scrollY;
       setScrollY(scrollTop);
@@ -68,7 +59,6 @@ const Index = () => {
       }
     };
     
-    // Fade in sections as they come into view
     const observeElements = () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -85,45 +75,38 @@ const Index = () => {
     
     window.addEventListener('scroll', updateProgressBar);
     
-    // Only initialize intersection observer after initial animation
     if (showContent) {
       observeElements();
     }
     
     return () => {
       window.removeEventListener('scroll', updateProgressBar);
-      document.body.style.overflow = 'auto'; // Restore scrolling on unmount
+      document.body.style.overflow = 'auto';
     };
   }, [showContent]);
 
   return (
     <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
-      {/* Initial Pixel Animation - only visible before animation complete */}
       {!initialAnimationComplete && (
         <PixelLogo onAnimationComplete={handleAnimationComplete} />
       )}
       
-      {/* Progress bar */}
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
       </div>
       
-      {/* Animated background circles - only visible after animation */}
       {initialAnimationComplete && <AnimatedCircles scrollY={scrollY} />}
       
-      {/* Navbar - only visible after animation and when content is ready to show */}
       <div className={`transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
         <Navbar />
       </div>
       
-      {/* Hero section - shown after initial animation and centered */}
       <div 
         className={`transition-all duration-1000 delay-200 ${showHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
         <Hero />
       </div>
       
-      {/* Content container - hidden until animation completes and user scrolls */}
       <div 
         ref={contentRef}
         className={`transition-opacity duration-1000 delay-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}
