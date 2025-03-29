@@ -39,7 +39,7 @@ const Hero = () => {
         ref={heroRef}
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
-        <div className="mb-12 lg:mb-16 text-center mt-12 lg:mt-16">
+        <div className="mb-24 lg:mb-32 text-center mt-12 lg:mt-16">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-4 tracking-tighter">
             <span className="font-outfit tracking-tighter">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
@@ -85,21 +85,26 @@ const Hero = () => {
         
         {isMobile ? (
           <div className={`flex flex-col items-center justify-center gap-4 mt-8 mb-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            <a 
-              href="#contact" 
-              className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
+            <Button 
+              asChild
+              className="w-72 py-4 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
             >
-              <span>Gespräch vereinbaren</span>
-              <ChevronRight className="ml-2" size={20} />
-            </a>
+              <a href="#contact">
+                <span>Gespräch vereinbaren</span>
+                <ChevronRight className="ml-2" size={20} />
+              </a>
+            </Button>
             
-            <a 
-              href="#services" 
-              className="w-72 py-4 text-foreground rounded-xl font-medium transition-all duration-300 hover:text-purple text-center mt-2 border border-foreground/10 bg-foreground/5 flex items-center justify-center"
+            <Button 
+              asChild
+              variant="outline"
+              className="w-72 py-4 h-auto text-foreground rounded-xl font-medium transition-all duration-300 hover:text-purple text-center mt-2 border border-foreground/10 bg-foreground/5 flex items-center justify-center"
             >
-              <span>Unsere Dienstleistungen</span>
-              <ChevronRight className="ml-2" size={20} />
-            </a>
+              <a href="#services">
+                <span>Unsere Dienstleistungen</span>
+                <ChevronRight className="ml-2" size={20} />
+              </a>
+            </Button>
           </div>
         ) : (
           <div className={`flex flex-row items-center justify-center gap-10 mt-8 mb-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
