@@ -7,14 +7,16 @@ interface ParallaxContainerProps {
   speed?: number;
   delay?: number;
   startVisible?: boolean;
+  className?: string;
 }
 
 const ParallaxContainer = ({ 
   children, 
   direction = 'up', 
-  speed = 0.08, // Reduced speed for more subtle effect
+  speed = 0.05, // Reduzierter Wert für subtileren Effekt
   delay = 0,
-  startVisible = false
+  startVisible = false,
+  className = ''
 }: ParallaxContainerProps) => {
   const [isVisible, setIsVisible] = useState(startVisible);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,28 +29,28 @@ const ParallaxContainer = ({
     const handleScroll = () => {
       if (!section) return;
       
-      // Check if element is in viewport
+      // Prüfe, ob Element im Viewport ist
       const rect = section.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
       
       if (isInView) {
         setIsVisible(true);
         
-        // Calculate subtle parallax effect
+        // Berechne subtilen Parallaxeffekt
         const scrollPosition = window.scrollY;
         const sectionTop = section.offsetTop;
         const scrollRelative = scrollPosition - sectionTop + window.innerHeight;
         
         if (scrollRelative > 0) {
-          setOffset(Math.min(scrollRelative * speed, 40)); // Cap the maximum movement for subtlety
+          setOffset(Math.min(scrollRelative * speed, 20)); // Begrenze die maximale Bewegung für Subtilität
         }
       }
     };
 
-    // Apply delay for staggered animations
+    // Delay für gestaffelte Animationen anwenden
     const timer = setTimeout(() => {
       window.addEventListener('scroll', handleScroll);
-      // Check initial visibility
+      // Prüfe initiale Sichtbarkeit
       handleScroll();
     }, delay);
 
@@ -58,42 +60,42 @@ const ParallaxContainer = ({
     };
   }, [speed, delay, startVisible]);
 
-  // Determine transform based on direction
+  // Transformationsberechnung basierend auf der Richtung
   const getTransform = () => {
     if (!isVisible) {
       switch (direction) {
         case 'left':
-          return 'translateX(-30px)'; // Reduced movement distance
+          return 'translateX(-20px)'; // Reduzierte Bewegungsdistanz
         case 'right':
-          return 'translateX(30px)';
+          return 'translateX(20px)';
         case 'up':
-          return 'translateY(30px)';
+          return 'translateY(20px)';
         case 'down':
-          return 'translateY(-30px)';
+          return 'translateY(-20px)';
         default:
-          return 'translateY(30px)';
+          return 'translateY(20px)';
       }
     }
     
-    // Apply subtle parallax effect when visible
+    // Subtilen Parallaxeffekt anwenden, wenn sichtbar
     switch (direction) {
       case 'left':
-        return `translateX(${-30 + offset}px)`;
+        return `translateX(${-20 + offset}px)`;
       case 'right':
-        return `translateX(${30 - offset}px)`;
+        return `translateX(${20 - offset}px)`;
       case 'up':
-        return `translateY(${30 - offset}px)`;
+        return `translateY(${20 - offset}px)`;
       case 'down':
-        return `translateY(${-30 + offset}px)`;
+        return `translateY(${-20 + offset}px)`;
       default:
-        return `translateY(${30 - offset}px)`;
+        return `translateY(${20 - offset}px)`;
     }
   };
 
   return (
     <div
       ref={containerRef}
-      className="w-full transition-all duration-700 ease-out"
+      className={`w-full transition-all duration-500 ease-out overflow-hidden ${className}`}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),

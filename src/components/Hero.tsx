@@ -9,18 +9,18 @@ const Hero = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
-    // Simple parallax effect on scroll
+    // Einfacher Parallax-Effekt beim Scrollen
     const handleScroll = () => {
       const scrolled = window.scrollY;
       if (heroRef.current && scrolled < 500) {
-        heroRef.current.style.opacity = `${1 - scrolled / 800}`; // Slower fade for smoother transition
-        heroRef.current.style.transform = `translateY(${scrolled * 0.05}px)`; // More subtle movement
+        heroRef.current.style.opacity = `${1 - scrolled / 1000}`; // Langsameres Ausblenden für weicheren Übergang
+        heroRef.current.style.transform = `translateY(${scrolled * 0.05}px)`; // Subtilere Bewegung
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     
-    // Initial fade in
+    // Initiales Einblenden
     setTimeout(() => {
       setIsVisible(true);
     }, 300);
@@ -29,8 +29,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-background py-32 md:py-0">
-      {/* Subtle background elements */}
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-background py-20 md:py-0">
+      {/* Subtile Hintergrundelemente */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-green/3 filter blur-[200px] z-0"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-purple/3 filter blur-[200px] z-0"></div>
       
@@ -38,7 +38,7 @@ const Hero = () => {
         ref={heroRef}
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
-        <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
+        <div className="mb-36 lg:mb-36 text-center mt-24 lg:mt-36">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-8 tracking-tighter">
             <span className="font-outfit tracking-tighter">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
@@ -49,13 +49,13 @@ const Hero = () => {
           </h2>
         </div>
         
-        <div className="mt-24 mb-24 text-center">
+        <div className="mt-20 mb-20 text-center">
           <div className="inline-block text-lg sm:text-xl md:text-2xl font-medium text-orange-600 py-2 px-6 sm:py-3 sm:px-10 rounded-full bg-orange-50/20 backdrop-blur-sm border border-orange-200/20">
             Eröffnung Sommer 2025
           </div>
         </div>
         
-        <div className={`my-24 sm:my-28 flex justify-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`my-16 sm:my-20 flex justify-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-row items-center gap-3 sm:gap-4">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#cf66cf]">
               digital
@@ -71,11 +71,11 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-20 mb-16 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`mt-16 mb-12 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="py-10 px-8 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
-            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/90 text-balance italic text-center">
+            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/95 text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
-              <footer className="text-right mt-6 text-foreground/80 not-italic text-sm md:text-base">
+              <footer className="text-right mt-6 text-foreground/90 not-italic text-sm md:text-base">
                 — Ralf Julius Baumgartner, Steuerberater und Gründer von quotax
               </footer>
             </blockquote>
@@ -83,7 +83,7 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mt-16 mb-32 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-4 mt-12 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
               className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10"
@@ -99,7 +99,7 @@ const Hero = () => {
             </a>
           </div>
         ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mt-16 mb-32 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-row items-center justify-center gap-10 mt-12 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
               className="px-10 py-5 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2 group border border-white/10"
@@ -119,8 +119,8 @@ const Hero = () => {
         )}
       </div>
       
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-10">
-        <a href="#about" className="text-foreground/80 hover:text-purple transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 animate-bounce">
+        <a href="#about" className="text-foreground/90 hover:text-purple transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
           <ArrowDown size={28} />
         </a>
       </div>

@@ -16,7 +16,7 @@ const Index = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   
   useEffect(() => {
-    // Enable scrolling immediately
+    // Scrolling sofort aktivieren
     document.body.style.overflow = 'auto';
     
     document.title = "quotax - Digitale Steuerberatung";
@@ -25,14 +25,14 @@ const Index = () => {
       const scrollTop = window.scrollY;
       setScrollY(scrollTop);
       
-      // Show navbar after scrolling down
+      // Navbar nach dem Scrollen anzeigen
       if (scrollTop > 50 && !showNavbar) {
         setShowNavbar(true);
       } else if (scrollTop <= 50 && showNavbar) {
         setShowNavbar(false);
       }
       
-      // Update progress bar
+      // Fortschrittsbalken aktualisieren
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
       const scrollPercentage = (scrollTop / (docHeight - windowHeight)) * 100;
@@ -51,7 +51,7 @@ const Index = () => {
   }, [showNavbar]);
 
   return (
-    <div className="flex flex-col min-h-screen text-foreground bg-background">
+    <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
       </div>
@@ -64,23 +64,26 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
-          <ParallaxContainer direction="up" delay={0} speed={0.05}>
-            <AboutUs />
-          </ParallaxContainer>
+          {/* Abstand zum Hero reduziert durch negative Margin und überlappenden Inhalt */}
+          <div className="-mt-12 md:-mt-24">
+            <ParallaxContainer direction="up" delay={0} speed={0.03} startVisible={true}>
+              <AboutUs />
+            </ParallaxContainer>
+          </div>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.05}>
+          <ParallaxContainer direction="up" delay={0} speed={0.04} startVisible={true}>
             <Services />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.05}>
+          <ParallaxContainer direction="up" delay={0} speed={0.04} startVisible={true}>
             <Benefits />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.05}>
+          <ParallaxContainer direction="up" delay={0} speed={0.03} startVisible={true}>
             <Team />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.05}>
+          <ParallaxContainer direction="up" delay={0} speed={0.03} startVisible={true}>
             <Contact />
           </ParallaxContainer>
         </div>

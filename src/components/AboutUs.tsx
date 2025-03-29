@@ -8,7 +8,7 @@ const AboutUs = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
-    // Intersection Observer for animations
+    // Intersection Observer für Animationen
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -55,8 +55,8 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about" className="quotax-section bg-background text-foreground relative pt-10 pb-16 sm:py-20">
-      {/* Background accent */}
+    <section id="about" className="quotax-section bg-background text-foreground relative pt-16 pb-16 sm:py-20">
+      {/* Hintergrundakzent */}
       <div className="absolute left-0 top-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute right-0 bottom-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
       
@@ -68,7 +68,7 @@ const AboutUs = () => {
           <h2 className="section-title animate-on-scroll delay-100 text-foreground text-3xl sm:text-4xl lg:text-5xl">
             Digitale Steuerberatung mit <span className="modern-gradient-purple">Herz</span> und <span className="text-green-dark">Verstand</span>
           </h2>
-          <p className="section-subtitle animate-on-scroll delay-200 text-foreground/70 px-4 sm:px-0">
+          <p className="section-subtitle animate-on-scroll delay-200 text-foreground/80 px-4 sm:px-0">
             quotax ist eine vollständig digitale Steuerberatungsgesellschaft in Weinheim, die sich auf kleine und mittlere Unternehmen, Gründer und Unternehmer spezialisiert hat. Wir vereinen langjährige Expertise mit innovativen digitalen Prozessen.
           </p>
         </div>
@@ -87,7 +87,7 @@ const AboutUs = () => {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-display font-semibold mb-2 text-foreground">{value.title}</h3>
-                  <p className="text-sm sm:text-base text-foreground/70">{value.description}</p>
+                  <p className="text-sm sm:text-base text-foreground/80">{value.description}</p>
                 </div>
               </div>
             </div>
@@ -104,10 +104,10 @@ const AboutUs = () => {
                 Warum <span className="modern-gradient-purple">quo</span><span className="text-green-dark">tax</span>?
               </h3>
               <div className="divider ml-0 bg-purple/30"></div>
-              <p className="text-sm sm:text-base text-foreground/70 mb-4 sm:mb-6">
+              <p className="text-sm sm:text-base text-foreground/80 mb-4 sm:mb-6">
                 Als moderne Steuerberatungsgesellschaft ist uns bewusst, dass die Digitalisierung der Schlüssel zu effizienter und erfolgreicher Zusammenarbeit ist. Wir kombinieren unsere jahrzehntelange Erfahrung mit modernsten digitalen Lösungen, um Ihnen einen reibungslosen und transparenten Service zu bieten.
               </p>
-              <p className="text-sm sm:text-base text-foreground/70">
+              <p className="text-sm sm:text-base text-foreground/80">
                 Bei quotax steht nicht nur Ihre steuerliche Optimierung im Fokus, sondern auch Ihre langfristige unternehmerische Entwicklung. Wir verstehen uns als strategischer Partner für Ihren nachhaltigen Erfolg.
               </p>
             </div>
@@ -115,19 +115,19 @@ const AboutUs = () => {
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="bg-card p-4 sm:p-6 rounded-xl text-center border border-border">
                   <span className="text-3xl sm:text-4xl font-bold text-purple">20+</span>
-                  <p className="text-xs sm:text-sm text-foreground/70 mt-2">Jahre Berufserfahrung</p>
+                  <p className="text-xs sm:text-sm text-foreground/80 mt-2">Jahre Berufserfahrung</p>
                 </div>
                 <div className="bg-card p-4 sm:p-6 rounded-xl text-center border border-border">
                   <span className="text-3xl sm:text-4xl font-bold text-green-dark">100%</span>
-                  <p className="text-xs sm:text-sm text-foreground/70 mt-2">Digitale Prozesse</p>
+                  <p className="text-xs sm:text-sm text-foreground/80 mt-2">Digitale Prozesse</p>
                 </div>
                 <div className="bg-card p-4 sm:p-6 rounded-xl text-center border border-border">
                   <span className="text-3xl sm:text-4xl font-bold text-green-dark">24/7</span>
-                  <p className="text-xs sm:text-sm text-foreground/70 mt-2">Datenzugriff</p>
+                  <p className="text-xs sm:text-sm text-foreground/80 mt-2">Datenzugriff</p>
                 </div>
                 <div className="bg-card p-4 sm:p-6 rounded-xl text-center border border-border">
                   <span className="text-3xl sm:text-4xl font-bold text-purple">∞</span>
-                  <p className="text-xs sm:text-sm text-foreground/70 mt-2">Persönlicher Service</p>
+                  <p className="text-xs sm:text-sm text-foreground/80 mt-2">Persönlicher Service</p>
                 </div>
               </div>
             </div>
