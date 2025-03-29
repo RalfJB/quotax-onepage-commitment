@@ -13,8 +13,7 @@ import ParallaxContainer from '@/components/ParallaxContainer';
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [showContent, setShowContent] = useState(true);
-  const [showHero, setShowHero] = useState(true);
+  const [showNavbar, setShowNavbar] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -26,6 +25,13 @@ const Index = () => {
     const updateProgressBar = () => {
       const scrollTop = window.scrollY;
       setScrollY(scrollTop);
+      
+      // Show navbar after scrolling down
+      if (scrollTop > 50 && !showNavbar) {
+        setShowNavbar(true);
+      } else if (scrollTop <= 50 && showNavbar) {
+        setShowNavbar(false);
+      }
       
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
@@ -57,7 +63,7 @@ const Index = () => {
       window.removeEventListener('scroll', updateProgressBar);
       document.body.style.overflow = 'auto';
     };
-  }, []);
+  }, [showNavbar]);
 
   return (
     <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
@@ -67,11 +73,11 @@ const Index = () => {
       
       <AnimatedCircles scrollY={scrollY} />
       
-      <div className="opacity-100">
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${showNavbar ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
         <Navbar />
       </div>
       
-      <div className="opacity-100 translate-y-0">
+      <div className="opacity-100 translate-y-0 mt-0">
         <Hero />
       </div>
       

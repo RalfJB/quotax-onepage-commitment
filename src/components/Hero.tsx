@@ -36,6 +36,7 @@ const Hero = () => {
         ref={heroRef}
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
+        {/* Central logo section */}
         <div className="mb-24 lg:mb-32 text-center">
           <h1 className="font-display text-7xl sm:text-8xl md:text-9xl font-bold mb-6 tracking-tighter">
             <span className="bg-gradient-to-r from-purple via-purple-light to-purple bg-clip-text text-transparent">quo</span>
