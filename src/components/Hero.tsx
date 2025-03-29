@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -35,7 +36,7 @@ const Hero = () => {
       >
         <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-8 tracking-tight">
-            <span className="font-montserrat">
+            <span className="font-outfit tracking-tighter">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
             </span>
           </h1>

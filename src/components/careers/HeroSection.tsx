@@ -16,7 +16,7 @@ const HeroSection = ({ addToRefs }: HeroSectionProps) => {
           <div className="bg-purple/10 text-[#cf66cf] px-4 py-2 rounded-full inline-block mb-6 animate-on-scroll text-sm font-medium">
             Karriere
           </div>
-          <h2 className="text-4xl md:text-5xl font-montserrat font-normal mb-6 animate-on-scroll delay-100 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-outfit tracking-tighter font-normal mb-6 animate-on-scroll delay-100 text-foreground">
             Werden Sie Teil unseres <span className="text-[#cf66cf]">innovativen</span> Teams
           </h2>
           <p className="text-lg md:text-xl animate-on-scroll delay-200 text-muted-foreground max-w-3xl mx-auto">
