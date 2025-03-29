@@ -6,15 +6,17 @@ interface ParallaxContainerProps {
   direction?: 'left' | 'right' | 'up' | 'down';
   speed?: number;
   delay?: number;
+  startVisible?: boolean;
 }
 
 const ParallaxContainer = ({ 
   children, 
   direction = 'left', 
   speed = 0.2,
-  delay = 0
+  delay = 0,
+  startVisible = false
 }: ParallaxContainerProps) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(startVisible);
   const containerRef = useRef<HTMLDivElement>(null);
   const [translateValue, setTranslateValue] = useState(0);
 
@@ -25,7 +27,8 @@ const ParallaxContainer = ({
     const handleScroll = () => {
       if (!section) return;
       const rect = section.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+      // Make element visible when it's closer to the viewport
+      const isVisible = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
       
       if (isVisible) {
         setIsVisible(true);
@@ -53,43 +56,43 @@ const ParallaxContainer = ({
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [speed, delay]);
+  }, [speed, delay, startVisible]);
 
   // Determine transform based on direction
   const getTransform = () => {
     if (!isVisible) {
       switch (direction) {
         case 'left':
-          return 'translateX(-100px)';
+          return 'translateX(-120px)';
         case 'right':
-          return 'translateX(100px)';
+          return 'translateX(120px)';
         case 'up':
-          return 'translateY(100px)';
+          return 'translateY(120px)';
         case 'down':
-          return 'translateY(-100px)';
+          return 'translateY(-120px)';
         default:
-          return 'translateX(-100px)';
+          return 'translateX(-120px)';
       }
     }
     
     switch (direction) {
       case 'left':
-        return `translateX(${-100 + translateValue}px)`;
+        return `translateX(${-120 + translateValue}px)`;
       case 'right':
-        return `translateX(${100 - translateValue}px)`;
+        return `translateX(${120 - translateValue}px)`;
       case 'up':
-        return `translateY(${100 - translateValue}px)`;
+        return `translateY(${120 - translateValue}px)`;
       case 'down':
-        return `translateY(${-100 + translateValue}px)`;
+        return `translateY(${-120 + translateValue}px)`;
       default:
-        return `translateX(${-100 + translateValue}px)`;
+        return `translateX(${-120 + translateValue}px)`;
     }
   };
 
   return (
     <div
       ref={containerRef}
-      className="w-full transition-all duration-1000 ease-out"
+      className="w-full transition-all duration-1200 ease-out"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),

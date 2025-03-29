@@ -16,6 +16,7 @@ const Index = () => {
   const [scrollY, setScrollY] = useState(0);
   const [showContent, setShowContent] = useState(false);
   const [initialAnimationComplete, setInitialAnimationComplete] = useState(false);
+  const [showHero, setShowHero] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   
   // Handle animation completion
@@ -24,10 +25,15 @@ const Index = () => {
     
     // Add slight delay before showing content for smoother transition
     setTimeout(() => {
-      setShowContent(true);
+      setShowHero(true);
       
-      // Enable scrolling once content is shown
+      // Enable scrolling once hero is shown
       document.body.style.overflow = 'auto';
+      
+      // Delay showing other content until user starts scrolling
+      setTimeout(() => {
+        setShowContent(true);
+      }, 500);
     }, 300);
   };
 
@@ -82,9 +88,11 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
-      {/* Initial Pixel Animation */}
+      {/* Initial Pixel Animation - only visible before animation complete */}
       {!initialAnimationComplete && (
-        <PixelLogo onAnimationComplete={handleAnimationComplete} />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
+          <PixelLogo onAnimationComplete={handleAnimationComplete} />
+        </div>
       )}
       
       {/* Progress bar */}
@@ -95,32 +103,42 @@ const Index = () => {
       {/* Animated background circles - only visible after animation */}
       {initialAnimationComplete && <AnimatedCircles scrollY={scrollY} />}
       
-      {/* Content container - hidden until animation completes */}
+      {/* Navbar - only visible after animation and when content is ready to show */}
+      <div className={`transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+        <Navbar />
+      </div>
+      
+      {/* Hero section - shown after initial animation */}
+      <div 
+        className={`transition-all duration-1000 delay-200 ${showHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+      >
+        <Hero />
+      </div>
+      
+      {/* Content container - hidden until animation completes and user scrolls */}
       <div 
         ref={contentRef}
-        className={`transition-opacity duration-1000 ${showContent ? 'opacity-100' : 'opacity-0'}`}
+        className={`transition-opacity duration-1000 delay-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}
       >
-        <Navbar />
         <main className="flex-grow">
-          <Hero />
-          <div className="relative z-10 bg-background/95 backdrop-blur-lg">
-            <ParallaxContainer>
+          <div className="relative z-10 bg-background/95 backdrop-blur-lg mt-12">
+            <ParallaxContainer direction="left" delay={200}>
               <AboutUs />
             </ParallaxContainer>
             
-            <ParallaxContainer>
+            <ParallaxContainer direction="right" delay={250}>
               <Services />
             </ParallaxContainer>
             
-            <ParallaxContainer>
+            <ParallaxContainer direction="left" delay={300}>
               <Benefits />
             </ParallaxContainer>
             
-            <ParallaxContainer>
+            <ParallaxContainer direction="right" delay={350}>
               <Team />
             </ParallaxContainer>
             
-            <ParallaxContainer>
+            <ParallaxContainer direction="up" delay={400}>
               <Contact />
             </ParallaxContainer>
           </div>
