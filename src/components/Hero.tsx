@@ -77,18 +77,6 @@ const Hero = () => {
             </span>
           </div>
         </div>
-        
-        {/* Central button replacing the previous two buttons */}
-        <div className={`flex items-center justify-center mb-10 mt-10 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <Button 
-            asChild
-            className="px-10 py-4 h-auto bg-purple text-white rounded-full font-medium transition-all duration-300 hover:bg-green hover:text-white hover:shadow-lg hover:-translate-y-1 flex items-center justify-center"
-          >
-            <a href="#services">
-              Schon jetzt mehr erfahren
-            </a>
-          </Button>
-        </div>
       </div>
       
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 animate-bounce">

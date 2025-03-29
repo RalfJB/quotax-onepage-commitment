@@ -72,14 +72,14 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Curved arrow - Using SVG for precise curved line */}
+      {/* Curved arrow - Using SVG for precise curved line pointing to "Zeit" */}
       <div 
         ref={arrowRef}
         className={`absolute inset-0 transition-all duration-1000 ease-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <svg width="100%" height="100%" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path 
-            d="M500,80 Q350,250 150,300" 
+            d="M500,80 Q350,200 150,150" 
             stroke="#cf66cf"
             strokeWidth="4"
             strokeDasharray="6,4"
@@ -92,7 +92,7 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
           />
           {/* Arrow head with improved shape */}
           <path 
-            d="M170,310 L150,300 L170,290" 
+            d="M170,160 L150,150 L170,140" 
             stroke="#cf66cf"
             strokeWidth="4" 
             style={{
@@ -109,12 +109,13 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         style={{ maxWidth: '300px' }}
       >
         <p className="text-lg md:text-xl lg:text-2xl font-serif leading-tight text-foreground mb-6">
-          Zeit <br />
+          <span className="font-medium">Zeit</span> <br />
           für mehr Miteinander, <br />
           für mehr Verständnis, <br />
           für bessere Beratung.
         </p>
         
+        {/* "Schon jetzt mehr erfahren" button moved to here from Hero component */}
         <a 
           href="#services" 
           className="bg-purple text-white text-sm font-medium px-6 py-2 rounded-full inline-block hover:bg-green hover:text-white transition-colors duration-300"
@@ -122,7 +123,6 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
           Schon jetzt mehr erfahren
         </a>
         
-        {/* Moved the website construction notice to the left side under "Zeit für mehr Miteinander..." */}
         <div className="mt-6 text-lg md:text-xl lg:text-2xl font-serif text-foreground/70">
           <p>Unsere Website befindet sich noch im Aufbau.</p>
           <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
