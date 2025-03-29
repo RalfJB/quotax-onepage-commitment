@@ -24,7 +24,8 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameRef = useRef<number | null>(null);
   const completionTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const matrixCharactersRef = useRef<string[]>('01'.split(''));
+  const binaryRainRef = useRef<{x: number, y: number, value: string, speed: number, opacity: number}[]>([]);
+  const logoSizeRef = useRef({ width: 0, height: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -40,6 +41,22 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
       generateParticles();
     };
     
+    // Generate binary rain drops
+    const generateBinaryRain = () => {
+      const numDrops = Math.floor(canvas.width / 20); // One drop every ~20px
+      binaryRainRef.current = [];
+      
+      for (let i = 0; i < numDrops; i++) {
+        binaryRainRef.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height * 2 - canvas.height,
+          value: Math.random() > 0.5 ? '1' : '0',
+          speed: 1 + Math.random() * 3,
+          opacity: 0.1 + Math.random() * 0.5
+        });
+      }
+    };
+    
     // Create logo text
     const generateParticles = () => {
       if (!ctx) return;
@@ -47,20 +64,29 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
       // Clear existing particles
       particlesRef.current = [];
       
-      // Set text properties - adjust for perfect center positioning
-      const fontSize = Math.min(canvas.width * 0.15, 180); // Responsive font size
+      // Calculate logo size responsive to screen
+      const fontSize = Math.min(canvas.width * 0.15, 180);
+      logoSizeRef.current = {
+        width: fontSize * 5, // Approximate width of "quotax"
+        height: fontSize * 1.2
+      };
+      
+      // Set text properties for perfect center positioning
       ctx.font = `bold ${fontSize}px 'Plus Jakarta Sans', sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
-      // Draw logo text
-      const quoText = 'quo';
-      const taxText = 'tax';
-      ctx.fillStyle = '#9b87f5'; // Purple color
-      ctx.fillText(quoText, canvas.width / 2 - fontSize * 0.65, canvas.height / 2);
+      // Draw logo text with colored parts
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
       
+      // Draw "quo" in purple
+      ctx.fillStyle = '#9b87f5'; // Purple color
+      ctx.fillText('quo', centerX - fontSize * 0.65, centerY);
+      
+      // Draw "tax" in green
       ctx.fillStyle = '#687c58'; // Green color
-      ctx.fillText(taxText, canvas.width / 2 + fontSize * 0.65, canvas.height / 2);
+      ctx.fillText('tax', centerX + fontSize * 0.65, centerY);
       
       // Get image data for pixel manipulation
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -86,9 +112,11 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
             const b = data[index + 2];
             const color = `rgba(${r}, ${g}, ${b}, ${alpha / 255})`;
             
-            // Matrix-style - particles start from random positions at the top
-            const randomX = Math.random() * canvas.width;
-            const randomY = -Math.random() * canvas.height;
+            // All particles start from random positions at the top
+            const randomY = -Math.random() * canvas.height * 2;
+            
+            // Make particles fall vertically toward their final position
+            const randomX = x;
             
             // Add random delay for cascading Matrix effect
             const delay = Math.random() * 1500;
@@ -110,14 +138,48 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
       }
       
       particlesRef.current = particles;
+      generateBinaryRain(); // Initialize binary rain after creating particles
     };
     
     // Animation loop
     const animate = () => {
       if (!ctx || !canvas) return;
       
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Slight trail effect
+      // Clear canvas with semi-transparent black for trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw binary rain (digital rain effect)
+      binaryRainRef.current.forEach((drop, i) => {
+        // Vary color between green and purple with slight randomization
+        if (Math.random() > 0.95) {
+          ctx.fillStyle = Math.random() > 0.7 
+            ? `rgba(155, 135, 245, ${drop.opacity})` // Purple
+            : `rgba(104, 124, 88, ${drop.opacity})`; // Green
+        } else {
+          ctx.fillStyle = `rgba(104, 124, 88, ${drop.opacity})`;
+        }
+        
+        // Draw the binary value
+        ctx.font = `${14 + Math.random() * 6}px "JetBrains Mono", monospace`;
+        ctx.fillText(drop.value, drop.x, drop.y);
+        
+        // Move the drop down
+        drop.y += drop.speed;
+        
+        // Reset if it goes off screen
+        if (drop.y > canvas.height) {
+          drop.y = -20;
+          drop.x = Math.random() * canvas.width;
+          drop.value = Math.random() > 0.5 ? '1' : '0';
+          drop.speed = 1 + Math.random() * 3;
+        }
+        
+        // Randomly change value sometimes
+        if (Math.random() > 0.95) {
+          drop.value = Math.random() > 0.5 ? '1' : '0';
+        }
+      });
       
       // Animation settings
       const easing = 0.08;
@@ -125,22 +187,7 @@ const PixelLogo = ({ onAnimationComplete }: PixelLogoProps) => {
       let completedParticles = 0;
       const currentTime = performance.now();
       
-      // Draw some Matrix-like random characters in the background
-      ctx.font = '14px "JetBrains Mono", monospace';
-      ctx.fillStyle = 'rgba(104, 124, 88, 0.3)'; // Light green for matrix effect
-      
-      for (let i = 0; i < 50; i++) {
-        const x = Math.random() * canvas.width;
-        const y = (Math.random() * canvas.height - 800) + (currentTime * 0.05) % (canvas.height + 800);
-        const char = matrixCharactersRef.current[Math.floor(Math.random() * matrixCharactersRef.current.length)];
-        if (Math.random() > 0.98) { // Occasionally draw brighter characters
-          ctx.fillStyle = 'rgba(155, 135, 245, 0.9)'; // Bright purple
-        } else {
-          ctx.fillStyle = 'rgba(104, 124, 88, 0.3)'; // Light green
-        }
-        ctx.fillText(char, x, y);
-      }
-      
+      // Draw and update logo particles
       particlesRef.current.forEach(particle => {
         // Only start animating after delay
         if (!particle.active && currentTime > particle.delay) {

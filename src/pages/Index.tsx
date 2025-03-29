@@ -116,7 +116,7 @@ const Index = () => {
         <Navbar />
       </div>
       
-      {/* Hero section - shown after initial animation */}
+      {/* Hero section - shown after initial animation and centered */}
       <div 
         className={`transition-all duration-1000 delay-200 ${showHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       >
