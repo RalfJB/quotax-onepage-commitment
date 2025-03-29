@@ -12,13 +12,13 @@ interface ParallaxContainerProps {
 const ParallaxContainer = ({ 
   children, 
   direction = 'left', 
-  speed = 0.2,
+  speed = 0.15, // Reduced speed for subtlety
   delay = 0,
   startVisible = false
 }: ParallaxContainerProps) => {
   const [isVisible, setIsVisible] = useState(startVisible);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [translateValue, setTranslateValue] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     const section = containerRef.current;
@@ -26,29 +26,29 @@ const ParallaxContainer = ({
 
     const handleScroll = () => {
       if (!section) return;
-      const rect = section.getBoundingClientRect();
-      // Make element visible when it's closer to the viewport
-      const isVisible = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
       
-      if (isVisible) {
+      // Check if element is in viewport
+      const rect = section.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+      
+      if (isInView) {
         setIsVisible(true);
         
-        // Calculate parallax effect
+        // Calculate subtle parallax effect
         const scrollPosition = window.scrollY;
         const sectionTop = section.offsetTop;
         const scrollRelative = scrollPosition - sectionTop + window.innerHeight;
         
         if (scrollRelative > 0) {
-          const parallaxValue = Math.min(scrollRelative * speed, 100);
-          setTranslateValue(parallaxValue);
+          setOffset(Math.min(scrollRelative * speed, 60)); // Cap the maximum movement
         }
       }
     };
 
-    // Apply delay to initial visibility for staggered animations
+    // Apply delay for staggered animations
     const timer = setTimeout(() => {
       window.addEventListener('scroll', handleScroll);
-      // Trigger once to check initial visibility
+      // Check initial visibility
       handleScroll();
     }, delay);
 
@@ -63,36 +63,37 @@ const ParallaxContainer = ({
     if (!isVisible) {
       switch (direction) {
         case 'left':
-          return 'translateX(-120px)';
+          return 'translateX(-60px)';
         case 'right':
-          return 'translateX(120px)';
+          return 'translateX(60px)';
         case 'up':
-          return 'translateY(120px)';
+          return 'translateY(60px)';
         case 'down':
-          return 'translateY(-120px)';
+          return 'translateY(-60px)';
         default:
-          return 'translateX(-120px)';
+          return 'translateX(-60px)';
       }
     }
     
+    // Apply subtle parallax effect when visible
     switch (direction) {
       case 'left':
-        return `translateX(${-120 + translateValue}px)`;
+        return `translateX(${-60 + offset}px)`;
       case 'right':
-        return `translateX(${120 - translateValue}px)`;
+        return `translateX(${60 - offset}px)`;
       case 'up':
-        return `translateY(${120 - translateValue}px)`;
+        return `translateY(${60 - offset}px)`;
       case 'down':
-        return `translateY(${-120 + translateValue}px)`;
+        return `translateY(${-60 + offset}px)`;
       default:
-        return `translateX(${-120 + translateValue}px)`;
+        return `translateX(${-60 + offset}px)`;
     }
   };
 
   return (
     <div
       ref={containerRef}
-      className="w-full transition-all duration-1200 ease-out"
+      className="w-full transition-all duration-1000 ease-out"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),

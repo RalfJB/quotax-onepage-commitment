@@ -9,30 +9,34 @@ const Hero = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
+    // Simple parallax effect on scroll
     const handleScroll = () => {
       const scrolled = window.scrollY;
       if (heroRef.current && scrolled < 500) {
         heroRef.current.style.opacity = `${1 - scrolled / 700}`;
+        heroRef.current.style.transform = `translateY(${scrolled * 0.1}px)`;
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     
+    // Initial fade in
     setTimeout(() => {
       setIsVisible(true);
-    }, 400);
+    }, 300);
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-background py-32 md:py-0">
-      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-green/10 filter blur-[180px] animate-pulse-slow z-0"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-purple/10 filter blur-[180px] animate-pulse-slow z-0" style={{ animationDelay: "2s" }}></div>
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-background py-32 md:py-0">
+      {/* Subtle background elements */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-green/5 filter blur-[180px] z-0"></div>
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-purple/5 filter blur-[180px] z-0"></div>
       
       <div 
         ref={heroRef}
-        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
+        className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
         <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-8 tracking-tight">
@@ -51,7 +55,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`my-24 sm:my-28 flex justify-center transition-all duration-1500 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`my-24 sm:my-28 flex justify-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="flex flex-row items-center gap-3 sm:gap-4">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#cf66cf]">
               digital
@@ -67,7 +71,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`mt-20 mb-16 transition-all duration-1500 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`mt-20 mb-16 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="py-10 px-8 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
             <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
@@ -79,7 +83,7 @@ const Hero = () => {
         </div>
         
         {isMobile ? (
-          <div className={`flex flex-col items-center justify-center gap-4 mt-16 transition-all duration-1500 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-col items-center justify-center gap-4 mt-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
               className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10"
@@ -95,7 +99,7 @@ const Hero = () => {
             </a>
           </div>
         ) : (
-          <div className={`flex flex-row items-center justify-center gap-10 mt-16 transition-all duration-1500 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className={`flex flex-row items-center justify-center gap-10 mt-16 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
               className="px-10 py-5 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2 group border border-white/10"
@@ -115,7 +119,7 @@ const Hero = () => {
         )}
       </div>
       
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10">
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-10">
         <a href="#about" className="text-muted-foreground hover:text-purple transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
           <ArrowDown size={28} />
         </a>
