@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -73,9 +74,9 @@ const Hero = () => {
         
         <div className={`mt-16 mb-12 transition-all duration-700 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="py-10 px-8 sm:px-12 max-w-4xl mx-auto bg-foreground/5 backdrop-blur-sm rounded-2xl border border-foreground/10">
-            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground/95 text-balance italic text-center">
+            <blockquote className="text-lg sm:text-xl md:text-2xl text-foreground text-balance italic text-center">
               "Unsere Vision: Steuerberatung, die durch menschliche Verbundenheit berührt, durch persönliches Engagement beeindruckt und durch digitale Lösungen Ihren Erfolg sichert."
-              <footer className="text-right mt-6 text-foreground/90 not-italic text-sm md:text-base">
+              <footer className="text-right mt-6 text-foreground not-italic text-sm md:text-base">
                 — Ralf Julius Baumgartner, Steuerberater und Gründer von quotax
               </footer>
             </blockquote>
@@ -86,41 +87,49 @@ const Hero = () => {
           <div className={`flex flex-col items-center justify-center gap-4 mt-12 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <a 
               href="#contact" 
-              className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10"
+              className="w-72 py-4 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-white/10 flex items-center justify-center"
             >
-              Gespräch vereinbaren
+              <span>Gespräch vereinbaren</span>
+              <ChevronRight className="ml-2" size={20} />
             </a>
             
             <a 
               href="#services" 
-              className="w-72 py-4 text-foreground/90 rounded-xl font-medium transition-all duration-300 hover:text-purple text-center mt-2 border border-foreground/10 bg-foreground/5"
+              className="w-72 py-4 text-foreground rounded-xl font-medium transition-all duration-300 hover:text-purple text-center mt-2 border border-foreground/10 bg-foreground/5 flex items-center justify-center"
             >
-              Unsere Dienstleistungen
+              <span>Unsere Dienstleistungen</span>
+              <ChevronRight className="ml-2" size={20} />
             </a>
           </div>
         ) : (
           <div className={`flex flex-row items-center justify-center gap-10 mt-12 mb-24 transition-all duration-700 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            <a 
-              href="#contact" 
-              className="px-10 py-5 bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 w-full sm:w-auto flex items-center justify-center gap-2 group border border-white/10"
+            <Button 
+              asChild
+              variant="default"
+              className="px-10 py-7 h-auto bg-gradient-to-r from-purple to-purple-dark text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple/20 hover:-translate-y-1 flex items-center justify-center gap-2 group border border-white/10"
             >
-              Gespräch vereinbaren
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+              <a href="#contact">
+                Gespräch vereinbaren
+                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
             
-            <a 
-              href="#services" 
-              className="px-10 py-5 border border-foreground/20 bg-foreground/5 backdrop-blur-sm text-foreground/90 rounded-xl font-medium transition-all duration-300 hover:shadow-md hover:border-purple/50 hover:bg-purple/5 w-full sm:w-auto flex items-center justify-center gap-2 group"
+            <Button 
+              asChild
+              variant="outline"
+              className="px-10 py-7 h-auto border border-foreground/20 bg-foreground/5 backdrop-blur-sm text-foreground rounded-xl font-medium transition-all duration-300 hover:shadow-md hover:border-purple/50 hover:bg-purple/5 flex items-center justify-center gap-2 group"
             >
-              Unsere Dienstleistungen
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+              <a href="#services">
+                Unsere Dienstleistungen
+                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
           </div>
         )}
       </div>
       
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 animate-bounce">
-        <a href="#about" className="text-foreground/90 hover:text-purple transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
+        <a href="#about" className="text-foreground hover:text-purple transition-colors duration-300 bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10">
           <ArrowDown size={28} />
         </a>
       </div>

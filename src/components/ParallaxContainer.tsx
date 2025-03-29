@@ -13,7 +13,7 @@ interface ParallaxContainerProps {
 const ParallaxContainer = ({ 
   children, 
   direction = 'up', 
-  speed = 0.05, // Reduzierter Wert für subtileren Effekt
+  speed = 0.03, 
   delay = 0,
   startVisible = false,
   className = ''
@@ -42,7 +42,7 @@ const ParallaxContainer = ({
         const scrollRelative = scrollPosition - sectionTop + window.innerHeight;
         
         if (scrollRelative > 0) {
-          setOffset(Math.min(scrollRelative * speed, 20)); // Begrenze die maximale Bewegung für Subtilität
+          setOffset(scrollRelative * speed);
         }
       }
     };
@@ -65,7 +65,7 @@ const ParallaxContainer = ({
     if (!isVisible) {
       switch (direction) {
         case 'left':
-          return 'translateX(-20px)'; // Reduzierte Bewegungsdistanz
+          return 'translateX(-20px)';
         case 'right':
           return 'translateX(20px)';
         case 'up':
@@ -80,22 +80,22 @@ const ParallaxContainer = ({
     // Subtilen Parallaxeffekt anwenden, wenn sichtbar
     switch (direction) {
       case 'left':
-        return `translateX(${-20 + offset}px)`;
+        return `translateX(${-offset * 0.5}px)`;
       case 'right':
-        return `translateX(${20 - offset}px)`;
+        return `translateX(${offset * 0.5}px)`;
       case 'up':
-        return `translateY(${20 - offset}px)`;
+        return `translateY(${-offset * 0.5}px)`;
       case 'down':
-        return `translateY(${-20 + offset}px)`;
+        return `translateY(${offset * 0.5}px)`;
       default:
-        return `translateY(${20 - offset}px)`;
+        return `translateY(${-offset * 0.5}px)`;
     }
   };
 
   return (
     <div
       ref={containerRef}
-      className={`w-full transition-all duration-500 ease-out overflow-hidden ${className}`}
+      className={`w-full transition-all duration-500 ease-out ${className}`}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),

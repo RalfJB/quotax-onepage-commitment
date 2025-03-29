@@ -9,7 +9,6 @@ import Team from '@/components/Team';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ParallaxContainer from '@/components/ParallaxContainer';
-import DigitalBackground from '@/components/DigitalBackground';
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -51,7 +50,7 @@ const Index = () => {
   }, [showNavbar]);
 
   return (
-    <div className="flex flex-col min-h-screen text-foreground bg-background overflow-hidden">
+    <div className="flex flex-col min-h-screen text-foreground bg-background">
       <div className="progress-container">
         <div id="progressBar" className="progress-bar"></div>
       </div>
@@ -64,26 +63,26 @@ const Index = () => {
       
       <main className="flex-grow">
         <div className="relative z-10 bg-background">
-          {/* Abstand zum Hero reduziert durch negative Margin und überlappenden Inhalt */}
-          <div className="-mt-12 md:-mt-24">
-            <ParallaxContainer direction="up" delay={0} speed={0.03} startVisible={true}>
+          {/* Abstand zum Hero reduziert für nahtlosen Übergang */}
+          <div className="-mt-24 md:-mt-40">
+            <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
               <AboutUs />
             </ParallaxContainer>
           </div>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.04} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
             <Services />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.04} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
             <Benefits />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.03} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
             <Team />
           </ParallaxContainer>
             
-          <ParallaxContainer direction="up" delay={0} speed={0.03} startVisible={true}>
+          <ParallaxContainer direction="up" speed={0.02} startVisible={true}>
             <Contact />
           </ParallaxContainer>
         </div>
