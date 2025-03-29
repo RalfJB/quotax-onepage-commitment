@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -35,7 +34,7 @@ const Hero = () => {
         className={`z-10 w-full max-w-5xl px-6 md:px-8 transition-all duration-1500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} flex flex-col justify-center items-center min-h-screen`}
       >
         <div className="mb-36 lg:mb-48 text-center mt-36 lg:mt-48">
-          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black mb-8 tracking-tight">
+          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal mb-8 tracking-tight">
             <span className="font-montserrat">
               <span className="text-[#cf66cf]">quo</span><span className="text-[#687c58]">tax</span>
             </span>
