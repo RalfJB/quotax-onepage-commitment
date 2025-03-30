@@ -32,9 +32,14 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
     };
   }, []);
 
+  // Calculate positions to create equal spacing between all three text blocks
+  // We'll use a total of 450px height to be divided into three equal sections
+  const totalHeight = 450;
+  const section = totalHeight / 3;
+
   return (
     <div className={`relative ${className}`}>
-      {/* Right text block */}
+      {/* Right text block (top) */}
       <div 
         ref={elementRef}
         className={`absolute right-4 md:right-8 top-0 text-right transition-all duration-1000 ease-out delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -48,10 +53,10 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Left middle text block - equal spacing between blocks */}
+      {/* Left middle text block - positioned at 1/3 of the height */}
       <div 
-        className={`absolute left-4 md:left-8 bottom-[calc(50%-160px)] transition-all duration-1000 ease-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-        style={{ maxWidth: '300px' }}
+        className={`absolute left-4 md:left-8 top-[${section}px] transition-all duration-1000 ease-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ maxWidth: '300px', top: `${section}px` }}
       >
         <p className="text-lg md:text-xl lg:text-2xl font-open-sans leading-tight text-black">
           <span className="font-medium">Zeit</span> <br />
@@ -61,10 +66,10 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Left bottom text block - equal spacing */}
+      {/* Left bottom text block - positioned at 2/3 of the height */}
       <div 
-        className={`absolute left-4 md:left-8 bottom-0 transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-        style={{ maxWidth: '300px' }}
+        className={`absolute left-4 md:left-8 transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ maxWidth: '300px', top: `${2 * section}px` }}
       >
         <div className="text-lg md:text-xl lg:text-2xl font-open-sans text-black">
           <p>Unsere Website befindet sich noch im Aufbau.</p>
