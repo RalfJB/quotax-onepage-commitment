@@ -62,8 +62,8 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className={`my-6 flex justify-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="flex flex-row items-center gap-3 sm:gap-4">
+        <div className={`my-6 flex flex-col items-center transition-all duration-700 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="flex flex-row items-center gap-3 sm:gap-4 mb-8">
             <span className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#cf66cf]">
               digital
             </span>
@@ -76,6 +76,14 @@ const Hero = () => {
               persönlich
             </span>
           </div>
+          
+          {/* Button moved from CurvedArrowText to here */}
+          <a 
+            href="#services" 
+            className="bg-purple text-white text-sm font-medium px-6 py-2 rounded-full inline-block hover:bg-green hover:text-white transition-colors duration-300"
+          >
+            Schon jetzt mehr erfahren
+          </a>
         </div>
       </div>
       

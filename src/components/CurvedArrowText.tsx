@@ -60,13 +60,6 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
           für bessere Beratung.
         </p>
         
-        <a 
-          href="#services" 
-          className="bg-purple text-white text-sm font-medium px-6 py-2 rounded-full inline-block hover:bg-green hover:text-white transition-colors duration-300"
-        >
-          Schon jetzt mehr erfahren
-        </a>
-        
         <div className="mt-6 text-lg md:text-xl lg:text-2xl font-serif text-foreground/70">
           <p>Unsere Website befindet sich noch im Aufbau.</p>
           <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
