@@ -40,7 +40,7 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         className={`absolute right-4 md:right-8 top-0 text-right transition-all duration-1000 ease-out delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ maxWidth: '340px' }}
       >
-        <p className="text-xl md:text-2xl lg:text-3xl font-serif leading-tight text-foreground">
+        <p className="text-xl md:text-2xl lg:text-3xl font-open-sans leading-tight text-black">
           Wir glauben fest <br />
           daran, dass uns die <br />
           Digitalisierung <br />
@@ -48,19 +48,19 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Left text block */}
+      {/* Left text block - reduced spacing with same spacing between blocks */}
       <div 
         className={`absolute left-4 md:left-8 bottom-0 transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ maxWidth: '300px' }}
       >
-        <p className="text-lg md:text-xl lg:text-2xl font-serif leading-tight text-foreground mb-6">
+        <p className="text-lg md:text-xl lg:text-2xl font-open-sans leading-tight text-black mb-4">
           <span className="font-medium">Zeit</span> <br />
           für mehr Miteinander, <br />
           für mehr Verständnis, <br />
           für bessere Beratung.
         </p>
         
-        <div className="mt-6 text-lg md:text-xl lg:text-2xl font-serif text-foreground/70">
+        <div className="mt-4 text-lg md:text-xl lg:text-2xl font-open-sans text-black">
           <p>Unsere Website befindet sich noch im Aufbau.</p>
           <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
         </div>
