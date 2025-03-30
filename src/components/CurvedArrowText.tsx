@@ -48,19 +48,25 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Left text block - reduced spacing with same spacing between blocks */}
+      {/* Left middle text block - equal spacing between blocks */}
       <div 
-        className={`absolute left-4 md:left-8 bottom-0 transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute left-4 md:left-8 bottom-[calc(50%-160px)] transition-all duration-1000 ease-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ maxWidth: '300px' }}
       >
-        <p className="text-lg md:text-xl lg:text-2xl font-open-sans leading-tight text-black mb-4">
+        <p className="text-lg md:text-xl lg:text-2xl font-open-sans leading-tight text-black">
           <span className="font-medium">Zeit</span> <br />
           für mehr Miteinander, <br />
           für mehr Verständnis, <br />
           für bessere Beratung.
         </p>
-        
-        <div className="mt-4 text-lg md:text-xl lg:text-2xl font-open-sans text-black">
+      </div>
+      
+      {/* Left bottom text block - equal spacing */}
+      <div 
+        className={`absolute left-4 md:left-8 bottom-0 transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ maxWidth: '300px' }}
+      >
+        <div className="text-lg md:text-xl lg:text-2xl font-open-sans text-black">
           <p>Unsere Website befindet sich noch im Aufbau.</p>
           <p className="mt-1">Unsere Idee ist aber schon Wirklichkeit.</p>
         </div>
