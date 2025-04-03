@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { LucideIcon } from 'lucide-react';
 
 interface JobPositionCardProps {
   title: string;
@@ -17,11 +16,11 @@ const JobPositionCard = React.forwardRef<HTMLDivElement, JobPositionCardProps>(
   ({ title, description, icon, skills, onApply }, ref) => {
     return (
       <Card 
-        className="hover:shadow-lg transition-shadow border-gray-100 overflow-hidden"
+        className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
         ref={ref}
       >
         <CardContent className="p-8">
-          <div className="bg-gray-50 p-3 w-fit rounded-full mb-6">
+          <div className="bg-purple/5 p-4 w-16 h-16 flex items-center justify-center rounded-lg mb-6">
             {icon}
           </div>
           <h3 className="text-2xl font-display font-semibold mb-3 text-gray-800">{title}</h3>

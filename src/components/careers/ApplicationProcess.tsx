@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface ApplicationProcessProps {
   addToRefs: (el: HTMLDivElement) => void;
@@ -39,11 +40,13 @@ const ApplicationProcess = ({ addToRefs }: ApplicationProcessProps) => {
         <div className="flex flex-col md:flex-row gap-8 justify-between items-center">
           {steps.map((step, index) => (
             <React.Fragment key={index}>
-              <div className="bg-card p-8 rounded-xl w-full md:w-1/3 text-center" ref={addToRefs}>
-                <div className="w-12 h-12 bg-purple/10 rounded-full flex items-center justify-center text-purple font-bold mx-auto mb-4">{step.number}</div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-foreground">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
-              </div>
+              <Card className="bg-white border border-gray-100 w-full md:w-1/3 shadow-sm" ref={addToRefs}>
+                <CardContent className="p-8 text-center">
+                  <div className="w-12 h-12 bg-purple/10 rounded-lg flex items-center justify-center text-purple font-bold mx-auto mb-4">{step.number}</div>
+                  <h3 className="text-xl font-display font-semibold mb-2 text-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                </CardContent>
+              </Card>
               
               {index < steps.length - 1 && (
                 <div className="hidden md:block w-20 h-0.5 bg-border"></div>

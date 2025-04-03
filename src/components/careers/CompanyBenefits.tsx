@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface BenefitItemProps {
   title: string;
@@ -8,10 +9,12 @@ interface BenefitItemProps {
 }
 
 const BenefitItem = ({ title, description, addToRefs }: BenefitItemProps) => (
-  <div className="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow" ref={addToRefs}>
-    <h3 className="text-xl font-display font-semibold mb-4 text-foreground">{title}</h3>
-    <p className="text-foreground/70">{description}</p>
-  </div>
+  <Card className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow" ref={addToRefs}>
+    <CardContent className="p-8">
+      <h3 className="text-xl font-display font-semibold mb-4 text-foreground">{title}</h3>
+      <p className="text-foreground/70">{description}</p>
+    </CardContent>
+  </Card>
 );
 
 interface CompanyBenefitsProps {

@@ -1,6 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Clock, Banknote, BarChart, Shield, CheckCircle2 } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Benefits = () => {
   const animatedElements = useRef<HTMLDivElement[]>([]);
@@ -31,22 +32,22 @@ const Benefits = () => {
 
   const benefits = [
     {
-      icon: <Clock className="h-8 w-8 text-purple" />,
+      icon: <Shield strokeWidth={1.5} className="h-8 w-8 text-purple" />,
       title: "Zeitersparnis",
       description: "Durch digitale Prozesse und automatisierte Abläufe reduzieren wir Ihren administrativen Aufwand erheblich."
     },
     {
-      icon: <Banknote className="h-8 w-8 text-green" />,
+      icon: <Banknote strokeWidth={1.5} className="h-8 w-8 text-green" />,
       title: "Kosteneffizienz",
       description: "Optimierte Prozesse und digitale Lösungen sparen nicht nur Zeit, sondern auch bares Geld."
     },
     {
-      icon: <BarChart className="h-8 w-8 text-purple" />,
+      icon: <BarChart strokeWidth={1.5} className="h-8 w-8 text-purple" />,
       title: "Transparenz",
       description: "Mit unseren digitalen Tools haben Sie jederzeit Einblick in Ihre aktuellen Finanzdaten und Steuerangelegenheiten."
     },
     {
-      icon: <Shield className="h-8 w-8 text-green" />,
+      icon: <Shield strokeWidth={1.5} className="h-8 w-8 text-green" />,
       title: "Rechtssicherheit",
       description: "Wir sorgen dafür, dass alle steuerlichen Anforderungen erfüllt werden und Ihr Unternehmen rechtssicher aufgestellt ist."
     }
@@ -73,50 +74,54 @@ const Benefits = () => {
         
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
-            <div 
+            <Card 
               key={index} 
-              className="glass-card p-6 text-center animate-on-scroll hover-lift bg-card/90" 
+              className="bg-white border border-gray-100 rounded-lg shadow-sm transition-shadow hover:shadow-md animate-on-scroll"
               ref={addToRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                {benefit.icon}
-              </div>
-              <h3 className="text-lg font-display font-semibold mb-3 text-foreground">{benefit.title}</h3>
-              <p className="text-sm text-foreground/70">{benefit.description}</p>
-            </div>
+              <CardContent className="p-6 text-center">
+                <div className="bg-purple/5 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-lg">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-lg font-display font-semibold mb-3 text-foreground">{benefit.title}</h3>
+                <p className="text-sm text-foreground/70">{benefit.description}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
         
-        <div className="mt-20 glass-card p-8 md:p-10 bg-card/95 shadow-lg animate-on-scroll" ref={addToRefs}>
-          <div className="flex flex-col items-center text-center">
-            <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-foreground">
-              Bereit für den digitalen Wandel?
-            </h3>
-            <p className="text-foreground/70 mb-8 max-w-2xl">
-              Lassen Sie uns gemeinsam Ihr Unternehmen zukunftsfähig machen. Unsere digitalen Lösungen und unsere Expertise in der Steuerberatung sind der Schlüssel zu Ihrem Erfolg.
-            </p>
-            <ul className="text-left mb-10 space-y-3 max-w-md text-foreground/70">
-              {[
-                "Vollständig digitale Prozesse",
-                "Echtzeit-Zugriff auf Ihre Finanzdaten",
-                "Persönliche Betreuung trotz Digitalisierung",
-                "Steuerliche Optimierung und Planungssicherheit"
-              ].map((item, index) => (
-                <li key={index} className="flex items-center">
-                  <CheckCircle2 className="h-5 w-5 text-green mr-3 flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <a 
-              href="#contact" 
-              className="px-8 py-4 bg-purple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-purple-dark hover:-translate-y-1"
-            >
-              Jetzt Beratungsgespräch vereinbaren
-            </a>
-          </div>
-        </div>
+        <Card className="mt-20 bg-white border border-gray-100 shadow-md animate-on-scroll" ref={addToRefs}>
+          <CardContent className="p-8 md:p-10">
+            <div className="flex flex-col items-center text-center">
+              <h3 className="text-2xl md:text-3xl font-display font-semibold mb-6 text-foreground">
+                Bereit für den digitalen Wandel?
+              </h3>
+              <p className="text-foreground/70 mb-8 max-w-2xl">
+                Lassen Sie uns gemeinsam Ihr Unternehmen zukunftsfähig machen. Unsere digitalen Lösungen und unsere Expertise in der Steuerberatung sind der Schlüssel zu Ihrem Erfolg.
+              </p>
+              <ul className="text-left mb-10 space-y-3 max-w-md text-foreground/70">
+                {[
+                  "Vollständig digitale Prozesse",
+                  "Echtzeit-Zugriff auf Ihre Finanzdaten",
+                  "Persönliche Betreuung trotz Digitalisierung",
+                  "Steuerliche Optimierung und Planungssicherheit"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    <CheckCircle2 strokeWidth={1.5} className="h-5 w-5 text-green mr-3 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a 
+                href="#contact" 
+                className="px-8 py-4 bg-purple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-purple-dark hover:-translate-y-1"
+              >
+                Jetzt Beratungsgespräch vereinbaren
+              </a>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
