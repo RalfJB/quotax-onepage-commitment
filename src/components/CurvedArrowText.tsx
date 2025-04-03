@@ -66,9 +66,9 @@ const CurvedArrowText = ({ className = '' }: CurvedArrowTextProps) => {
         </p>
       </div>
       
-      {/* Left bottom text block - positioned at 2/3 of the height */}
+      {/* Bottom text block - now positioned on the right instead of left */}
       <div 
-        className={`absolute left-4 md:left-8 transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute right-4 md:right-8 text-right transition-all duration-1000 ease-out delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{ maxWidth: '300px', top: `${2 * section}px` }}
       >
         <div className="text-lg md:text-xl lg:text-2xl font-open-sans text-black">
