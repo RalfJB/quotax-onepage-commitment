@@ -42,7 +42,7 @@ const ApplicationProcess = ({ addToRefs }: ApplicationProcessProps) => {
             <React.Fragment key={index}>
               <Card className="bg-white border border-gray-100 w-full md:w-1/3 shadow-sm" ref={addToRefs}>
                 <CardContent className="p-8 text-center">
-                  <div className="w-12 h-12 bg-purple/10 rounded-lg flex items-center justify-center text-purple font-bold mx-auto mb-4">{step.number}</div>
+                  <div className="w-12 h-12 bg-[#f3e6f3] flex items-center justify-center text-[#a04ca0] font-bold mx-auto mb-4">{step.number}</div>
                   <h3 className="text-xl font-display font-semibold mb-2 text-foreground">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                 </CardContent>

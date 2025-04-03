@@ -32,7 +32,7 @@ const Benefits = () => {
 
   const benefits = [
     {
-      icon: <Shield strokeWidth={1.5} className="h-8 w-8 text-purple" />,
+      icon: <Shield strokeWidth={1.5} className="h-8 w-8 text-[#a04ca0]" />,
       title: "Zeitersparnis",
       description: "Durch digitale Prozesse und automatisierte Abläufe reduzieren wir Ihren administrativen Aufwand erheblich."
     },
@@ -42,7 +42,7 @@ const Benefits = () => {
       description: "Optimierte Prozesse und digitale Lösungen sparen nicht nur Zeit, sondern auch bares Geld."
     },
     {
-      icon: <BarChart strokeWidth={1.5} className="h-8 w-8 text-purple" />,
+      icon: <BarChart strokeWidth={1.5} className="h-8 w-8 text-[#a04ca0]" />,
       title: "Transparenz",
       description: "Mit unseren digitalen Tools haben Sie jederzeit Einblick in Ihre aktuellen Finanzdaten und Steuerangelegenheiten."
     },
@@ -56,16 +56,16 @@ const Benefits = () => {
   return (
     <section id="benefits" className="quotax-section bg-background text-foreground relative">
       {/* Background accent */}
-      <div className="absolute right-0 top-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
+      <div className="absolute right-0 top-20 w-96 h-96 bg-[#a04ca0]/5 rounded-full -z-10 blur-3xl"></div>
       <div className="absolute left-20 bottom-20 w-80 h-80 bg-green/5 rounded-full -z-10 blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToRefs}>
-          <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
+          <div className="quotax-badge bg-[#a04ca0]/10 text-[#a04ca0] mb-6 animate-on-scroll">
             Ihre Vorteile
           </div>
           <h2 className="section-title animate-on-scroll delay-100 text-foreground">
-            Warum Sie mit <span className="text-purple">quo</span><span className="text-green">tax</span> erfolgreich sind
+            Warum Sie mit <span className="text-[#a04ca0]">quo</span><span className="text-green">tax</span> erfolgreich sind
           </h2>
           <p className="section-subtitle animate-on-scroll delay-200 text-foreground/70">
             Durch unsere digitale Ausrichtung und langjährige Expertise schaffen wir messbare Mehrwerte für Ihr Unternehmen. Erfahren Sie, wie wir Ihnen Zeit, Geld und Nerven sparen können.
@@ -76,12 +76,12 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className="bg-white border border-gray-100 rounded-lg shadow-sm transition-shadow hover:shadow-md animate-on-scroll"
+              className="bg-white border border-gray-100 shadow-sm transition-shadow hover:shadow-md animate-on-scroll"
               ref={addToRefs}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
               <CardContent className="p-6 text-center">
-                <div className="bg-purple/5 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-lg">
+                <div className="bg-[#f3e6f3] w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   {benefit.icon}
                 </div>
                 <h3 className="text-lg font-display font-semibold mb-3 text-foreground">{benefit.title}</h3>
@@ -115,7 +115,7 @@ const Benefits = () => {
               </ul>
               <a 
                 href="#contact" 
-                className="px-8 py-4 bg-purple text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:bg-purple-dark hover:-translate-y-1"
+                className="px-8 py-4 bg-[#a04ca0] text-white font-medium transition-all duration-300 hover:shadow-lg hover:bg-[#864286] hover:-translate-y-1"
               >
                 Jetzt Beratungsgespräch vereinbaren
               </a>

@@ -20,7 +20,7 @@ const JobPositionCard = React.forwardRef<HTMLDivElement, JobPositionCardProps>(
         ref={ref}
       >
         <CardContent className="p-8">
-          <div className="bg-purple/5 p-4 w-16 h-16 flex items-center justify-center rounded-lg mb-6">
+          <div className="bg-[#f3e6f3] p-4 w-16 h-16 flex items-center justify-center mb-6">
             {icon}
           </div>
           <h3 className="text-2xl font-display font-semibold mb-3 text-gray-800">{title}</h3>
@@ -31,7 +31,7 @@ const JobPositionCard = React.forwardRef<HTMLDivElement, JobPositionCardProps>(
             <div className="grid grid-cols-2 gap-2">
               {skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-purple rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-[#a04ca0] rounded-full"></div>
                   <span className="text-sm text-gray-600">{skill}</span>
                 </div>
               ))}
@@ -39,7 +39,7 @@ const JobPositionCard = React.forwardRef<HTMLDivElement, JobPositionCardProps>(
           </div>
           
           <Button 
-            className="bg-purple hover:bg-purple-dark text-white w-full"
+            className="bg-[#a04ca0] hover:bg-[#864286] text-white w-full"
             onClick={onApply}
           >
             Jetzt bewerben

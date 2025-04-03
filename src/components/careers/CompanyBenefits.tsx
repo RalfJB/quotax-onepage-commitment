@@ -54,7 +54,7 @@ const CompanyBenefits = ({ addToRefs }: CompanyBenefitsProps) => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16" ref={addToRefs}>
           <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-foreground animate-on-scroll">
-            Warum <span className="text-purple">quotax</span>?
+            Warum <span className="text-[#a04ca0]">quotax</span>?
           </h2>
           <p className="text-foreground/70 max-w-3xl mx-auto animate-on-scroll delay-100">
             Bei quotax bieten wir mehr als nur einen Arbeitsplatz. Entdecken Sie, was uns als Arbeitgeber auszeichnet.

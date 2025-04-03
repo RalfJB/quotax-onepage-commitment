@@ -31,7 +31,7 @@ const Team = () => {
 
   const expertise = [
     {
-      icon: <Users strokeWidth={1.5} className="h-10 w-10 text-purple" />,
+      icon: <Users strokeWidth={1.5} className="h-10 w-10 text-[#a04ca0]" />,
       title: "Erfahrenes Team",
       description: "Unser Team besteht aus erfahrenen Steuerberatern, Wirtschaftsprüfern und Digitalisierungsexperten."
     },
@@ -41,7 +41,7 @@ const Team = () => {
       description: "Wir investieren kontinuierlich in die Weiterbildung und Zertifizierung unseres Teams."
     },
     {
-      icon: <BookOpen strokeWidth={1.5} className="h-10 w-10 text-purple" />,
+      icon: <BookOpen strokeWidth={1.5} className="h-10 w-10 text-[#a04ca0]" />,
       title: "Branchenkenntnis",
       description: "Spezialisierte Berater mit fundiertem Wissen in verschiedenen Branchen und Unternehmensformen."
     }
@@ -51,15 +51,15 @@ const Team = () => {
     <section id="team" className="quotax-section bg-background text-foreground relative">
       {/* Background accent */}
       <div className="absolute left-0 top-40 w-80 h-80 bg-green/10 rounded-full -z-10 blur-3xl"></div>
-      <div className="absolute right-0 bottom-20 w-96 h-96 bg-purple/5 rounded-full -z-10 blur-3xl"></div>
+      <div className="absolute right-0 bottom-20 w-96 h-96 bg-[#a04ca0]/5 rounded-full -z-10 blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center" ref={addToRefs}>
-          <div className="quotax-badge bg-purple/10 text-purple mb-6 animate-on-scroll">
+          <div className="quotax-badge bg-[#a04ca0]/10 text-[#a04ca0] mb-6 animate-on-scroll">
             Unser Team
           </div>
           <h2 className="section-title animate-on-scroll delay-100 text-foreground">
-            <span className="text-purple">Expertise</span> und <span className="text-green">Leidenschaft</span> für Ihren Erfolg
+            <span className="text-[#a04ca0]">Expertise</span> und <span className="text-green">Leidenschaft</span> für Ihren Erfolg
           </h2>
           <p className="section-subtitle animate-on-scroll delay-200 text-foreground/70">
             Hinter quotax steht ein Team aus erfahrenen Steuerexperten mit langjähriger Berufserfahrung und digitaler Kompetenz. Wir vereinen das Beste aus beiden Welten, um Ihnen einen erstklassigen Service zu bieten.
@@ -73,7 +73,7 @@ const Team = () => {
                 <h3 className="text-2xl md:text-3xl font-display font-semibold mb-4 text-foreground">
                   Jahrzehnte an Expertise
                 </h3>
-                <div className="h-1 w-24 bg-purple/50 mb-6"></div>
+                <div className="h-1 w-24 bg-[#a04ca0]/50 mb-6"></div>
                 <p className="text-foreground/70 mb-6">
                   Unser Gründerteam bringt über 20 Jahre Erfahrung in der Steuerberatung mit. Unsere Mitarbeiter sind langjährige Experten auf ihrem Gebiet und verfügen über umfassendes Fachwissen in allen steuerlichen und betriebswirtschaftlichen Belangen.
                 </p>
@@ -89,12 +89,12 @@ const Team = () => {
                   <Card className="bg-white border border-gray-100 shadow-sm w-full max-w-sm">
                     <CardContent className="p-8">
                       <div className="flex justify-center mb-4">
-                        <Users strokeWidth={1.5} className="h-16 w-16 text-purple" />
+                        <Users strokeWidth={1.5} className="h-16 w-16 text-[#a04ca0]" />
                       </div>
                       <h4 className="text-center text-xl font-semibold mb-2 text-foreground">Unser Team in Zahlen</h4>
                       <div className="grid grid-cols-2 gap-6 mt-6">
                         <div className="text-center">
-                          <p className="text-4xl font-bold text-purple">20+</p>
+                          <p className="text-4xl font-bold text-[#a04ca0]">20+</p>
                           <p className="text-sm text-foreground/70 mt-1">Jahre Erfahrung</p>
                         </div>
                         <div className="text-center">
@@ -102,7 +102,7 @@ const Team = () => {
                           <p className="text-sm text-foreground/70 mt-1">Mitarbeiter</p>
                         </div>
                         <div className="text-center">
-                          <p className="text-4xl font-bold text-purple">5+</p>
+                          <p className="text-4xl font-bold text-[#a04ca0]">5+</p>
                           <p className="text-sm text-foreground/70 mt-1">Steuerberater</p>
                         </div>
                         <div className="text-center">
@@ -127,7 +127,7 @@ const Team = () => {
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
               <CardContent className="p-8 text-center">
-                <div className="bg-purple/5 w-20 h-20 flex items-center justify-center mx-auto rounded-lg mb-6">
+                <div className="bg-[#f3e6f3] w-20 h-20 flex items-center justify-center mx-auto mb-6">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-display font-semibold mb-3 text-foreground">{item.title}</h3>
