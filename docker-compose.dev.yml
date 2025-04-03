@@ -1,0 +1,16 @@
+
+version: '3.8'
+
+services:
+  quotax-app-dev:
+    build:
+      context: .
+      target: build
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    command: npm run dev
+    environment:
+      - HOST=0.0.0.0
