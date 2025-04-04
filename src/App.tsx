@@ -18,16 +18,19 @@ const App = () => (
       <BrowserRouter>
         <div style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          backgroundColor: 'rgba(0,0,0,0.7)',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '80%',
+          backgroundColor: 'rgba(128,0,255,0.8)',
           color: 'white',
           textAlign: 'center',
-          padding: '15px 0',
-          fontSize: '20px',
+          padding: '60px 0',
+          fontSize: '24px',
           zIndex: 999,
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          boxShadow: '0 0 20px rgba(128,0,255,0.6)',
+          borderRadius: '10px'
         }}>
           🚧 UNDER CONSTRUCTION - COMING SOON 🚧
         </div>
